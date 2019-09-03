@@ -1,23 +1,43 @@
 # The following types define the data model of the example service
 # based on which the GraphQL API is generated
 
-type User @model {
+type Item @model {
   id: ID! @isUnique
-  name: String
-  dateOfBirth: DateTime
-
-  # Uncomment below - you can declare relations between models like this
-
-  # posts: [Post!]! @relation(name: "UserPosts")
+  title: String
+  brand: Brand! @relation(name: "ItemBrand")
+  stores: [Store!]! @relation(name: "ItemStore")
+  styles: String!
+  size:[String!]
+  color:[String!]
+  price: Int!
+  images : [String!]
+  tags: [String!]
+  category: String!
+  discount: Int!
+  newArrival: Boolean!
 }
 
+type Brand @model {
+  id: ID! @isUnique
+  title: String
+  items: [Item!]! @relation(name: "ItemBrand")
+  images: [String!]
+  description: String!
+  stores: [Store!]! @relation(name: "BrandStore")
+}
 
-# Uncomment the model below as well
-
-# type Post @model {
-#   id: ID! @isUnique
-#   title: String!
-#
-#   # Every relation also required a back-relation (to determine 1:1, 1:n or n:m)
-#   author: User! @relation(name: "UserPosts")
-# }
+type Store @model {
+  id: ID! @isUnique
+  title: String
+  items: [Item!]! @relation(name: "ItemStore")
+  brands: [Brand!]! @relation(name: "BrandStore")
+  images: [String!]
+  storeLogo: String!
+  categories: [String!]
+  hours: String!
+  address: String!
+  phone: String!
+  email: String!
+  website: String!
+  sale: Int
+}

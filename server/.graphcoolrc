@@ -1,0 +1,3 @@
+targets:
+  dev: shared-us-west-2/ck048cmsd13i80130i2vpv2bb
+  default: dev
