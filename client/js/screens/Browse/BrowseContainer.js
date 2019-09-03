@@ -4,10 +4,6 @@ import Browse from './Browse';
 
 export default class BrowseContainer extends Component {
   render() {
-    return (
-      <View>
-        <Browse />
-      </View>
-    );
+    return <Browse />;
   }
 }
