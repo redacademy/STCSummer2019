@@ -1,6 +1,6 @@
 ## Shop This City
 
-###Authors
+### Authors
 
 - Vera
 - Ying
