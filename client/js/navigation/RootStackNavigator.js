@@ -1,4 +1,4 @@
-import {createAppContainer, createStackNavigator} from 'react-navigation';
+import {createAppContainer, createStackNavigator} from 'react-navigation-stack';
 import NavigationLayout from './NavigationLayout';
 
 export default createAppContainer(
