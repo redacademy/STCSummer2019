@@ -1,4 +1,5 @@
-import {createAppContainer, createStackNavigator} from 'react-navigation-stack';
+import {createStackNavigator} from 'react-navigation-stack';
+import {createAppContainer} from 'react-navigation';
 import NavigationLayout from './NavigationLayout';
 import FilterModal from '../screens/Filter';
 

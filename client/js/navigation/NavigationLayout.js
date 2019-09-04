@@ -1,6 +1,6 @@
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
-
+import sharedNavigationOptions from './config';
 import BrowseScreen from '../screens/Browse';
 import ForYouScreen from '../screens/ForYou';
 import ProfileScreen from '../screens/Profile';

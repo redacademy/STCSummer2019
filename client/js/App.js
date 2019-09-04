@@ -6,6 +6,7 @@ const App = () => {
   return (
     <Fragment>
       <RootStackNavigator />
+      {/* <Text>Test</Text> */}
     </Fragment>
   );
 };
