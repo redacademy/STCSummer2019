@@ -5,7 +5,7 @@ export default class Filter extends Component {
   render() {
     return (
       <View>
-        <Text> This is Filter </Text>
+        <Text> This is Filter! </Text>
       </View>
     );
   }
