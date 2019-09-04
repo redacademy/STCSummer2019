@@ -41,10 +41,9 @@ class ItemsPageContainer extends Component {
         {({loading, error, data}) => {
           if (loading) return <Text>Loading...</Text>;
           if (error) return <Text>Error :(</Text>;
-
           if (data) {
-            console.log(data);
-            return <ItemsPage />;
+            const items = data.allItems;
+            return <ItemsPage allItems={items} />;
           }
         }}
       </Query>

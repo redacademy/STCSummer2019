@@ -1,13 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import ItemList from '../../components/ItemList';
 
-const ItemsPage = () => {
+const ItemsPage = ({allItems}) => {
   return (
-    <View>
-      <Text>This is the Clothing Page</Text>
-      <ItemList />
-    </View>
+    <ScrollView>
+      {allItems.map(item => (
+        <ItemList key={item.id} item={item} />
+      ))}
+    </ScrollView>
   );
 };
 
