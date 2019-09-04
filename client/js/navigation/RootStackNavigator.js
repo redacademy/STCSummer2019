@@ -1,9 +1,10 @@
 import {createAppContainer, createStackNavigator} from 'react-navigation-stack';
 import NavigationLayout from './NavigationLayout';
+import FilterModal from '../screens/Filter';
 
 export default createAppContainer(
   createStackNavigator(
-    {Layout: NavigationLayout},
+    {Layout: NavigationLayout, Filter: FilterModal},
     {
       mode: 'modal',
       headerMode: 'none',

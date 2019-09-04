@@ -1,8 +1,5 @@
-import React from 'react';
-import {
-  createStackNavigator,
-  createBottomTabNavigator,
-} from 'react-navigation-stack';
+import {createStackNavigator} from 'react-navigation-stack';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 
 import BrowseScreen from '../screens/Browse';
 import ForYouScreen from '../screens/ForYou';
