@@ -100,10 +100,25 @@ const ProfileStack = createStackNavigator(
   },
 );
 
-export default createBottomTabNavigator({
-  Browse: BrowseStack,
-  StoresBrands: StoresBrandsStack,
-  ForYou: ForYouStack,
-  Sale: SaleStack,
-  Profile: ProfileStack,
-});
+export default createBottomTabNavigator(
+  {
+    Browse: BrowseStack,
+    StoresBrands: StoresBrandsStack,
+    ForYou: ForYouStack,
+    Sale: SaleStack,
+    Profile: ProfileStack,
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: '#2B2D2F',
+      inactiveTintColor: '#2B2D2F',
+      labelStyle: {
+        fontSize: 10,
+      },
+      style: {
+        paddingTop: 10,
+        backgroundColor: '#E0D5C4',
+      },
+    },
+  },
+);
