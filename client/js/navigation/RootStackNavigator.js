@@ -5,7 +5,10 @@ import FilterModal from '../screens/Filter';
 
 export default createAppContainer(
   createStackNavigator(
-    {Layout: NavigationLayout, Filter: FilterModal},
+    {
+      Layout: NavigationLayout,
+      Filter: FilterModal,
+    },
     {
       mode: 'modal',
       headerMode: 'none',

@@ -1,14 +1,8 @@
-import RootStackNavigator from '../js/navigation/RootStackNavigator';
 import React, {Fragment} from 'react';
-import {Text} from 'react-native';
+import RootStackNavigator from '../js/navigation/RootStackNavigator';
 
 const App = () => {
-  return (
-    <Fragment>
-      <RootStackNavigator />
-      {/* <Text>Test</Text> */}
-    </Fragment>
-  );
+  return <RootStackNavigator />;
 };
 
 export default App;
