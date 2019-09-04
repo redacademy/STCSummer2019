@@ -9,6 +9,7 @@ export default sharedNavigationOptions = navigation => ({
   },
   header: props => <Header {...props} />,
   headerStyle: {
-    backgroundColor: 'transparent',
+    backgroundColor: '#E0D5C4',
   },
+  headerTitleStyle: {color: '#2B2D2F'},
 });
