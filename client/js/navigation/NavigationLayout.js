@@ -109,19 +109,6 @@ export default createBottomTabNavigator(
     Profile: ProfileStack,
   },
   {
-    // defaultNavigationOptions: ({navigation}) => ({
-    //   const {routeName} = navigation.state
-    //   if (routeName === 'Browse') {
-    //     // active Icon goes here
-    //   } else if (routeName === 'StoresBrands') {
-    //     // active Icon goes here
-    //   } else if (routeName === 'Faves') {
-    //   // active Icon goes here
-    //   } else if (routeName === 'About') {
-    //    // active Icon goes here
-    //   }
-    // }),
-
     tabBarOptions: {
       activeTintColor: '#2B2D2F',
       inactiveTintColor: '#2B2D2F',
