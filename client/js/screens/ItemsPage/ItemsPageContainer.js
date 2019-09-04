@@ -3,6 +3,7 @@ import {Text, View} from 'react-native';
 import ItemsPage from './ItemsPage';
 import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
+import {withNavigation} from 'react-navigation';
 
 const GET_ITEMS = gql`
   {
@@ -34,7 +35,11 @@ const GET_ITEMS = gql`
   }
 `;
 
+
 class ItemsPageContainer extends Component {
+  static navigationOptions = {
+    title: 'TODO: Article variable(item.title)',
+  };
   render() {
     return (
       <Query query={GET_ITEMS}>
@@ -51,4 +56,6 @@ class ItemsPageContainer extends Component {
   }
 }
 
-export default ItemsPageContainer;
+
+export default withNavigation(ItemsPageContainer);
+
