@@ -10,11 +10,17 @@ import ItemsPageScreen from '../screens/ItemsPage';
 import ItemScreen from '../screens/Item';
 import StoreScreen from '../screens/Store';
 import BrandScreen from '../screens/Brand';
+//delete
+import ItemPage from '../screens/ItemsPage';
 
 const BrowseStack = createStackNavigator(
   {
     browse: {
-      screen: BrowseScreen,
+      //PUT BACK
+      // screen: BrowseScreen,
+
+      //DELETE
+      screen: ItemPage,
     },
     items: {
       screen: ItemsPageScreen,

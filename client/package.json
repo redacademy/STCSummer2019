@@ -8,8 +8,11 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@apollo/react-hooks": "^3.0.1",
+    "apollo-boost": "^0.4.4",
+    "graphql": "^14.5.4",
+    "graphql-tag": "^2.10.1",
     "react": "16.8.6",
+    "react-apollo": "^3.0.1",
     "react-native": "0.60.5",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-reanimated": "^1.2.0",
