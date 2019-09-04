@@ -1,8 +1,14 @@
 import React, {Component} from 'react';
 import Browse from './Browse';
+import {withNavigation} from 'react-navigation';
 
-export default class BrowseContainer extends Component {
+class BrowseContainer extends Component {
+  static navigationOptions = {
+    title: 'Shop This City',
+  };
   render() {
     return <Browse />;
   }
 }
+
+export default withNavigation(BrowseContainer);

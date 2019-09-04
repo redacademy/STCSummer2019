@@ -1,8 +1,14 @@
 import React, {Component} from 'react';
 import Profile from './Profile';
+import {withNavigation} from 'react-navigation';
 
-export default class ProfileContainer extends Component {
+class ProfileContainer extends Component {
+  static navigationOptions = {
+    title: 'My Profile',
+  };
   render() {
     return <Profile />;
   }
 }
+
+export default withNavigation(ProfileContainer);
