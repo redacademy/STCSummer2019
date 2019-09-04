@@ -33,7 +33,6 @@ const Browse = ({navigation}) => {
         <View>
           <TouchableOpacity
             onPress={() => {
-              // navigation.navigate('items', {catgeory: 'bags'});
               navigation.navigate('items');
             }}>
             <Image
