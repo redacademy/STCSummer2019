@@ -47,5 +47,5 @@ type User @model {
   email: String! @isUnique
   password: String! 
   fullname: String!
-  token: String! @migrationValue
+  
 }
