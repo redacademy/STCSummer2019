@@ -1,3 +1,6 @@
+import React, {Component} from 'react';
+import {View, Image} from 'react-native';
+
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import sharedNavigationOptions from './config';
@@ -109,6 +112,82 @@ export default createBottomTabNavigator(
     Profile: ProfileStack,
   },
   {
+    defaultNavigationOptions: ({navigation}) => ({
+      tabBarIcon: ({focused}) => {
+        const {routeName} = navigation.state;
+        if (routeName === 'Browse') {
+          return (
+            <Image
+              source={
+                focused
+                  ? require('../assets/icons/stc-active.png')
+                  : require('../assets/icons/stc-inactive.png')
+              }
+              style={{
+                width: 20,
+                height: 20,
+              }}
+            />
+          );
+        } else if (routeName === 'StoresBrands') {
+          return (
+            <Image
+              source={
+                focused
+                  ? require('../assets/icons/stores-brands-active.png')
+                  : require('../assets/icons/stores-brands-inactive.png')
+              }
+              style={{
+                width: 20,
+                height: 20,
+              }}
+            />
+          );
+        } else if (routeName === 'ForYou') {
+          return (
+            <Image
+              source={
+                focused
+                  ? require('../assets/icons/for-you-active.png')
+                  : require('../assets/icons/for-you-inactive.png')
+              }
+              style={{
+                width: 20,
+                height: 20,
+              }}
+            />
+          );
+        } else if (routeName === 'Sale') {
+          return (
+            <Image
+              source={
+                focused
+                  ? require('../assets/icons/sales-active.png')
+                  : require('../assets/icons/sales-inactive.png')
+              }
+              style={{
+                width: 20,
+                height: 20,
+              }}
+            />
+          );
+        } else if (routeName === 'Profile') {
+          return (
+            <Image
+              source={
+                focused
+                  ? require('../assets/icons/profile-active.png')
+                  : require('../assets/icons/profile-inactive.png')
+              }
+              style={{
+                width: 20,
+                height: 20,
+              }}
+            />
+          );
+        }
+      },
+    }),
     tabBarOptions: {
       activeTintColor: '#2B2D2F',
       inactiveTintColor: '#2B2D2F',

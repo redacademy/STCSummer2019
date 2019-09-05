@@ -12,7 +12,7 @@ const Browse = ({navigation}) => {
               navigation.navigate('items');
             }}>
             <Image
-              source={require('../../assets/clothing.png')}
+              source={require('../../assets/images/clothing.png')}
               style={styles.browseImage}
             />
             <Text style={styles.text}>Clothing</Text>
@@ -24,7 +24,7 @@ const Browse = ({navigation}) => {
               navigation.navigate('items');
             }}>
             <Image
-              source={require('../../assets/shoes.png')}
+              source={require('../../assets/images/shoes.png')}
               style={styles.browseImage}
             />
             <Text style={styles.text}> Shoes </Text>
@@ -36,7 +36,7 @@ const Browse = ({navigation}) => {
               navigation.navigate('items');
             }}>
             <Image
-              source={require('../../assets/bags.png')}
+              source={require('../../assets/images/bags.png')}
               style={styles.browseImage}
             />
             <Text style={styles.text}>Bags</Text>
@@ -48,7 +48,7 @@ const Browse = ({navigation}) => {
               navigation.navigate('items');
             }}>
             <Image
-              source={require('../../assets/accessories.png')}
+              source={require('../../assets/images/accessories.png')}
               style={styles.browseImage}
             />
             <Text style={styles.text}>Accessories</Text>
