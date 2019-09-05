@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, Image} from 'react-native';
+import styles from './styles';
 
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
@@ -106,8 +107,8 @@ const ProfileStack = createStackNavigator(
 export default createBottomTabNavigator(
   {
     Browse: BrowseStack,
-    StoresBrands: StoresBrandsStack,
-    ForYou: ForYouStack,
+    'Stores&Brands': StoresBrandsStack,
+    'For You': ForYouStack,
     Sale: SaleStack,
     Profile: ProfileStack,
   },
@@ -117,73 +118,68 @@ export default createBottomTabNavigator(
         const {routeName} = navigation.state;
         if (routeName === 'Browse') {
           return (
-            <Image
-              source={
-                focused
-                  ? require('../assets/icons/stc-active.png')
-                  : require('../assets/icons/stc-inactive.png')
-              }
-              style={{
-                width: 20,
-                height: 20,
-              }}
-            />
+            <View style={styles.imageContainer}>
+              <Image
+                source={
+                  focused
+                    ? require('../assets/icons/stc-active3x.png')
+                    : require('../assets/icons/stc-inactive3x.png')
+                }
+                style={styles.image}
+              />
+            </View>
           );
-        } else if (routeName === 'StoresBrands') {
+        } else if (routeName === 'Stores&Brands') {
           return (
-            <Image
-              source={
-                focused
-                  ? require('../assets/icons/stores-brands-active.png')
-                  : require('../assets/icons/stores-brands-inactive.png')
-              }
-              style={{
-                width: 20,
-                height: 20,
-              }}
-            />
+            <View style={styles.imageContainer}>
+              <Image
+                source={
+                  focused
+                    ? require('../assets/icons/stores-brands-active3x.png')
+                    : require('../assets/icons/stores-brands-inactive3x.png')
+                }
+                style={styles.image}
+              />
+            </View>
           );
-        } else if (routeName === 'ForYou') {
+        } else if (routeName === 'For You') {
           return (
-            <Image
-              source={
-                focused
-                  ? require('../assets/icons/for-you-active.png')
-                  : require('../assets/icons/for-you-inactive.png')
-              }
-              style={{
-                width: 20,
-                height: 20,
-              }}
-            />
+            <View style={styles.imageContainer}>
+              <Image
+                source={
+                  focused
+                    ? require('../assets/icons/for-you-active3x.png')
+                    : require('../assets/icons/for-you-inactive3x.png')
+                }
+                style={styles.image}
+              />
+            </View>
           );
         } else if (routeName === 'Sale') {
           return (
-            <Image
-              source={
-                focused
-                  ? require('../assets/icons/sales-active.png')
-                  : require('../assets/icons/sales-inactive.png')
-              }
-              style={{
-                width: 20,
-                height: 20,
-              }}
-            />
+            <View style={styles.imageContainer}>
+              <Image
+                source={
+                  focused
+                    ? require('../assets/icons/sales-active3x.png')
+                    : require('../assets/icons/sales-inactive3x.png')
+                }
+                style={styles.image}
+              />
+            </View>
           );
         } else if (routeName === 'Profile') {
           return (
-            <Image
-              source={
-                focused
-                  ? require('../assets/icons/profile-active.png')
-                  : require('../assets/icons/profile-inactive.png')
-              }
-              style={{
-                width: 20,
-                height: 20,
-              }}
-            />
+            <View style={styles.imageContainer}>
+              <Image
+                source={
+                  focused
+                    ? require('../assets/icons/profile-active3x.png')
+                    : require('../assets/icons/profile-inactive3x.png')
+                }
+                style={styles.image}
+              />
+            </View>
           );
         }
       },
@@ -195,7 +191,7 @@ export default createBottomTabNavigator(
         fontSize: 10,
       },
       style: {
-        paddingTop: 10,
+        marginTop: '5%',
         backgroundColor: '#E0D5C4',
       },
     },
