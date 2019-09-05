@@ -35,11 +35,18 @@ const GET_ITEMS = gql`
   }
 `;
 
-
 class ItemsPageContainer extends Component {
-  static navigationOptions = {
-    title: 'TODO: Article variable(item.title)',
+  static navigationOptions = ({navigation}) => ({
+    title: navigation.state.params.category,
+  });
+
+  findTitle = filter => {
+    return filter;
   };
+
+  filterData = (items, filter) =>
+    items.filter(item => item.category === filter);
+
   render() {
     return (
       <Query query={GET_ITEMS}>
@@ -47,7 +54,10 @@ class ItemsPageContainer extends Component {
           if (loading) return <Text>Loading...</Text>;
           if (error) return <Text>Error :(</Text>;
           if (data) {
-            const items = data.allItems;
+            const items = this.filterData(
+              data.allItems,
+              this.props.navigation.state.params.category,
+            );
             return <ItemsPage allItems={items} />;
           }
         }}
@@ -56,6 +66,4 @@ class ItemsPageContainer extends Component {
   }
 }
 
-
 export default withNavigation(ItemsPageContainer);
-
