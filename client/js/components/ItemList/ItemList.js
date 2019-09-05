@@ -1,10 +1,11 @@
 import React from 'react';
 import {Text, View, Image} from 'react-native';
+import styles from './styles';
 
 const ItemList = ({item}) => {
   return (
     <View>
-      <Image style={{width: 50, height: 50}} source={{uri: item.images[0]}} />
+      <Image style={styles.itemImage} source={{uri: item.images[0]}} />
       <Text>
         {item.title}-{item.brand.title}
       </Text>
