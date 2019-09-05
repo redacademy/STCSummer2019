@@ -5,8 +5,9 @@ import { View, Text, TextInput, TouchableHighlight } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
-import CheckBox from 'react-native-check-box'
-
+import CheckBox from 'react-native-check-box';
+import { withNavigation } from 'react-navigation';
+import { createToken, deleteToken, queryToken } from "../../config/models/Authentication"
 
 export const SIGNUP = gql`
 mutation createUser($email: String!, $password: String!, $fullname: String!){
@@ -35,6 +36,8 @@ class SignUp extends Component {
   }
 
   render() {
+    const { navigation } = this.props;
+
     return (
       <SafeAreaView>
         <Mutation
@@ -60,26 +63,20 @@ class SignUp extends Component {
                     if (!this.state.isChecked) {
                       errors.termsAgreement = 'Agree to Terms and Condition is required'
                     }
-                    // if (!values.confirm) {
-                    //   errors.confirm = 'Required'
-                    // } else if (values.confirm !== values.password) {
-                    //   errors.confirm = 'Must match'
-                    // }
                     return errors
                   }}
                   onSubmit={async (values) => {
-                    console.log("submit", values)
                     const email = values.email;
                     const password = values.password
                     const fullname = values.fullname
                     try {
                       const newUser = await createUser({ variables: { email, password, fullname } }).catch(error => this.setState({ error }));
-                      console.log("new user", newUser);
                       const newUserEmail = await newUser.data.createUser.email;
                       const newUserPassword = await newUser.data.createUser.password;
-                      console.log("new user", newUserEmail, newUserPassword)
                       const userToken = await authenticateUser({ variables: { email: newUserEmail, password: newUserPassword } }).catch(error => this.setState({ error }))
-                      console.log(userToken.data.authenticateUser.token)
+                      await createToken(userToken.data.authenticateUser.token);
+                      const newUserToken = await queryToken();
+                      navigation.navigate(newUserToken ? 'App' : 'Auth');
                     }
                     catch (error) {
                       throw error
@@ -99,8 +96,6 @@ class SignUp extends Component {
                           {meta.error && meta.touched && <Text>{meta.error}</Text>}
                         </View>
                       )} />
-
-
 
                       <Text htmlFor="email">Email</Text>
                       <Field name="email" render={({ input, meta }) => (
@@ -156,21 +151,19 @@ class SignUp extends Component {
 
 
                       <TouchableHighlight
-                        onPress={() => {
-                          form.reset();
-                        }}
+                        onPress={() =>
+                          navigation.navigate('SignIn')
+                        }
                       >
                         <Text>Already Have an Account Yet? Sign In Here!
                 </Text>
                       </TouchableHighlight>
 
                       <Text >
-
                         {(this.state.error &&
                           this.state.error.graphQLErrors[0].message) ||
                           (this.state.error &&
                             this.state.error.graphQLErrors[0].message)}
-
                       </Text>
                     </View>
                   )}//close Form render
@@ -185,4 +178,4 @@ class SignUp extends Component {
 }
 
 
-export default SignUp;
+export default withNavigation(SignUp);

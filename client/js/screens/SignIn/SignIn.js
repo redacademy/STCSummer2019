@@ -5,6 +5,8 @@ import { View, Text, TextInput, TouchableHighlight } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
+import { withNavigation } from 'react-navigation';
+import { createToken, deleteToken, queryToken } from "../../config/models/Authentication"
 
 export const LOGIN = gql`
 mutation authenticateUser($email: String!, $password: String!){
@@ -24,7 +26,8 @@ class SignIn extends Component {
 
 
   render() {
-    // const { login } = this.props;
+    const { navigation } = this.props;
+    console.log(navigation)
     return (
       <SafeAreaView>
         <Mutation
@@ -57,6 +60,9 @@ class SignIn extends Component {
                 try {
                   const userToken = await authenticateUser({ variables: { email, password } }).catch(error => this.setState({ error }))
                   console.log(userToken.data.authenticateUser.token)
+                  await createToken(userToken.data.authenticateUser.token);
+                  const newUserToken = await queryToken();
+                  navigation.navigate(newUserToken ? 'App' : 'Auth');
                 }
                 catch (error) {
                   throw error
@@ -103,8 +109,8 @@ class SignIn extends Component {
 
                   <TouchableHighlight
                     onPress={() => {
-                      form.reset();
-
+                      console.log("jsbdfjhdakjfhd")
+                      navigation.navigate('SignUp')
                     }}
                   >
                     <Text>Do Not Have an Account Yet? Sign Up Here!
@@ -129,4 +135,4 @@ class SignIn extends Component {
 }
 
 
-export default SignIn;
+export default withNavigation(SignIn);

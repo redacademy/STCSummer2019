@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.0.1",
+    "@react-native-community/async-storage": "^1.6.1",
     "apollo-boost": "^0.4.4",
     "final-form": "^4.18.5",
     "graphql": "^14.5.4",
