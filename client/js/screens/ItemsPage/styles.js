@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
   allItems: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    //justifyContent: 'center',
   },
   sortItems: {
     flexDirection: 'row',
@@ -19,7 +18,19 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   },
   sortItemsText: {
-    fontWeight: '700',
+    fontWeight: '500',
+    fontSize: 14,
+    letterSpacing: 0.3,
+    paddingLeft: 5,
+    paddingRight: 5,
+  },
+  dropdown: {
+    height: 15,
+    width: 15,
+  },
+  itemFilter: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
 
