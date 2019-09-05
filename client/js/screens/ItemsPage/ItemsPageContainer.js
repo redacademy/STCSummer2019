@@ -58,7 +58,9 @@ class ItemsPageContainer extends Component {
               data.allItems,
               this.props.navigation.state.params.category,
             );
-            return <ItemsPage allItems={items} />;
+            return (
+              <ItemsPage allItems={items} navigation={this.props.navigation} />
+            );
           }
         }}
       </Query>

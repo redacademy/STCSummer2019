@@ -3,7 +3,7 @@ import {View, Text, ScrollView, Image} from 'react-native';
 import ItemList from '../../components/ItemList';
 import styles from './styles';
 
-const ItemsPage = ({allItems}) => {
+const ItemsPage = ({allItems, navigation}) => {
   return (
     <ScrollView style={styles.allItemsContainer}>
       <View style={styles.sortItems}>
@@ -31,7 +31,7 @@ const ItemsPage = ({allItems}) => {
       </View>
       <View style={styles.allItems}>
         {allItems.map(item => (
-          <ItemList key={item.id} item={item} />
+          <ItemList key={item.id} item={item} navigation={navigation} />
         ))}
       </View>
     </ScrollView>
