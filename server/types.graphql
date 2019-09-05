@@ -39,3 +39,10 @@ type Store @model {
   website: String!
   sale: Int
 }
+
+type User @model {
+  id:ID! @isUnique
+  email: String! @isUnique
+  password: String!
+  fullname: String!
+}
