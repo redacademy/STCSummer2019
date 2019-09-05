@@ -2,13 +2,14 @@ import React from 'react';
 import {Text, View, Image, ImageBackground} from 'react-native';
 import styles from './styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {ThemeColors} from 'react-navigation';
 
 const ItemList = ({item, navigation}) => {
   return (
     <View style={styles.fullItem}>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('singleItem');
+          navigation.navigate('singleItem', {item: item});
         }}>
         <ImageBackground
           style={styles.itemImage}

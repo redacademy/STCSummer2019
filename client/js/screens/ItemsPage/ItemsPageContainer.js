@@ -39,11 +39,6 @@ class ItemsPageContainer extends Component {
   static navigationOptions = ({navigation}) => ({
     title: navigation.state.params.category,
   });
-
-  findTitle = filter => {
-    return filter;
-  };
-
   filterData = (items, filter) =>
     items.filter(item => item.category === filter);
 
