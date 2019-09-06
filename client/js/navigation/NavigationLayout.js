@@ -21,13 +21,13 @@ const BrowseStack = createStackNavigator(
     browse: {
       screen: BrowseScreen,
     },
-    items: {
+    allItems: {
       screen: ItemsPageScreen,
       navigationOptions: navigation => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
-    item: {
+    singleItem: {
       screen: ItemScreen,
       navigationOptions: () => ({
         headerLeft: <BackButton />,

@@ -8,7 +8,7 @@ const Browse = ({navigation}) => {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('items');
+            navigation.navigate('allItems', {category: 'Clothes'});
           }}>
           <Image
             source={require('../../assets/images/clothing.png')}
@@ -20,7 +20,7 @@ const Browse = ({navigation}) => {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('items');
+            navigation.navigate('allItems', {category: 'Shoes'});
           }}>
           <Image
             source={require('../../assets/images/shoes.png')}
@@ -32,7 +32,7 @@ const Browse = ({navigation}) => {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('items');
+            navigation.navigate('allItems', {category: 'Bags'});
           }}>
           <Image
             source={require('../../assets/images/bags.png')}
@@ -44,7 +44,7 @@ const Browse = ({navigation}) => {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('items');
+            navigation.navigate('allItems', {category: 'Accessories'});
           }}>
           <Image
             source={require('../../assets/images/accessories.png')}

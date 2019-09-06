@@ -11,4 +11,4 @@ class StoresBrandsContainer extends Component {
   }
 }
 
-export default withNavigation(StoresBrandsContainer);
+export default StoresBrandsContainer;
