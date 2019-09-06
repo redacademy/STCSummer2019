@@ -7,5 +7,5 @@ export const colors = {
 };
 
 export const fonts = {
-  baseFont: 'Lato',
+  baseFont: 'Lato-Regular',
 };
