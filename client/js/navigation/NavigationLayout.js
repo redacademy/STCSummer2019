@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import React, {Component} from 'react';
 import {View, Image} from 'react-native';
 import styles from './styles';
 
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
+=======
+import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+>>>>>>> develop
 import sharedNavigationOptions from './config';
 import BrowseScreen from '../screens/Browse';
 import ForYouScreen from '../screens/ForYou';
@@ -14,8 +19,11 @@ import ItemsPageScreen from '../screens/ItemsPage';
 import ItemScreen from '../screens/Item';
 import StoreScreen from '../screens/Store';
 import BrandScreen from '../screens/Brand';
+<<<<<<< HEAD
 import {BackButton} from './config';
 
+=======
+>>>>>>> develop
 const BrowseStack = createStackNavigator(
   {
     browse: {
@@ -35,7 +43,7 @@ const BrowseStack = createStackNavigator(
     },
   },
   {
-    defaultNavigationOptions: ({navigation}) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -60,7 +68,7 @@ const StoresBrandsStack = createStackNavigator(
     },
   },
   {
-    defaultNavigationOptions: ({navigation}) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -91,7 +99,7 @@ const ForYouStack = createStackNavigator(
     },
   },
   {
-    defaultNavigationOptions: ({navigation}) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -110,7 +118,7 @@ const SaleStack = createStackNavigator(
     },
   },
   {
-    defaultNavigationOptions: ({navigation}) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -123,11 +131,12 @@ const ProfileStack = createStackNavigator(
     },
   },
   {
-    defaultNavigationOptions: ({navigation}) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
 );
+
 
 export default createBottomTabNavigator(
   {
