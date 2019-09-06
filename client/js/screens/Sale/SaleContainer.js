@@ -11,4 +11,4 @@ class SaleContainer extends Component {
   }
 }
 
-export default withNavigation(SaleContainer);
+export default SaleContainer;
