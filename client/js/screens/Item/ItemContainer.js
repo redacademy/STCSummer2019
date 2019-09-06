@@ -4,8 +4,8 @@ import {withNavigation} from 'react-navigation';
 
 class ItemContainer extends Component {
   render() {
-    console.log(this.props.navigation.state.params.item);
-    return <Item />;
+    const item = this.props.navigation.state.params.item;
+    return <Item item={item} />;
   }
 }
 

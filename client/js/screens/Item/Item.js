@@ -1,12 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {View, Text} from 'react-native';
+import ImageCarousel from '../../components/ImageCarousel';
+import styles from './styles';
 
-const Item = () => {
-  return (
-    <View>
-      <Text>Single Item</Text>
-    </View>
-  );
-};
+export default class Item extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-export default Item;
+  render() {
+    const {item} = this.props;
+    console.log(item);
+    const images = item.images;
+    return (
+      <View>
+        <ImageCarousel images={item.images} />
+      </View>
+    );
+  }
+}
