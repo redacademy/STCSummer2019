@@ -7,6 +7,7 @@ import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 import { withNavigation } from 'react-navigation';
 import { createToken, queryToken } from "../../config/models/authentication"
+import Loader from "../../components/Loader"
 
 export const LOGIN = gql`
 mutation authenticateUser($email: String!, $password: String!){
@@ -31,11 +32,11 @@ class SignIn extends Component {
       <SafeAreaView style={styles.container}>
         <KeyboardAvoidingView behavior="padding" enabled>
           <Mutation mutation={LOGIN}>
-            {(authenticateUser, { data }) => (
+            {(authenticateUser, { loading }) => (
               <Form
                 validate={values => {
                   const errors = {}
-                  if (!values.email) {
+                  if (!values.email || !(/\S+@\S+\.\S+/.test(values.email))) {
                     errors.email = 'Email Required'
                   }
                   if (!values.password) {
@@ -57,12 +58,15 @@ class SignIn extends Component {
                 }}
                 render={({ handleSubmit, form }) => (
                   <View>
-                    <View style={styles.logoContainer}>
-                      <Image
-                        style={styles.logo}
-                        source={require('../../assets/logo.png')}
-                      />
-                    </View>
+                    {loading ? <Loader /> :
+                      <View style={styles.logoContainer}>
+                        <Image
+                          style={styles.logo}
+                          source={require('../../assets/logo.png')}
+                        />
+                      </View>
+                    }
+
                     <View style={styles.forms}>
                       <Text style={styles.lable} htmlFor="email">Email</Text>
                       <Field name="email" render={({ input, meta }) => (
@@ -123,6 +127,7 @@ class SignIn extends Component {
                             this.state.error.graphQLErrors[0].message)}
                       </Text>
                     </View>
+
                   </View>
                 )}//close Form render
               />

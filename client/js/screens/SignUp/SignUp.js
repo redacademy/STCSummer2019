@@ -8,7 +8,7 @@ import gql from "graphql-tag";
 import CheckBox from 'react-native-check-box';
 import { withNavigation } from 'react-navigation';
 import { createToken, queryToken } from "../../config/models/authentication"
-
+import Loader from "../../components/Loader"
 
 
 
@@ -44,17 +44,17 @@ class SignUp extends Component {
       <SafeAreaView style={styles.container}>
         <KeyboardAvoidingView behavior="padding" enabled>
           <Mutation mutation={SIGNUP}>
-            {(createUser, { data }) => (
+            {(createUser, { loading }) => (
               <Mutation mutation={LOGIN}>
-                {(authenticateUser, { data }) => (
+                {(authenticateUser, { loading }) => (
                   <Form
                     validate={values => {
                       const errors = {}
-                      if (!values.email) {
+                      if (!values.email || !(/\S+@\S+\.\S+/.test(values.email))) {
                         errors.email = 'Email Required'
                       }
                       if (!values.password) {
-                        errors.password = 'Password Required'
+                        errors.password = 'Password Required 6 Characters'
                       }
                       if (!values.fullname) {
                         errors.fullname = 'Full Name Required'
@@ -84,12 +84,14 @@ class SignUp extends Component {
 
                     render={({ handleSubmit, form }) => (
                       <View>
-                        <View style={styles.logoContainer}>
-                          <Image
-                            style={styles.logo}
-                            source={require('../../assets/logo.png')}
-                          />
-                        </View>
+                        {loading ? <Loader /> :
+                          <View style={styles.logoContainer}>
+                            <Image
+                              style={styles.logo}
+                              source={require('../../assets/logo.png')}
+                            />
+                          </View>
+                        }
                         <View style={styles.forms}>
                           <Text style={styles.lable} htmlFor="fullname">Full Name</Text>
                           <Field name="fullname" render={({ input, meta }) => (
@@ -181,10 +183,12 @@ class SignUp extends Component {
                               (this.state.error &&
                                 this.state.error.graphQLErrors[0].message)}
                           </Text>
+
                         </View>
                       </View>
                     )}//close Form render
                   />
+
                 )}
               </Mutation>
             )}
