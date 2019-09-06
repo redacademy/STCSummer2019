@@ -17,10 +17,7 @@ export const BackButton = ({navigation}) => (
 export default sharedNavigationOptions = navigation => ({
   headerBackTitle: null,
   headerTintColor: 'white',
-  headerTitleStyle: {
-    fontSize: 8,
-    color: 'red',
-  },
+  // headerTitleStyle: {},
   header: props => <Header {...props} />,
   headerStyle: {
     backgroundColor: '#E0D5C4',
