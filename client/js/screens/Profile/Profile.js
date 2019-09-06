@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
-import { createToken, deleteToken, queryToken } from "../../config/models/Authentication"
+import { createToken, deleteToken, queryToken } from "../../config/models/authentication"
 import { withNavigation } from 'react-navigation';
 const Profile = ({ navigation }) => {
   return (
@@ -10,7 +10,6 @@ const Profile = ({ navigation }) => {
         onPress={
           async () => {
             await deleteToken();
-            // const userToken = await queryToken()
             navigation.navigate('AuthLoading');
           }
 

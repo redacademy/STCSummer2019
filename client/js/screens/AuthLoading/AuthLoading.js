@@ -1,9 +1,6 @@
 import React from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
-import {
-  ActivityIndicator,
-  View,
-} from 'react-native';
+import Loader from '../../components/Loader';
 
 class AuthLoadingScreen extends React.Component {
   componentDidMount() {
@@ -17,9 +14,7 @@ class AuthLoadingScreen extends React.Component {
 
   render() {
     return (
-      <View>
-        <ActivityIndicator />
-      </View>
+      <Loader />
     );
   }
 }

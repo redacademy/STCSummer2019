@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styles from './styles'
 import { Form, Field } from 'react-final-form';
-import { View, Text, TextInput, TouchableHighlight } from 'react-native';
+import { View, Text, TextInput, TouchableHighlight, TouchableOpacity, Image, KeyboardAvoidingView } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 import { withNavigation } from 'react-navigation';
-import { createToken, deleteToken, queryToken } from "../../config/models/Authentication"
+import { createToken, queryToken } from "../../config/models/authentication"
 
 export const LOGIN = gql`
 mutation authenticateUser($email: String!, $password: String!){
@@ -20,115 +20,115 @@ class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null
+      error: null,
+      color: '#003399'
     };
   }
 
-
   render() {
     const { navigation } = this.props;
-    console.log(navigation)
     return (
-      <SafeAreaView>
-        <Mutation
-          mutation={
-            LOGIN
-          }
-        >
-          {(authenticateUser, { data }) => (
-            <Form
-              validate={values => {
-                const errors = {}
-                if (!values.email) {
-                  errors.email = 'Email Required'
-                }
-                if (!values.password) {
-                  errors.password = 'Password Required'
-                }
-                // if (!values.confirm) {
-                //   errors.confirm = 'Required'
-                // } else if (values.confirm !== values.password) {
-                //   errors.confirm = 'Must match'
-                // }
-                return errors
-              }}
-              onSubmit={async (values) => {
-                console.log("submit")
-                console.log("submit", values.email)
-                const email = values.email;
-                const password = values.password
-                try {
-                  const userToken = await authenticateUser({ variables: { email, password } }).catch(error => this.setState({ error }))
-                  console.log(userToken.data.authenticateUser.token)
-                  await createToken(userToken.data.authenticateUser.token);
-                  const newUserToken = await queryToken();
-                  navigation.navigate(newUserToken ? 'App' : 'Auth');
-                }
-                catch (error) {
-                  throw error
-                }
-              }}
-              render={({ handleSubmit, pristine, invalid, form }) => (
-                <View>
-                  <Text htmlFor="email">Email</Text>
-                  <Field name="email" render={({ input, meta }) => (
-                    <View>
-                      <TextInput
-                        {...input}
-                        id="email"
-                        type="email"
-                        keyboardType="email-address"
-                        placeholder="Enter Your Email"
+      <SafeAreaView style={styles.container}>
+        <KeyboardAvoidingView behavior="padding" enabled>
+          <Mutation mutation={LOGIN}>
+            {(authenticateUser, { data }) => (
+              <Form
+                validate={values => {
+                  const errors = {}
+                  if (!values.email) {
+                    errors.email = 'Email Required'
+                  }
+                  if (!values.password) {
+                    errors.password = 'Password Required'
+                  }
+                  return errors
+                }}
+                onSubmit={async (values) => {
+                  const email = values.email;
+                  const password = values.password
+                  try {
+                    const userToken = await authenticateUser({ variables: { email, password } }).catch(error => this.setState({ error }))
+                    await createToken(userToken.data.authenticateUser.token);
+                    navigation.navigate('AuthLoading');
+                  }
+                  catch (error) {
+                    throw error
+                  }
+                }}
+                render={({ handleSubmit, form }) => (
+                  <View>
+                    <View style={styles.logoContainer}>
+                      <Image
+                        style={styles.logo}
+                        source={require('../../assets/logo.png')}
                       />
-                      {meta.error && meta.touched && <Text>{meta.error}</Text>}
                     </View>
-                  )}
-                  />
-
-
-                  <Text htmlFor="email">Password</Text>
-                  <Field name="password" render={({ input, meta }) => (
-                    <View>
-                      <TextInput
-                        {...input}
-                        id="password"
-                        type="password"
-                        placeholder="Enter Your Password"
+                    <View style={styles.forms}>
+                      <Text style={styles.lable} htmlFor="email">Email</Text>
+                      <Field name="email" render={({ input, meta }) => (
+                        <View style={styles.inputContainer}>
+                          <TextInput
+                            style={styles.input}
+                            {...input}
+                            id="email"
+                            type="email"
+                            keyboardType="email-address"
+                            placeholder="Enter Your Email"
+                          />
+                          {meta.error && meta.touched && <Text style={styles.error}>{meta.error}</Text>}
+                        </View>
+                      )}
                       />
-                      {meta.error && meta.touched && <Text>{meta.error}</Text>}
+
+                      <Text style={styles.lable} htmlFor="email">Password</Text>
+                      <Field name="password" render={({ input, meta }) => (
+                        <View style={styles.inputContainer}>
+                          <TextInput
+                            style={styles.input}
+                            {...input}
+                            secureTextEntry={true}
+                            id="password"
+                            type="password"
+                            placeholder="Enter Your Password"
+                          />
+                          {meta.error && meta.touched && <Text style={styles.error}>{meta.error}</Text>}
+                        </View>
+                      )} />
+
+                      <TouchableHighlight
+                        style={styles.button}
+                        onPress={handleSubmit}
+                        underlayColor="#003399"
+                        onShowUnderlay={() => this.setState({ color: "#fff" })}
+                        onHideUnderlay={() => this.setState({ color: '#003399' })}
+                      >
+                        <Text style={[{ color: this.state.color }, styles.buttonText]}>Sign In</Text>
+                      </TouchableHighlight>
+
+                      <TouchableOpacity
+                        onPress={() => {
+                          form.reset();
+                          navigation.navigate('SignUp')
+                        }}
+                      >
+                        <Text style={styles.loginSwitch}>
+                          Don't Have an Account? Sign Up Here!
+                        </Text>
+                      </TouchableOpacity>
+
+                      <Text style={styles.error}>
+                        {(this.state.error &&
+                          this.state.error.graphQLErrors[0].message) ||
+                          (this.state.error &&
+                            this.state.error.graphQLErrors[0].message)}
+                      </Text>
                     </View>
-                  )} />
-
-
-                  <TouchableHighlight
-                    onPress={handleSubmit}
-                  >
-                    <Text>Sign In</Text>
-                  </TouchableHighlight>
-
-
-                  <TouchableHighlight
-                    onPress={() => {
-                      console.log("jsbdfjhdakjfhd")
-                      navigation.navigate('SignUp')
-                    }}
-                  >
-                    <Text>Do Not Have an Account Yet? Sign Up Here!
-                </Text>
-                  </TouchableHighlight>
-
-                  <Text >
-                    {(this.state.error &&
-                      this.state.error.graphQLErrors[0].message) ||
-                      (this.state.error &&
-                        this.state.error.graphQLErrors[0].message)}
-
-                  </Text>
-                </View>
-              )}//close Form render
-            />
-          )}
-        </Mutation>
+                  </View>
+                )}//close Form render
+              />
+            )}
+          </Mutation>
+        </KeyboardAvoidingView>
       </SafeAreaView>
     );
   }
