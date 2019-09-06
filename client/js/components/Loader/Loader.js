@@ -17,7 +17,7 @@ class Loader extends Component {
     this.spinValue.setValue(0)
     Animated.timing(this.spinValue, {
       toValue: 1,
-      duration: 1000,
+      duration: 3000,
       easing: Easing.linear,
     }).start(() => this.spin())
   }
