@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   image: {
-    height: '90%',
+    height: 410,
     resizeMode: 'cover',
     width: '90%',
     alignSelf: 'center',
@@ -10,12 +10,12 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: '100%',
-    height: '85%',
+    height: 430,
     alignSelf: 'center',
     justifyContent: 'center',
   },
   carousel: {
-    height: '100%',
+    //height: '30%',
   },
 });
 
