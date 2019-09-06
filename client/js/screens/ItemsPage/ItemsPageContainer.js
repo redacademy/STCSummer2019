@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {Text, ActivityIndicator} from 'react-native';
 import ItemsPage from './ItemsPage';
 import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
 import {withNavigation} from 'react-navigation';
+import styles from './styles';
 
 const GET_ITEMS = gql`
   {
@@ -40,10 +41,6 @@ class ItemsPageContainer extends Component {
     title: navigation.state.params.category,
   });
 
-  findTitle = filter => {
-    return filter;
-  };
-
   filterData = (items, filter) =>
     items.filter(item => item.category === filter);
 
@@ -51,7 +48,8 @@ class ItemsPageContainer extends Component {
     return (
       <Query query={GET_ITEMS}>
         {({loading, error, data}) => {
-          if (loading) return <Text>Loading...</Text>;
+          if (loading)
+            return <ActivityIndicator size="large" style={styles.loader} />;
           if (error) return <Text>Error :(</Text>;
           if (data) {
             const items = this.filterData(
