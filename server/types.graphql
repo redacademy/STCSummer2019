@@ -39,3 +39,4 @@ type Store @model {
   website: String!
   sale: Int
 }
+
