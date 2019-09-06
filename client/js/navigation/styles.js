@@ -13,6 +13,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: '5%',
   },
+
+  backIcon: {
+    resizeMode: 'contain',
+    height: '15%',
+    width: '15%',
+    marginLeft: '5%',
+  },
+  backContainer: {
+    height: 100,
+    width: 100,
+    justifyContent: 'center',
+  },
 });
 
 export default styles;

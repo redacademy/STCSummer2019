@@ -14,6 +14,7 @@ import ItemsPageScreen from '../screens/ItemsPage';
 import ItemScreen from '../screens/Item';
 import StoreScreen from '../screens/Store';
 import BrandScreen from '../screens/Brand';
+import {BackButton} from './config';
 
 const BrowseStack = createStackNavigator(
   {
@@ -22,9 +23,15 @@ const BrowseStack = createStackNavigator(
     },
     items: {
       screen: ItemsPageScreen,
+      navigationOptions: navigation => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
     },
     item: {
       screen: ItemScreen,
+      navigationOptions: () => ({
+        headerLeft: <BackButton />,
+      }),
     },
   },
   {
@@ -41,9 +48,15 @@ const StoresBrandsStack = createStackNavigator(
     },
     store: {
       screen: StoreScreen,
+      navigationOptions: () => ({
+        headerLeft: <BackButton />,
+      }),
     },
     brand: {
       screen: BrandScreen,
+      navigationOptions: () => ({
+        headerLeft: <BackButton />,
+      }),
     },
   },
   {
@@ -60,12 +73,21 @@ const ForYouStack = createStackNavigator(
     },
     item: {
       screen: ItemScreen,
+      navigationOptions: () => ({
+        headerLeft: <BackButton />,
+      }),
     },
     store: {
       screen: StoreScreen,
+      navigationOptions: () => ({
+        headerLeft: <BackButton />,
+      }),
     },
     brand: {
       screen: BrandScreen,
+      navigationOptions: navigation => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
     },
   },
   {
@@ -82,6 +104,9 @@ const SaleStack = createStackNavigator(
     },
     store: {
       screen: StoreScreen,
+      navigationOptions: () => ({
+        headerLeft: <BackButton />,
+      }),
     },
   },
   {
