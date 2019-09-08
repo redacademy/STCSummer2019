@@ -1,3 +1,3 @@
-import FilterItemListContainer from './FilterItemListContainer';
+import FilterItemList from './FilterItemList';
 
-export default FilterItemListContainer;
+export default FilterItemList;

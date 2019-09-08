@@ -1,8 +1,15 @@
-import React, {Fragment} from 'react';
-import RootStackNavigator from '../js/navigation/RootStackNavigator';
 
+
+import React from 'react';
+import { ApolloProvider } from '@apollo/react-hooks'
+import client from './config/api'
+import RootStackNavigator from '../js/navigation/RootStackNavigator';
 const App = () => {
-  return <RootStackNavigator />;
+  return (
+    <ApolloProvider client={client}>
+      <RootStackNavigator />
+    </ApolloProvider>
+  );
 };
 
 export default App;

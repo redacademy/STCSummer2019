@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 
 const FilterItemList = () => {
   return (
     <View>
-      <Text></Text>
+      <Text>FilterItemList</Text>
     </View>
   );
 };

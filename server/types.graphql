@@ -40,12 +40,6 @@ type Store @model {
   email: String!
   website: String!
   sale: Int
+  storelink: Boolean
 }
 
-type User @model {
-  id: ID! @isUnique
-  email: String! @isUnique
-  password: String! 
-  fullname: String!
-  
-}

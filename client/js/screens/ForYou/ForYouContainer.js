@@ -1,8 +1,14 @@
 import React, {Component} from 'react';
 import ForYou from './ForYou';
+import {withNavigation} from 'react-navigation';
 
-export default class ForYouContainer extends Component {
+class ForYouContainer extends Component {
+  static navigationOptions = {
+    title: 'New Arrivals in your Favourites',
+  };
   render() {
     return <ForYou />;
   }
 }
+
+export default ForYouContainer;
