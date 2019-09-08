@@ -1,3 +1,3 @@
-export const fonts = {
-  baseFont: 'Lato-Regular',
-};
+// export const fonts = {
+//   baseFont: 'Lato-Regular',
+// };

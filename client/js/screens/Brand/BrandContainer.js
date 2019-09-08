@@ -1,8 +1,20 @@
-import React, {Component} from 'react';
-import Brand from './Brand';
+import React, { Component } from 'react';
+import { View, Text } from 'react-native';
 
-export default class BrandContainer extends Component {
+class BrandContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
   render() {
-    return <Brand />;
+    return (
+      <View>
+        <Text> BrandContainer </Text>
+      </View>
+    );
   }
 }
+
+export default BrandContainer;
