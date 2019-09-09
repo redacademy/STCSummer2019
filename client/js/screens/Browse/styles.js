@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
     width: '94%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: 10,
-    marginTop: 10,
+    marginHorizontal: '5%',
+    margin: '5%',
   },
 });
 
