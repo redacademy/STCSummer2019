@@ -29,8 +29,8 @@ const BrowseStack = createStackNavigator(
     },
     singleItem: {
       screen: ItemScreen,
-      navigationOptions: () => ({
-        headerLeft: <BackButton />,
+      navigationOptions: navigation => ({
+        headerLeft: <BackButton navigation={navigation} />,
       }),
     },
   },
