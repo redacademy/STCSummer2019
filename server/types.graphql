@@ -1,3 +1,5 @@
+# The following types define the data model of the example service
+# based on which the GraphQL API is generated
 
 type Item @model {
   id: ID! @isUnique
@@ -38,6 +40,7 @@ type Store @model {
   email: String!
   website: String!
   sale: Int
+  storelink: Boolean
 }
 
 type User @model {
