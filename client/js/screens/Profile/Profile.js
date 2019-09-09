@@ -1,21 +1,35 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
-import { createToken, deleteToken, queryToken } from "../../config/models/authentication"
-import { withNavigation } from 'react-navigation';
-const Profile = ({ navigation }) => {
-  return (
-    <View>
-      <Button
-        title={"Log Out"}
-        onPress={
-          async () => {
-            await deleteToken();
-            navigation.navigate('AuthLoading');
-          }
+import {View, Text, Button, Image, TouchableOpacity} from 'react-native';
+import TabViewProfile from '../../components/TabView';
+import {withNavigation} from 'react-navigation';
+import styles from './styles';
 
-        }
+const Profile = ({user, navigation}) => {
+  return (
+    <View style={{flex: 1}}>
+      <Button
+        title={'Log Out'}
+        onPress={async () => {
+          await deleteToken();
+          navigation.navigate('AuthLoading');
+        }}
       />
-      <Text>Profile Page</Text>
+      <View style={{flexDirection: 'row', marginHorizontal: '3.5%'}}>
+        <Image
+          source={require('../../assets/profilepic.png')}
+          styles={styles.img}
+        />
+        <View style={{marginTop: 20}}>
+          <Text style={styles.userName}>Marie</Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('allItems', {category: 'Clothes'});
+            }}>
+            <Text style={styles.editProfile}>Edit Profile</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      <TabViewProfile navigation={navigation} />
     </View>
   );
 };

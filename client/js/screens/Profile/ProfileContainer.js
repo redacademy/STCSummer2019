@@ -7,7 +7,22 @@ class ProfileContainer extends Component {
     title: 'My Profile',
   };
   render() {
-    return <Profile />;
+    return (
+      // <Query query={GET_ITEMS}>
+      //   {({loading, error, data}) => {
+      //     if (loading)
+      //       return <ActivityIndicator size="large" style={styles.loader} />;
+      //     if (error) return <Text>Error :(</Text>;
+      //     if (data) {
+      //       const profile = this.filterData(
+      //         data.allUsers,
+      //         this.props.navigation.state.params.category,
+      //       );
+      //       return <Profile allUsers={user} />;
+      //     }
+      //   }}
+      <Profile />
+    );
   }
 }
 
