@@ -10,7 +10,7 @@ type Item @model {
   size:[String!]
   color:[String!]
   price: Int!
-  images : [String!]
+  images: [String!]
   tags: [String!]
   category: String!
   discount: Int!
