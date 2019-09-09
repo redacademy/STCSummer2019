@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     marginHorizontal: 10,
-    fontFamily: fonts.baseFont,
+    // fontFamily: fonts.baseFont,
   },
   browseImage: {
     height: 180,
