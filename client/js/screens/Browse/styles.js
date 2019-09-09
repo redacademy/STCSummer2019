@@ -4,6 +4,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     marginHorizontal: 10,
+<<<<<<< HEAD
+=======
+    // fontFamily: fonts.baseFont,
+>>>>>>> develop
   },
   browseImage: {
     height: 180,
