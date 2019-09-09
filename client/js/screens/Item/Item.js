@@ -29,7 +29,6 @@ export default class Item extends Component {
       placeholderColor: 'black',
     };
     const {item} = this.props;
-    console.log(item);
     return (
       <ScrollView>
         <ImageCarousel style={styles.carousel} images={item.images} />
