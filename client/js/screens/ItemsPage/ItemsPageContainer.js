@@ -18,7 +18,18 @@ const GET_ITEMS = gql`
         brands {
           title
           id
+          images
+          description
         }
+        images
+        storeLogo
+        categories
+        hours
+        address
+        phone
+        email
+        website
+        sale
       }
       size
       price
@@ -31,6 +42,8 @@ const GET_ITEMS = gql`
       brand {
         id
         title
+        images
+        description
       }
     }
   }

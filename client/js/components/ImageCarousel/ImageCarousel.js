@@ -1,5 +1,5 @@
-import React, {Fragment} from 'react';
-import {View, Image} from 'react-native';
+import React from 'react';
+import {View, Image, ImageBackground} from 'react-native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import styles from './styles';
 
@@ -12,14 +12,19 @@ export class ImageCarousel extends React.Component {
   }
   _renderItem = ({item}) => (
     <View style={styles.imageContainer}>
-      <Image source={{uri: item}} style={styles.image} />
+      <ImageBackground source={{uri: item}} style={styles.image}>
+        <Image
+          style={styles.itemHeart}
+          source={require('../../assets/inactiveheart.png')}
+        />
+      </ImageBackground>
     </View>
   );
 
   render() {
     const {images} = this.props;
     return (
-      <Fragment style={styles.carousel}>
+      <View style={styles.carousel}>
         <Carousel
           ref={c => {
             this._carousel = c;
@@ -28,7 +33,7 @@ export class ImageCarousel extends React.Component {
           data={images}
           renderItem={this._renderItem}
           sliderWidth={375}
-          itemWidth={375}
+          itemWidth={380}
           onSnapToItem={index => this.setState({activeSlide: index})}
         />
         <Pagination
@@ -40,7 +45,7 @@ export class ImageCarousel extends React.Component {
           inactiveDotOpacity={0.4}
           inactiveDotScale={0.6}
         />
-      </Fragment>
+      </View>
     );
   }
 }

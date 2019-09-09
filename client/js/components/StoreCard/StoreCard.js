@@ -8,19 +8,19 @@ const StoreCard = ({store}) => {
     <View style={styles.storeCardContainer}>
       <View style={styles.imageContainer}>
         <Image
-          //   source={{uri: `${store.images}`}}
-          source={{uri: 'https://via.placeholder.com/150'}}
+          source={{uri: store.storeLogo}}
+          //source={{uri: 'https://via.placeholder.com/150'}}
           style={styles.image}
           resizeMode="contain"
         />
       </View>
       <View style={styles.storeContentContainer}>
-        {/* <Text>{store.title}</Text>
-        <Text>{store.address}</Text>
-        <Text>{store.phone}</Text> */}
-        <Text>Store Title</Text>
+        <Text>{store.title}</Text>
+        <Text style={styles.cardContent}>{store.address}</Text>
+        <Text>{store.phone}</Text>
+        {/* <Text>Store Title</Text>
         <Text>Store Address</Text>
-        <Text>Store Phone</Text>
+        <Text>Store Phone</Text> */}
       </View>
     </View>
   );

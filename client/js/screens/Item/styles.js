@@ -21,19 +21,23 @@ const styles = StyleSheet.create({
     paddingBottom: '2%',
   },
   dropdown: {
-    borderColor: '#E0D5C4',
-    borderWidth: 1,
+    borderColor: 'black',
+    borderWidth: 0.4,
     width: '75%',
     flex: 2,
+    justifyContent: 'center',
     height: 35,
   },
   sizedropdown: {
-    borderColor: '#E0D5C4',
-    borderWidth: 1,
+    borderColor: 'black',
+    borderWidth: 0.4,
     width: '75%',
     flex: 2,
     height: 35,
     marginBottom: '4%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
   },
   singleItem: {
     flexDirection: 'row',
@@ -42,10 +46,20 @@ const styles = StyleSheet.create({
     paddingLeft: '5%',
     paddingRight: '5%',
     marginTop: '5%',
+    paddingBottom: '5%',
   },
   allDropdown: {
-    width: '60%',
+    width: '70%',
     paddingLeft: '8%',
+    paddingRight: '6%',
+  },
+  itemInfo: {
+    width: '53%',
+  },
+  picker: {
+    justifyContent: 'center',
+    color: 'black',
+    textAlign: 'center',
   },
 });
 

@@ -4,16 +4,18 @@ const styles = StyleSheet.create({
   image: {
     height: 410,
     resizeMode: 'cover',
-    width: '90%',
-    alignSelf: 'center',
-    justifyContent: 'center',
-  },
-  imageContainer: {
-    width: '100%',
-    height: 420,
+    width: '98%',
     alignSelf: 'center',
     justifyContent: 'center',
     position: 'relative',
+  },
+  imageContainer: {
+    width: '100%',
+    height: 430,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+    paddingLeft: '.8%',
   },
   carousel: {
     justifyContent: 'center',
@@ -21,7 +23,7 @@ const styles = StyleSheet.create({
   containerStyle: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
     position: 'absolute',
-    top: '54%',
+    bottom: '0%',
     alignItems: 'center',
     width: '100%',
   },
@@ -34,6 +36,13 @@ const styles = StyleSheet.create({
   },
   inactiveDotStyle: {
     backgroundColor: '#E0D5C4',
+  },
+  itemHeart: {
+    height: 50,
+    width: '15%',
+    position: 'absolute',
+    bottom: 10,
+    right: 20,
   },
 });
 

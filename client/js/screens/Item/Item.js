@@ -3,22 +3,26 @@ import {View, Text, ScrollView} from 'react-native';
 import ImageCarousel from '../../components/ImageCarousel';
 import styles from './styles';
 import RNPickerSelect from 'react-native-picker-select';
-import StoreCard from '../../components/StoreCard';
+import ItemStoreCard from '../../components/ItemStoreCard';
 
 export default class Item extends Component {
   getSizeValues = item => {
-    const sizeobj = item.size.map(size => ({label: size, value: size}));
+    const sizeobj = item.size
+      .reverse()
+      .map(size => ({label: size, value: size}));
     return sizeobj;
   };
 
   getColorValues = item => {
-    const colorobj = item.color.map(color => ({label: color, value: color}));
+    const colorobj = item.color
+      .reverse()
+      .map(color => ({label: color, value: color}));
     return colorobj;
   };
 
   render() {
     const {item} = this.props;
-
+    console.log(item);
     return (
       <ScrollView>
         <ImageCarousel style={styles.carousel} images={item.images} />
@@ -33,19 +37,23 @@ export default class Item extends Component {
               <RNPickerSelect
                 onValueChange={value => console.log(value)}
                 items={this.getSizeValues(item)}
-                placeholder={{label: 'Size', value: ''}}
+                placeholder={{label: 'Size', value: '', color: 'black'}}
+                style={styles.picker}
               />
             </View>
             <View style={styles.dropdown}>
               <RNPickerSelect
                 onValueChange={value => console.log(value)}
                 items={this.getColorValues(item)}
-                placeholder={{label: 'Color', value: ''}}
+                placeholder={{label: 'Color', value: '', color: 'black'}}
+                style={styles.picker}
               />
             </View>
           </View>
         </View>
-        <StoreCard />
+        {item.stores.map(store => (
+          <ItemStoreCard key={store.id} store={store} item={item} />
+        ))}
       </ScrollView>
     );
   }
