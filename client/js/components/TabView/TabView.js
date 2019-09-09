@@ -58,7 +58,7 @@ class TabViewProfile extends Component {
           myphotos: MyPhotosRoute,
         })}
         onIndexChange={index => this.setState({index})}
-        // onIndexChange={index => this.setState({index})}
+        // onIndexChange={index => this.setState({index, icon: })}
         initialLayout={{width: Dimensions.get('window').width}}
         style={styles.container}
       />
