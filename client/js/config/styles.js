@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 export const fonts = {
   baseFont: 'Lato-Regular',
 };
@@ -10,4 +8,3 @@ export const colors = {
   DarkBlue: '#003399',
   Black: '#2B2D2F',
 };
->>>>>>> develop
