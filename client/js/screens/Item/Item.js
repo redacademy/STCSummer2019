@@ -21,6 +21,13 @@ export default class Item extends Component {
   };
 
   render() {
+    const pickerStyle = {
+      inputIOS: {
+        color: 'black',
+        textAlign: 'center',
+      },
+      placeholderColor: 'black',
+    };
     const {item} = this.props;
     console.log(item);
     return (
@@ -38,7 +45,7 @@ export default class Item extends Component {
                 onValueChange={value => console.log(value)}
                 items={this.getSizeValues(item)}
                 placeholder={{label: 'Size', value: '', color: 'black'}}
-                style={styles.picker}
+                style={pickerStyle}
               />
             </View>
             <View style={styles.dropdown}>
@@ -46,7 +53,7 @@ export default class Item extends Component {
                 onValueChange={value => console.log(value)}
                 items={this.getColorValues(item)}
                 placeholder={{label: 'Color', value: '', color: 'black'}}
-                style={styles.picker}
+                style={pickerStyle}
               />
             </View>
           </View>

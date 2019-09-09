@@ -34,10 +34,8 @@ const styles = StyleSheet.create({
     width: '75%',
     flex: 2,
     height: 35,
-    marginBottom: '4%',
     justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
+    marginBottom: '3%',
   },
   singleItem: {
     flexDirection: 'row',
@@ -55,11 +53,6 @@ const styles = StyleSheet.create({
   },
   itemInfo: {
     width: '53%',
-  },
-  picker: {
-    justifyContent: 'center',
-    color: 'black',
-    textAlign: 'center',
   },
 });
 
