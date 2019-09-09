@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Image, Text, View, TouchableOpacity } from 'react-native';
 import FaveStoresContext from '../../context/FaveStoresContext';
+import styles from './styles'
 
 const StoreCard = ({
   store, navigation
@@ -18,12 +19,10 @@ const StoreCard = ({
           />
         </View>
         <View style={styles.storeContentContainer}>
-          {/* <Text>{store.title}</Text>
-        <Text>{store.address}</Text>
-        <Text>{store.phone}</Text> */}
-          <Text>Store Title</Text>
-          <Text>Store Address</Text>
-          <Text>Store Phone</Text>
+          <Text>{store.title}</Text>
+          <Text>{store.address}</Text>
+          <Text>{store.phone}</Text>
+
         </View>
       </View>
     </TouchableOpacity>

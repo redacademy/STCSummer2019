@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Store from './Store';
 
 export default class StoreContainer extends Component {
+  static navigationOptions = {
+    title: 'Store',
+  };
   render() {
     const { navigation } = this.props;
     const store = navigation.getParam('store');

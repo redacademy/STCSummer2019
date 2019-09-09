@@ -1,43 +1,38 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import StoreCard from '../../components/StoreCard'
-class StoresBrands extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      displayStore: true
-    }
-  }
-  render() {
-    return (
+const StoresBrands = ({ stores, brands, navigation, displayStores, displayBrands, displayPage }) => {
+
+
+  return (
+    <View>
       <View>
-        <View>
-          <TouchableOpacity
-            onPress={() => this.setState({ displayStore: true })}
-          >
-            <Text>Stores</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.setState({ displayStore: false })}
-          >
-            <Text>Brands</Text>
-          </TouchableOpacity>
-        </View>
-        {this.state.displayStore ?
-          <FlatList
-            data={this.props.stores}
-            renderItem={({ item }) => <StoreCard store={item} navigation={this.props.navigation} />}
-          /> :
-          <FlatList
-            data={this.props.brands}
-            renderItem={({ item }) => (<TouchableOpacity
-              onPress={() => this.props.navigation.navigate('brand', { brand: item })}
-            ><Text>{item.title}</Text><Text>    >></Text></TouchableOpacity>)}
-          />
-        }
+        <TouchableOpacity
+          onPress={() => displayStores()}
+        >
+          <Text>Stores</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => displayBrands()}
+        >
+          <Text>Brands</Text>
+        </TouchableOpacity>
       </View>
-    );
-  }
+      {displayPage ?
+        <FlatList
+          data={stores}
+          renderItem={({ item }) => <StoreCard store={item} navigation={navigation} />}
+        /> :
+        <FlatList
+          data={brands}
+          renderItem={({ item }) => (<TouchableOpacity
+            onPress={() => navigation.navigate('brand', { brand: item })}
+          ><Text>{item.title}</Text><Text>    >></Text></TouchableOpacity>)}
+        />
+      }
+    </View>
+  );
+
 };
 
 export default StoresBrands;
