@@ -11,21 +11,21 @@ const ItemsPage = ({allItems}) => {
           <Text style={styles.sortItemsText}>Sort</Text>
           <Image
             style={styles.dropdown}
-            source={require('../../assets/images/dropdown.png')}
+            source={require('../../assets/dropdown.png')}
           />
         </View>
         <View style={styles.itemFilter}>
           <Text style={styles.sortItemsText}>Tags</Text>
           <Image
             style={styles.dropdown}
-            source={require('../../assets/images/dropdown.png')}
+            source={require('../../assets/dropdown.png')}
           />
         </View>
         <View style={styles.itemFilter}>
           <Text style={styles.sortItemsText}>Filter</Text>
           <Image
             style={styles.dropdown}
-            source={require('../../assets/images/inactivefilter.png')}
+            source={require('../../assets/inactivefilter.png')}
           />
         </View>
       </View>
