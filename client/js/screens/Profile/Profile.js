@@ -3,7 +3,8 @@ import { View, Text, Button } from 'react-native';
 import { createToken, deleteToken, queryToken } from "../../config/models/authentication"
 import { withNavigation } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
-const Profile = ({ navigation, userId }) => {
+const Profile = ({ navigation, user }) => {
+  console.log(user)
   return (
     <View>
       <Button
@@ -17,9 +18,6 @@ const Profile = ({ navigation, userId }) => {
         }
       />
       <Text>Profile Page</Text>
-      <Text>{userId}</Text>
-
-
     </View>
   );
 };
