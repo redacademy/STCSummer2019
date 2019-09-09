@@ -1,2 +1,2 @@
-import StoresBrandsContainer from './StoresContainer';
+import StoresBrandsContainer from './StoresBrandsContainer';
 export default StoresBrandsContainer;

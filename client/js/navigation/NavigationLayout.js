@@ -5,8 +5,7 @@ import BrowseScreen from '../screens/Browse';
 import ForYouScreen from '../screens/ForYou';
 import ProfileScreen from '../screens/Profile';
 import SaleScreen from '../screens/Sale';
-import StoresScreen from '../screens/Stores';
-import BrandsScreen from '../screens/Brands'
+import StoresBrandsScreen from '../screens/StoresBrands';
 import ItemsPageScreen from '../screens/ItemsPage';
 import ItemScreen from '../screens/Item';
 import StoreScreen from '../screens/Store';
@@ -32,11 +31,8 @@ const BrowseStack = createStackNavigator(
 
 const StoresBrandsStack = createStackNavigator(
   {
-    stores: {
-      screen: StoresScreen,
-    },
-    brands: {
-      screen: BrandsScreen
+    storesBrands: {
+      screen: StoresBrandsScreen,
     },
     store: {
       screen: StoreScreen,
