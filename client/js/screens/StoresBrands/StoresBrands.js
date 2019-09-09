@@ -1,10 +1,18 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text, FlatList } from 'react-native';
+import StoreCard from '../../components/StoreCard'
 
-const StoresBrands = () => {
+const StoresBrands = ({ stores, brands }) => {
   return (
     <View>
-      <Text>Store and Brand Page</Text>
+      <FlatList
+        data={stores}
+        renderItem={({ item }) => <StoreCard store={item} />}
+      />
+      <FlatList
+        data={brands}
+        renderItem={({ item }) => (<Text>{item.title}</Text>)}
+      />
     </View>
   );
 };
