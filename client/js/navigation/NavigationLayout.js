@@ -15,10 +15,10 @@ const BrowseStack = createStackNavigator(
     browse: {
       screen: BrowseScreen,
     },
-    items: {
+    allItems: {
       screen: ItemsPageScreen,
     },
-    item: {
+    singleItem: {
       screen: ItemScreen,
     },
   },

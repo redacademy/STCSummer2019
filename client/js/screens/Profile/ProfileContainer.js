@@ -11,4 +11,4 @@ class ProfileContainer extends Component {
   }
 }
 
-export default withNavigation(ProfileContainer);
+export default ProfileContainer;
