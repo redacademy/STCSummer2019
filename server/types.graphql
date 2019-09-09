@@ -43,3 +43,9 @@ type Store @model {
   storelink: Boolean
 }
 
+type User @model {
+  id:ID! @isUnique
+  email: String! @isUnique
+  password: String!
+  fullname: String!
+}
