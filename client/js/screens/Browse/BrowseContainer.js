@@ -7,9 +7,7 @@ class BrowseContainer extends Component {
     title: 'Shop This City',
   };
   render() {
-    const {navigation} = this.props;
-    const item = navigation.getParam('item');
-    return <Browse item={item} navigation={this.props.navigation} />;
+    return <Browse navigation={this.props.navigation} />;
   }
 }
 

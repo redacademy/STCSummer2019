@@ -11,4 +11,4 @@ class ForYouContainer extends Component {
   }
 }
 
-export default withNavigation(ForYouContainer);
+export default ForYouContainer;
