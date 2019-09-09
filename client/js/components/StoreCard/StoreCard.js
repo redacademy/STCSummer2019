@@ -22,10 +22,10 @@ const StoreCard = ({
           <Text>{store.title}</Text>
           <Text>{store.address}</Text>
           <Text>{store.phone}</Text>
-
         </View>
       </View>
     </TouchableOpacity>
   );
+
 
 export default StoreCard;
