@@ -15,7 +15,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   carousel: {
-    //height: '30%',
+    justifyContent: 'center',
+    position: 'relative',
+  },
+  dotPosition: {
+    position: 'absolute',
   },
 });
 

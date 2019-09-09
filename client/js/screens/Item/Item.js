@@ -5,31 +5,18 @@ import styles from './styles';
 import RNPickerSelect from 'react-native-picker-select';
 
 export default class Item extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   getSizeValues = item => {
-    //TODO
-    // make color and sizes array into an array of objects
     const sizeobj = item.size.map(size => ({label: size, value: size}));
     return sizeobj;
   };
 
   getColorValues = item => {
-    //TODO
-    // make color and sizes array into an array of objects
     const colorobj = item.color.map(color => ({label: color, value: color}));
     return colorobj;
   };
 
   render() {
     const {item} = this.props;
-    console.log(item);
-
-    // console.log(colorobj);
-    // console.log(sizeobj);
 
     return (
       <View>
