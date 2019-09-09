@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { createToken, deleteToken, queryToken } from "../../config/models/authentication"
 import { withNavigation } from 'react-navigation';
-const Profile = ({ navigation }) => {
+import AsyncStorage from '@react-native-community/async-storage';
+const Profile = ({ navigation, userId }) => {
   return (
     <View>
       <Button
@@ -16,6 +17,9 @@ const Profile = ({ navigation }) => {
         }
       />
       <Text>Profile Page</Text>
+      <Text>{userId}</Text>
+
+
     </View>
   );
 };
