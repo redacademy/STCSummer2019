@@ -3,7 +3,7 @@ import {View, Text, Button, Image, TouchableOpacity} from 'react-native';
 import TabViewProfile from '../../components/TabView';
 import {withNavigation} from 'react-navigation';
 import styles from './styles';
-
+// import Icon from 'react-native-vector-icons/Ionicons';
 const Profile = ({user, navigation}) => {
   return (
     <View style={{flex: 1}}>
@@ -29,6 +29,7 @@ const Profile = ({user, navigation}) => {
           </TouchableOpacity>
         </View>
       </View>
+
       <TabViewProfile navigation={navigation} />
     </View>
   );

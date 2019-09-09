@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
     marginVertical: 20,
   },
+  itemHeart: {
+    width: '20%',
+  },
 });
 
 export default styles;
