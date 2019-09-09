@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import StoreCard from '../../components/StoreCard'
 
-const Stores = ({ stores, navigation }) => {
+const StoresBrands = ({ stores, navigation }) => {
   return (
     <View>
       <View>
@@ -23,4 +23,4 @@ const Stores = ({ stores, navigation }) => {
   );
 };
 
-export default Stores;
+export default StoresBrands;
