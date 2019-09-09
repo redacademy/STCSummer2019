@@ -13,12 +13,12 @@ class StoresBrands extends Component {
       <View>
         <View>
           <TouchableOpacity
-            onPress={() => this.setState({ displayStore: !this.state.displayStore })}
+            onPress={() => this.setState({ displayStore: true })}
           >
             <Text>Stores</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => this.setState({ displayStore: !this.state.displayStore })}
+            onPress={() => this.setState({ displayStore: false })}
           >
             <Text>Brands</Text>
           </TouchableOpacity>
