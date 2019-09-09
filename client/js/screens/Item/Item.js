@@ -10,15 +10,26 @@ export default class Item extends Component {
     this.state = {};
   }
 
+  getSizeValues = item => {
+    //TODO
+    // make color and sizes array into an array of objects
+    const sizeobj = item.size.map(size => ({label: size, value: size}));
+    return sizeobj;
+  };
+
+  getColorValues = item => {
+    //TODO
+    // make color and sizes array into an array of objects
+    const colorobj = item.color.map(color => ({label: color, value: color}));
+    return colorobj;
+  };
+
   render() {
     const {item} = this.props;
     console.log(item);
 
-    componentDidMount = () => {
-      //TODO
-      // make color and sizes array into an array of objects
-      //[{label:color, value:color}]
-    };
+    // console.log(colorobj);
+    // console.log(sizeobj);
 
     return (
       <View>
@@ -31,26 +42,18 @@ export default class Item extends Component {
           </View>
           <View style={styles.allDropdown}>
             <View style={styles.sizedropdown}>
-              {/*              
-                <RNPickerSelect
-                  onValueChange={value => console.log(value)}
-                  items={[{label: thisSize, value: thisSize}]}
-                  placeholder={{label: 'Size', value: ''}}
-                />
-             */}
+              <RNPickerSelect
+                onValueChange={value => console.log(value)}
+                items={this.getSizeValues(item)}
+                placeholder={{label: 'Size', value: ''}}
+              />
             </View>
             <View style={styles.dropdown}>
-              {/* <RNPickerSelect
-                  onValueChange={value => console.log(value)}
-                  items={[
-                    {
-                      label: thisColor,
-                      value: thisColor,
-                    },
-                  ]}
-                  placeholder={{label: 'Color', value: ''}}
-                />
-            */}
+              <RNPickerSelect
+                onValueChange={value => console.log(value)}
+                items={this.getColorValues(item)}
+                placeholder={{label: 'Color', value: ''}}
+              />
             </View>
           </View>
         </View>
