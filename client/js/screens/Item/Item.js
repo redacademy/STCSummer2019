@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import ImageCarousel from '../../components/ImageCarousel';
 import styles from './styles';
 import RNPickerSelect from 'react-native-picker-select';
+import StoreCard from '../../components/StoreCard';
 
 export default class Item extends Component {
   getSizeValues = item => {
@@ -19,7 +20,7 @@ export default class Item extends Component {
     const {item} = this.props;
 
     return (
-      <View>
+      <ScrollView>
         <ImageCarousel style={styles.carousel} images={item.images} />
         <View style={styles.singleItem}>
           <View style={styles.itemInfo}>
@@ -44,7 +45,8 @@ export default class Item extends Component {
             </View>
           </View>
         </View>
-      </View>
+        <StoreCard />
+      </ScrollView>
     );
   }
 }

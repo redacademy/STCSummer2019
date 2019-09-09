@@ -10,16 +10,30 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: '100%',
-    height: 430,
+    height: 420,
     alignSelf: 'center',
-    justifyContent: 'center',
-  },
-  carousel: {
     justifyContent: 'center',
     position: 'relative',
   },
-  dotPosition: {
+  carousel: {
+    justifyContent: 'center',
+  },
+  containerStyle: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
     position: 'absolute',
+    top: '54%',
+    alignItems: 'center',
+    width: '100%',
+  },
+  dotStyle: {
+    width: 15,
+    height: 15,
+    borderRadius: 10,
+    marginHorizontal: 8,
+    backgroundColor: '#003399',
+  },
+  inactiveDotStyle: {
+    backgroundColor: '#E0D5C4',
   },
 });
 

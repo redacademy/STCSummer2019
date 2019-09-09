@@ -7,11 +7,10 @@ const styles = StyleSheet.create({
     height: '90%',
     marginTop: 'auto',
     marginBottom: 'auto',
-    marginLeft: 'auto',
   },
   storeCardContainer: {
     width: '90%',
-    height: '40%',
+    height: 100,
     borderWidth: 1,
     borderColor: '#D3D3D3',
     marginLeft: 'auto',

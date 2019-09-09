@@ -34,23 +34,9 @@ export class ImageCarousel extends React.Component {
         <Pagination
           dotsLength={images.length}
           activeDotIndex={this.state.activeSlide}
-          containerStyle={{
-            backgroundColor: 'rgba(0, 0, 0, 0)',
-            position: 'absolute',
-            bottom: '15%',
-            alignItems: 'center',
-            width: '100%',
-          }}
-          dotStyle={{
-            width: 15,
-            height: 15,
-            borderRadius: 10,
-            marginHorizontal: 8,
-            backgroundColor: 'blue',
-          }}
-          inactiveDotStyle={{
-            backgroundColor: 'grey',
-          }}
+          containerStyle={styles.containerStyle}
+          dotStyle={styles.dotStyle}
+          inactiveDotStyle={styles.inactiveDotStyle}
           inactiveDotOpacity={0.4}
           inactiveDotScale={0.6}
         />

@@ -21,18 +21,18 @@ const styles = StyleSheet.create({
     paddingBottom: '2%',
   },
   dropdown: {
-    borderColor: 'black',
+    borderColor: '#E0D5C4',
     borderWidth: 1,
-    width: '80%',
+    width: '75%',
     flex: 2,
-    height: 60,
+    height: 35,
   },
   sizedropdown: {
-    borderColor: 'black',
+    borderColor: '#E0D5C4',
     borderWidth: 1,
-    width: '80%',
+    width: '75%',
     flex: 2,
-    height: 60,
+    height: 35,
     marginBottom: '4%',
   },
   singleItem: {
@@ -41,10 +41,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingLeft: '5%',
     paddingRight: '5%',
+    marginTop: '5%',
   },
   allDropdown: {
-    width: '50%',
-    alignContent: 'flex-start',
+    width: '60%',
+    paddingLeft: '8%',
   },
 });
 
