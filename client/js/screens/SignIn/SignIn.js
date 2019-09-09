@@ -13,6 +13,7 @@ export const LOGIN = gql`
 mutation authenticateUser($email: String!, $password: String!){
   authenticateUser(email: $email, password: $password) {
     token
+    id
   }
 }
 `;
@@ -49,7 +50,7 @@ class SignIn extends Component {
                   const password = values.password
                   try {
                     const userToken = await authenticateUser({ variables: { email, password } }).catch(error => this.setState({ error }))
-                    await createToken(userToken.data.authenticateUser.token);
+                    await createToken(userToken.data.authenticateUser.token, userToken.data.authenticateUser.id);
                     navigation.navigate('AuthLoading');
                   }
                   catch (error) {

@@ -1,6 +1,6 @@
-export const fonts = {
-  baseFont: 'Lato-Regular',
-};
+// export const fonts = {
+//   baseFont: 'Lato-Regular',
+// };
 
 export const colors = {
   LightGrey: '#4E0D5C',

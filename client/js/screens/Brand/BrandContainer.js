@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-
+import Brand from './Brand'
 class BrandContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
+  static navigationOptions = {
+    title: 'Brand',
+  };
   render() {
+    const { navigation } = this.props;
+    const brand = navigation.getParam('brand');
     return (
-      <View>
-        <Text> BrandContainer </Text>
-      </View>
+      <Brand brand={brand} />
     );
   }
 }

@@ -1,8 +1,15 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Store from './Store';
 
 export default class StoreContainer extends Component {
+  static navigationOptions = {
+    title: 'Store',
+  };
   render() {
-    return <Store />;
+    const { navigation } = this.props;
+    const store = navigation.getParam('store');
+    return (
+      <Store store={store} />
+    );
   }
 }

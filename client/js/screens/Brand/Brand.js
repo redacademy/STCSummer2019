@@ -1,11 +1,33 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import FaveStoresContext from '../../context/FaveStoresContext';
 
-const Brand = () => {
+const Brand = ({ brand }) => {
   return (
-    <View>
-      <Text>Brand Page</Text>
-    </View>
+    <FaveStoresContext.Consumer>
+      {
+        ({ faveBrandIds, removeFaveBrand, createFaveBrand }) => {
+          return (
+            <View>
+              <Text>Brand Page</Text>
+              <Text>{brand.title}</Text>
+              <TouchableOpacity
+                onPress={() => removeFaveBrand(brand.id)}
+                activeOpacity={0.5}
+              >
+                <Text>Remove From Faves</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => createFaveBrand(brand.id)}
+                activeOpacity={0.5}
+              >
+                <Text>Add To Faves</Text>
+              </TouchableOpacity>
+            </View>
+          )
+        }
+      }
+    </FaveStoresContext.Consumer>
   );
 };
 
