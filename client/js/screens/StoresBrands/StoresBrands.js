@@ -14,22 +14,34 @@ const StoresBrands = ({
     <View>
       <View style={styles.topNavContainer}>
         <TouchableOpacity
-          style={styles.topNavTitleContainer}
+          style={
+            displayPage
+              ? styles.topNavTitleContainer
+              : styles.topNavTitleContInactive
+          }
           onPress={() => displayStores()}>
-          <Text>Stores</Text>
+          <Text style={styles.navTitle}>Stores</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.topNavTitleContainer}
+          style={
+            displayPage
+              ? styles.topNavTitleContInactive
+              : styles.topNavTitleContainer
+          }
           onPress={() => displayBrands()}>
-          <Text>Brands</Text>
+          <Text style={styles.navTitle}>Brands</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.mapLinkContainer}
-          onPress={() => {
-            Linking.openURL('http://maps.apple.com/?ll=37.484847,-122.148386');
-          }}>
-          <Text style={styles.mapText}>Map View</Text>
-        </TouchableOpacity>
+        {displayPage ? (
+          <TouchableOpacity
+            style={styles.mapLinkContainer}
+            onPress={() => {
+              Linking.openURL(
+                'http://maps.apple.com/?ll=37.484847,-122.148386',
+              );
+            }}>
+            <Text style={styles.mapText}>Map View</Text>
+          </TouchableOpacity>
+        ) : null}
       </View>
       {displayPage ? (
         <FlatList
@@ -46,7 +58,7 @@ const StoresBrands = ({
             <TouchableOpacity
               style={styles.brandContainer}
               onPress={() => navigation.navigate('brand', {brand: item})}>
-              <Text>{item.title}</Text>
+              <Text style={styles.brandTitle}>{item.title}</Text>
               <View style={styles.arrowContainer}>
                 <Image
                   source={require('../../assets/icons/forward-inactive2x.png')}
