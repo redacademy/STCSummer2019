@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
     width: '94%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: '2.8%',
-    marginTop: 10,
+    marginHorizontal: '5%',
+    margin: '5%',
   },
 });
 
