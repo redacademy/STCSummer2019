@@ -15,6 +15,7 @@ const GET_ITEMS = gql`
       stores {
         id
         title
+        storelink
         brands {
           title
           id

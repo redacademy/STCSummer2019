@@ -1,38 +1,50 @@
-import React, { Component } from 'react';
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
-import StoreCard from '../../components/StoreCard'
-const StoresBrands = ({ stores, brands, navigation, displayStores, displayBrands, displayPage }) => {
-
-
+import React, {Component} from 'react';
+import {View, Text, FlatList, TouchableOpacity} from 'react-native';
+import StoreCard from '../../components/StoreCard';
+import styles from './styles';
+const StoresBrands = ({
+  stores,
+  brands,
+  navigation,
+  displayStores,
+  displayBrands,
+  displayPage,
+}) => {
   return (
     <View>
-      <View>
+      <View style={styles.topNavContainer}>
         <TouchableOpacity
-          onPress={() => displayStores()}
-        >
+          style={styles.topNavTitleContainer}
+          onPress={() => displayStores()}>
           <Text>Stores</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => displayBrands()}
-        >
+          style={styles.topNavTitleContainer}
+          onPress={() => displayBrands()}>
           <Text>Brands</Text>
         </TouchableOpacity>
       </View>
-      {displayPage ?
+      {displayPage ? (
         <FlatList
           data={stores}
-          renderItem={({ item }) => <StoreCard store={item} navigation={navigation} />}
-        /> :
+          renderItem={({item}) => (
+            <StoreCard store={item} navigation={navigation} />
+          )}
+        />
+      ) : (
         <FlatList
           data={brands}
-          renderItem={({ item }) => (<TouchableOpacity
-            onPress={() => navigation.navigate('brand', { brand: item })}
-          ><Text>{item.title}</Text><Text>    >></Text></TouchableOpacity>)}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('brand', {brand: item})}>
+              <Text>{item.title}</Text>
+              <Text> >></Text>
+            </TouchableOpacity>
+          )}
         />
-      }
+      )}
     </View>
   );
-
 };
 
 export default StoresBrands;
