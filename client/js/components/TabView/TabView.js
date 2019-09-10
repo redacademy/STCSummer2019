@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Browse from '../../screens/Browse';
 import Faves from '../Faves';
@@ -34,7 +34,18 @@ class TabViewProfile extends Component {
               this.state.items ? styles.highlighted : styles.tabTitleContainer
             }>
             <TouchableOpacity onPress={() => this.onChangeStyle('items')}>
-              <Text>Items</Text>
+              <View style={styles.imageWrapper}>
+                <Image
+                  style={styles.itemHeart}
+                  source={
+                    this.state.items
+                      ? require('../../assets/active.png')
+                      : require('../../assets/inactiveheart.png')
+                  }
+                />
+
+                <Text>Items</Text>
+              </View>
             </TouchableOpacity>
           </View>
           <View
@@ -42,16 +53,38 @@ class TabViewProfile extends Component {
               this.state.store ? styles.highlighted : styles.tabTitleContainer
             }>
             <TouchableOpacity onPress={() => this.onChangeStyle('store')}>
-              <Text>Stores</Text>
+              <View style={styles.imageWrapper}>
+                <Image
+                  style={styles.itemHeart}
+                  source={
+                    this.state.store
+                      ? require('../../assets/active.png')
+                      : require('../../assets/inactiveheart.png')
+                  }
+                />
+
+                <Text>Stores</Text>
+              </View>
             </TouchableOpacity>
           </View>
           <View
             style={
               this.state.brands ? styles.highlighted : styles.tabTitleContainer
             }>
-            <TouchableOpacity onPress={() => this.onChangeStyle('brands')}>
-              <Text>Brands</Text>
-            </TouchableOpacity>
+            <View style={styles.imageWrapper}>
+              <Image
+                style={styles.itemHeart}
+                source={
+                  this.state.brands
+                    ? require('../../assets/active.png')
+                    : require('../../assets/inactiveheart.png')
+                }
+              />
+
+              <TouchableOpacity onPress={() => this.onChangeStyle('brands')}>
+                <Text>Brands</Text>
+              </TouchableOpacity>
+            </View>
           </View>
           <View
             style={
@@ -59,13 +92,23 @@ class TabViewProfile extends Component {
                 ? styles.highlighted
                 : styles.tabTitleContainer
             }>
-            <TouchableOpacity onPress={() => this.onChangeStyle('myphotos')}>
-              <Text>My Photos</Text>
-            </TouchableOpacity>
+            <View style={styles.imageWrapper}>
+              <Image
+                style={styles.itemHeart}
+                source={
+                  this.state.myphotos
+                    ? require('../../assets/active.png')
+                    : require('../../assets/inactiveheart.png')
+                }
+              />
+              <TouchableOpacity onPress={() => this.onChangeStyle('myphotos')}>
+                <Text>My Photos</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
+        {this.state.items && <Faves />}
         {this.state.store && <Browse />}
-        {/* {this.state.items === true ? <Faves item={stores} /> : null} */}
       </View>
     );
   }

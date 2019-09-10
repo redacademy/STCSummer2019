@@ -21,6 +21,14 @@ const styles = StyleSheet.create({
     borderColor: colors.DarkBlue,
     width: '25%',
   },
+  itemHeart: {
+    height: 15,
+    width: '18%',
+    marginRight: '2.5%',
+  },
+  imageWrapper: {
+    flexDirection: 'row',
+  },
 });
 
 export default styles;

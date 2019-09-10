@@ -30,7 +30,7 @@ const Profile = ({navigation, user}) => {
           styles={styles.img}
         />
         <View style={{marginTop: 20}}>
-          <Text style={styles.userName}>Marie</Text>
+          <Text style={styles.userName}>{user.fullname}</Text>
           <TouchableOpacity
             onPress={() => {
               navigation.navigate('allItems', {category: 'Clothes'});
