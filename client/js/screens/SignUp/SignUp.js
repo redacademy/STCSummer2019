@@ -176,8 +176,9 @@ class SignUp extends Component {
                             <Text style={styles.loginSwitch}>Already Have an Account? Sign In Here!
                             </Text>
                           </TouchableOpacity>
-                          {(this.state.error &&
-                            this.state.error.graphQLErrors[0].message) && <Text style={styles.error}>There are some errors, Please try again</Text>}
+                          {this.state.error && (this.state.error.graphQLErrors[0].code === 5001 ?
+                            <Text style={styles.error}>Wrong Email or Password, please try again</Text> :
+                            <Text style={styles.error}>Server Error, please try again</Text>)}
                         </View>
                       </View>
                     )}//close Form render
