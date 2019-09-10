@@ -3,7 +3,7 @@
 // };
 
 export const colors = {
-  LightGrey: '#E0D5C4',
+  LightGrey: '#4E0D5C',
   LighterGrey: '#F2EDE6',
   DarkBlue: '#003399',
   Black: '#2B2D2F',
