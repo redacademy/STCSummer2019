@@ -4,10 +4,14 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import Browse from '../../screens/Browse';
 import Faves from '../Faves';
 import styles from './styles';
+import FavesContainer from '../Faves/FavesContainer';
+import FavesBrandsContext from '../../context/FaveBrandsContext';
+import FavesStoresContext from '../../context/FaveStoresContext';
+import FavesItemsContext from '../../context/FaveItemsContext';
 
 class TabViewProfile extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       items: true,
       store: false,
@@ -107,8 +111,8 @@ class TabViewProfile extends Component {
             </View>
           </View>
         </View>
-        {this.state.items && <Faves />}
-        {this.state.store && <Browse />}
+        {/* {this.state.items && <Browse />} */}
+        {this.state.items && <FavesContainer />}
       </View>
     );
   }
