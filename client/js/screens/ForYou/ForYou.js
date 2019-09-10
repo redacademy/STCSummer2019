@@ -1,10 +1,12 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 
-const ForYou = () => {
+const ForYou = ({ items }) => {
   return (
     <View>
-      <Text>For You Page</Text>
+      {
+        items.map((item) => <Text>{item.title}</Text>)
+      }
     </View>
   );
 };
