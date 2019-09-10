@@ -21,6 +21,16 @@ const styles = StyleSheet.create({
   itemHeart: {
     width: '20%',
   },
+  container: {
+    flex: 1,
+  },
+  imgWrapper: {
+    flexDirection: 'row',
+    marginHorizontal: '3.5%',
+  },
+  btnWrapper: {
+    marginTop: 20,
+  },
 });
 
 export default styles;

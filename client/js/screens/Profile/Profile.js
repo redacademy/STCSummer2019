@@ -3,8 +3,6 @@ import {View, Text, Button, Image, TouchableOpacity} from 'react-native';
 import TabViewProfile from '../../components/TabView';
 import {withNavigation} from 'react-navigation';
 import styles from './styles';
-// import Icon from 'react-native-vector-icons/Ionicons';
-
 import {
   createToken,
   deleteToken,
@@ -13,10 +11,8 @@ import {
 
 import AsyncStorage from '@react-native-community/async-storage';
 const Profile = ({navigation, user}) => {
-  console.log(user);
-
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.container}>
       <Button
         title={'Log Out'}
         onPress={async () => {
@@ -24,12 +20,12 @@ const Profile = ({navigation, user}) => {
           navigation.navigate('AuthLoading');
         }}
       />
-      <View style={{flexDirection: 'row', marginHorizontal: '3.5%'}}>
+      <View style={styles.imgWrapper}>
         <Image
           source={require('../../assets/profilepic.png')}
           styles={styles.img}
         />
-        <View style={{marginTop: 20}}>
+        <View style={styles.btnWrapper}>
           <Text style={styles.userName}>{user.fullname}</Text>
           <TouchableOpacity
             onPress={() => {
