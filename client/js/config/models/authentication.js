@@ -1,8 +1,8 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
-export const createToken = async (token) => {
+export const createToken = async (token, id) => {
   try {
-    await AsyncStorage.setItem('userToken', JSON.stringify({ id: token }))
+    await AsyncStorage.setItem('userToken', JSON.stringify({ id: token, userId: id }))
     return true;
   }
   catch (error) {
@@ -21,8 +21,8 @@ export const deleteToken = async (token) => {
 
 export const queryToken = async () => {
   try {
-    const value = await AsyncStorage.multiGet(['userToken']);
-    return value
+    const value = await AsyncStorage.getItem('userToken');
+    return JSON.parse(value)
   }
   catch (e) {
     return error

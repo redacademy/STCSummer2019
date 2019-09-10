@@ -4,7 +4,17 @@ import TabViewProfile from '../../components/TabView';
 import {withNavigation} from 'react-navigation';
 import styles from './styles';
 // import Icon from 'react-native-vector-icons/Ionicons';
-const Profile = ({user, navigation}) => {
+
+import {
+  createToken,
+  deleteToken,
+  queryToken,
+} from '../../config/models/authentication';
+
+import AsyncStorage from '@react-native-community/async-storage';
+const Profile = ({navigation, user}) => {
+  console.log(user);
+
   return (
     <View style={{flex: 1}}>
       <Button
