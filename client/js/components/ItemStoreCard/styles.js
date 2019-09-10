@@ -37,6 +37,16 @@ const styles = StyleSheet.create({
   cardContent: {
     flexWrap: 'wrap',
   },
+  storeSizes: {
+    flexDirection: 'row',
+    paddingRight: '1%',
+  },
+  sizeStyle: {
+    color: '#727073',
+    paddingBottom: '2%',
+    fontSize: 14,
+    paddingRight: '1%',
+  },
 });
 
 export default styles;
