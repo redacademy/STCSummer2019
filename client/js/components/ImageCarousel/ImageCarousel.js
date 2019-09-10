@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Image, ImageBackground} from 'react-native';
-import Carousel, {Pagination} from 'react-native-snap-carousel';
+import { View, Image, ImageBackground } from 'react-native';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 import styles from './styles';
-
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import FaveItemsContext from '../../context/FaveItemsContext';
 export class ImageCarousel extends React.Component {
   constructor(props) {
     super(props);
@@ -10,20 +11,45 @@ export class ImageCarousel extends React.Component {
       activeSlide: 0,
     };
   }
-  _renderItem = ({item}) => (
-    <View style={styles.imageContainer}>
-      <ImageBackground source={{uri: item}} style={styles.image}>
-        <Image
-          style={styles.itemHeart}
-          source={require('../../assets/inactiveheart.png')}
-        />
-      </ImageBackground>
-    </View>
+  _renderItem = ({ item }) => (
+    <FaveItemsContext.Consumer>
+      {
+        ({ faveItemIds, removeFaveItem, createFaveItem }) => {
+          return (
+            <View style={styles.imageContainer}>
+              <View style={styles.itemImageContainer}>
+                <Image source={{ uri: item }} style={styles.image} />
+              </View>
+              <View style={styles.heartContainer}>
+                <TouchableOpacity
+                  onPress={() => {
+                    faveItemIds.includes(this.props.id) ? removeFaveItem(this.props.id) : createFaveItem(this.props.id);
+                  }
+                  }>
+                  {faveItemIds && faveItemIds.includes(this.props.id) ?
+                    <Image
+                      style={styles.itemHeart}
+                      resizeMode='cover'
+                      source={require('../../assets/activeheart.png')}
+                    /> : <Image
+                      style={styles.itemHeart}
+                      resizeMode='cover'
+                      source={require('../../assets/inactiveheart.png')}
+                    />
+                  }
+                </TouchableOpacity>
+              </View>
+            </View>)
+        }
+      }
+    </FaveItemsContext.Consumer>
   );
 
   render() {
-    const {images} = this.props;
+    const { images } = this.props;
+
     return (
+
       <View style={styles.carousel}>
         <Carousel
           ref={c => {
@@ -34,7 +60,7 @@ export class ImageCarousel extends React.Component {
           renderItem={this._renderItem}
           sliderWidth={375}
           itemWidth={380}
-          onSnapToItem={index => this.setState({activeSlide: index})}
+          onSnapToItem={index => this.setState({ activeSlide: index })}
         />
         <Pagination
           dotsLength={images.length}

@@ -44,12 +44,13 @@ class ForYouContainer extends Component {
     title: 'New Arrivals',
   };
   render() {
+    const { navigation } = this.props
     return (
       <Query query={GET_NEW_ARRIVAL_ITEMS} variables={{ newArrival: true }}>
         {({ loading, error, data }) => {
           if (loading) return <Loader />
           if (error) return <Text>{error.message}</Text>;
-          return <ForYou items={data.allItems} />;
+          return <ForYou items={data.allItems} navigation={navigation} />;
         }
         }
       </Query>

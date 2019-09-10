@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   image: {
@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'relative',
   },
+  // itemImageContainer: {
+  //   height: 230,
+  //   width: '100%',
+  // },
   imageContainer: {
     width: '100%',
     height: 430,
@@ -37,12 +41,19 @@ const styles = StyleSheet.create({
   inactiveDotStyle: {
     backgroundColor: '#E0D5C4',
   },
-  itemHeart: {
-    height: 50,
-    width: '15%',
+  heartContainer: {
+    height: 40,
+    width: 40,
     position: 'absolute',
-    bottom: 10,
-    right: 20,
+    zIndex: 2,
+    bottom: "3%",
+    right: "5%",
+  },
+  itemHeart: {
+    width: '100%',
+    height: "100%",
+    zIndex: 2,
+
   },
 });
 
