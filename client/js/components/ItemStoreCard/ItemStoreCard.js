@@ -1,10 +1,8 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import styles from './styles';
-import Store from '../../screens/Store/Store';
 
 const ItemStoreCard = ({store, item}) => {
-  console.log(store);
   return (
     <View style={styles.storeCardContainer}>
       <View style={styles.imageContainer}>
