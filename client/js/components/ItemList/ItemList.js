@@ -47,7 +47,6 @@ const ItemList = ({ item, navigation }) => (
               onPress={() => {
                 navigation.navigate('singleItem', { item: item });
               }}>
-              {console.log("title")}
               <Text style={styles.itemText}>
                 {item.title}-{item.brand.title}
               </Text>

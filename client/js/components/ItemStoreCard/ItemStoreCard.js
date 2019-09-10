@@ -1,15 +1,14 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import { View, Text, Image } from 'react-native';
 import styles from './styles';
 import Store from '../../screens/Store/Store';
 
-const ItemStoreCard = ({store, item}) => {
-  console.log(store);
+const ItemStoreCard = ({ store, item }) => {
   return (
     <View style={styles.storeCardContainer}>
       <View style={styles.imageContainer}>
         <Image
-          source={{uri: store.storeLogo}}
+          source={{ uri: store.storeLogo }}
           style={styles.image}
           resizeMode="contain"
         />

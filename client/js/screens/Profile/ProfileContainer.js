@@ -28,7 +28,6 @@ class ProfileContainer extends Component {
   };
   getUser = async () => {
     const userToken = await queryToken('userToken');
-    console.log(userToken.userId)
     this.setState({ userId: userToken.userId })
   }
   componentDidMount() {
