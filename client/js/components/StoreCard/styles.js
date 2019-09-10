@@ -5,9 +5,7 @@ const styles = StyleSheet.create({
   image: {
     width: '90%',
     height: '90%',
-    marginTop: 'auto',
-    marginBottom: 'auto',
-    marginLeft: 'auto',
+    margin: 'auto',
   },
   storeCardContainer: {
     width: '90%',
@@ -32,6 +30,8 @@ const styles = StyleSheet.create({
   storeContentContainer: {
     justifyContent: 'space-around',
     width: '70%',
+    marginTop: 5,
+    marginBottom: 5,
     paddingLeft: '5%',
     paddingRight: '5%',
   },
@@ -62,6 +62,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     backgroundColor: 'white',
     position: 'relative',
+  },
+  storeContent: {
+    fontFamily: 'Lato-regular',
+    fontSize: 14,
+  },
+  storeTitle: {
+    fontFamily: 'Lato-Bold',
+    fontSize: 14,
   },
 });
 

@@ -28,7 +28,7 @@ const StoreCard = ({store, navigation}) => (
         />
       </View>
       <View style={styles.storeContentContainer}>
-        <Text style={styles.storeContent}>{store.title}</Text>
+        <Text style={styles.storeTitle}>{store.title}</Text>
         <Text style={styles.storeContent}>{store.address}</Text>
         <Text style={styles.storeContent}>{store.phone}</Text>
       </View>
