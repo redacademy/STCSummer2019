@@ -1,2 +1,2 @@
-import Faves from './faves';
+import Faves from './Faves';
 export default Faves;
