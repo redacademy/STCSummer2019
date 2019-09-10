@@ -1,11 +1,7 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  itemImage: {
-    height: 230,
-    width: '100%',
-    position: 'relative',
-  },
+
   fullItem: {
     width: '50%',
     paddingLeft: '2%',
@@ -19,12 +15,31 @@ const styles = StyleSheet.create({
     paddingTop: '3%',
     textDecorationLine: 'underline',
   },
+  imageHeartContainer: {
+    position: 'relative'
+  },
   itemHeart: {
-    height: '18%',
-    width: '25%',
+    width: '100%',
+    height: "100%",
+    zIndex: 2,
+
+  },
+  heartContainer: {
+    height: 40,
+    width: 40,
     position: 'absolute',
-    bottom: 5,
-    right: 5,
+    zIndex: 2,
+    bottom: "3%",
+    right: "5%",
+  },
+  itemImageContainer: {
+    height: 230,
+    width: '100%',
+  },
+  itemImage: {
+    height: '100%',
+    width: '100%',
+    // position: 'relative',
   },
 });
 
