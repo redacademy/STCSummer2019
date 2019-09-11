@@ -4,7 +4,8 @@ import ImageCarousel from '../../components/ImageCarousel';
 import styles from './styles';
 import RNPickerSelect from 'react-native-picker-select';
 import ItemStoreCard from '../../components/ItemStoreCard';
-
+import FaveItemsContext from '../../context/FaveItemsContext';
+import { createFaveItem } from '../../config/models/favedItems';
 export default class Item extends Component {
   getSizeValues = item => {
     const sizeobj = item.size
@@ -30,37 +31,45 @@ export default class Item extends Component {
     };
     const { item } = this.props;
     return (
-      <ScrollView>
-        <ImageCarousel style={styles.carousel} images={item.images} id={item.id} />
-        <View style={styles.singleItem}>
-          <View style={styles.itemInfo}>
-            <Text style={styles.itemBrand}>{item.brand.title}</Text>
-            <Text style={styles.itemTitle}>{item.title}</Text>
-            <Text style={styles.itemTags}>Tags: {item.tags[0]}</Text>
-          </View>
-          <View style={styles.allDropdown}>
-            <View style={styles.sizedropdown}>
-              <RNPickerSelect
-                onValueChange={value => console.log(value)}
-                items={this.getSizeValues(item)}
-                placeholder={{ label: 'Size', value: '', color: 'black' }}
-                style={pickerStyle}
-              />
-            </View>
-            <View style={styles.dropdown}>
-              <RNPickerSelect
-                onValueChange={value => console.log(value)}
-                items={this.getColorValues(item)}
-                placeholder={{ label: 'Color', value: '', color: 'black' }}
-                style={pickerStyle}
-              />
-            </View>
-          </View>
-        </View>
-        {item.stores.map(store => (
-          <ItemStoreCard key={store.id} store={store} item={item} />
-        ))}
-      </ScrollView>
+      <FaveItemsContext.Consumer>
+        {
+          ({ faveItemIds, removeFaveItem, createFaveItem }) => {
+            return (
+              <ScrollView>
+                <ImageCarousel style={styles.carousel} images={item.images} id={item.id} faveIds={faveItemIds} createFave={createFaveItem} deleteFave={removeFaveItem} />
+                <View style={styles.singleItem}>
+                  <View style={styles.itemInfo}>
+                    <Text style={styles.itemBrand}>{item.brand.title}</Text>
+                    <Text style={styles.itemTitle}>{item.title}</Text>
+                    <Text style={styles.itemTags}>Tags: {item.tags[0]}</Text>
+                  </View>
+                  <View style={styles.allDropdown}>
+                    <View style={styles.sizedropdown}>
+                      <RNPickerSelect
+                        onValueChange={value => console.log(value)}
+                        items={this.getSizeValues(item)}
+                        placeholder={{ label: 'Size', value: '', color: 'black' }}
+                        style={pickerStyle}
+                      />
+                    </View>
+                    <View style={styles.dropdown}>
+                      <RNPickerSelect
+                        onValueChange={value => console.log(value)}
+                        items={this.getColorValues(item)}
+                        placeholder={{ label: 'Color', value: '', color: 'black' }}
+                        style={pickerStyle}
+                      />
+                    </View>
+                  </View>
+                </View>
+                {item.stores.map(store => (
+                  <ItemStoreCard key={store.id} store={store} item={item} />
+                ))}
+              </ScrollView>
+            )
+          }
+        }
+      </FaveItemsContext.Consumer>
     );
   }
 }

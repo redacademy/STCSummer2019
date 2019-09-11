@@ -21,6 +21,7 @@ query {
     title
     website
     saledescription
+    storelink
   }
   
 }
