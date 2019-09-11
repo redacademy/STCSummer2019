@@ -1,10 +1,9 @@
 import React from 'react';
-import {Image, Text, View, TouchableOpacity} from 'react-native';
-import FaveStoresContext from '../../context/FaveStoresContext';
+import { Image, Text, View, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
-const StoreCard = ({store, navigation}) => (
-  <TouchableOpacity onPress={() => navigation.navigate('store', {store})}>
+const StoreCard = ({ store, navigation }) => (
+  <TouchableOpacity onPress={() => navigation.navigate('store', { store })}>
     <View
       style={
         store.storelink
@@ -22,16 +21,25 @@ const StoreCard = ({store, navigation}) => (
       ) : null}
       <View style={styles.imageContainer}>
         <Image
-          source={{uri: `${store.storeLogo}`}}
+          source={{ uri: `${store.storeLogo}` }}
           resizeMode="cover"
           style={styles.image}
         />
       </View>
-      <View style={styles.storeContentContainer}>
-        <Text style={styles.storeTitle}>{store.title}</Text>
-        <Text style={styles.storeContent}>{store.address}</Text>
-        <Text style={styles.storeContent}>{store.phone}</Text>
-      </View>
+
+      {navigation.state.routeName === "sale" ?
+        <View style={styles.storeContentContainer}>
+          <Text style={styles.storeTitle}>{store.title}</Text>
+          <Text style={styles.storeContent}>Sale on {store.saledescription} - {store.sale}% off</Text>
+        </View>
+        :
+        <View style={styles.storeContentContainer}>
+          <Text style={styles.storeTitle}>{store.title}</Text>
+          <Text style={styles.storeContent}>{store.address}</Text>
+          <Text style={styles.storeContent}>{store.phone}</Text>
+        </View>
+      }
+
     </View>
   </TouchableOpacity>
 );

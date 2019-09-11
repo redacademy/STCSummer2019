@@ -1,12 +1,19 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
+import StoreCard from '../../components/StoreCard'
+import styles from './styles'
 
-const Sale = () => {
+const Sale = ({ stores, navigation }) => {
   return (
-    <View>
-      <Text>Sale Page</Text>
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        {
+          stores.map((store) => <StoreCard store={store} navigation={navigation} key={store.id} />)
+        }
+      </View>
+    </ScrollView>
   );
 };
+
 
 export default Sale;
