@@ -26,7 +26,7 @@ const Profile = ({navigation, user}) => {
           navigation.navigate('AuthLoading');
         }}
       />
-      <View style={{flexDirection: 'row', marginHorizontal: '3.5%'}}>
+      <View style={styles.imgWrapper}>
         <Image
           source={require('../../assets/profilepic.png')}
           styles={styles.img}
@@ -35,12 +35,12 @@ const Profile = ({navigation, user}) => {
           <Text style={styles.userName}>{user.fullname}</Text>
         </View>
       </View>
-      {/* <TouchableOpacity
+      <TouchableOpacity
         onPress={() => {
           Linking.openURL('http://maps.apple.com/?ll=37.484847,-122.148386');
         }}>
         <Text>Open Map</Text>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
       <TabViewProfile />
     </View>
   );
