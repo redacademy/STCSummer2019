@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import Browse from '../../screens/Browse';
-
 import styles from './styles';
 import FavesContainer from '../faves/FavesContainer';
 
@@ -110,15 +108,25 @@ class TabViewProfile extends Component {
           </View>
         </View>
 
-        {/* {this.state.items && <FavesContainer items={items} />}
-        {this.state.store && <FavesContainer store={store} />}
-        {this.state.brands && <FavesContainer brands={brands} />} */}
         <FavesContainer
           items={items}
           stores={stores}
           brands={brands}
           displayscreen={this.state}
         />
+        {this.state.photos && (
+          <View>
+            <Text style={styles.text}>
+              {' '}
+              Keep track of your favourite stores!{' '}
+            </Text>
+            <Text style={styles.subText}>
+              {' '}
+              Favourite stores to get notifications of sales and new arrivals !{' '}
+            </Text>
+            <Text style={styles.browseBtn}>Browse Stores</Text>
+          </View>
+        )}
       </View>
     );
   }

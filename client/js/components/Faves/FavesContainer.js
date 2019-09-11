@@ -1,12 +1,10 @@
-import React, {Component} from './node_modules/react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {Component} from 'react';
+import {Text} from 'react-native';
 import Loader from '../Loader';
-import {gql} from './node_modules/apollo-boost';
-import FavesBrandsContext from '../../context/FaveBrandsContext';
-import FavesStoresContext from '../../context/FaveStoresContext';
+import {gql} from 'apollo-boost';
 import FavesItemsContext from '../../context/FaveItemsContext';
 import Faves from './faves';
-import {Query} from './node_modules/react-apollo';
+import {Query} from 'react-apollo';
 import {withNavigation} from 'react-navigation';
 
 const GET_All_STORES = gql`
@@ -96,8 +94,6 @@ class FavesContainer extends Component {
               if (loading) return <Loader />;
               if (error) return <Text>{error.message}</Text>;
               const itemData = data.allItems;
-              console.log(faveItemIds, 'faveitem');
-              // console.log(faveBrandIds, 'brand');
               return (
                 <Query query={GET_All_STORES}>
                   {({loading, error, data}) => {
@@ -112,9 +108,6 @@ class FavesContainer extends Component {
                           const brandsData = data.allBrands;
                           return (
                             <Faves
-                              faveItemIds={faveItemIds}
-                              // faveBrandIds={faveBrandIds}
-                              faveStoreIds={faveStoreIds}
                               items={itemData.filter(
                                 item =>
                                   faveItemIds && faveItemIds.includes(item.id),

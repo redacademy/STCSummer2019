@@ -18,7 +18,6 @@ class FaveItemsProvider extends Component {
       const savedFaveItems = await queryFaveItems();
       const faveItemIds = savedFaveItems.map(faveItem => faveItem);
       this.setState({faveItemIds});
-      console.log(this.state.faveItemIds);
     } catch (e) {
       return e;
     }

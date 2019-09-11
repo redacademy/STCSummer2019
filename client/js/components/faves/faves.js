@@ -1,7 +1,6 @@
-import React from './node_modules/react';
+import React from 'react';
 import {Text, View, Image, ScrollView} from 'react-native';
 import styles from './styles';
-import ItemList from '../ItemList';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Faves = ({
@@ -17,59 +16,8 @@ const Faves = ({
   navigation,
   displayscreen,
 }) => {
-  // let getFavitems;
-  // let item = items;
-
-  // if (item != null) {
-  //   getFavitems = items.map(item => (
-  //     <View key={item.id} style={{margin: 10}}>
-  //       <TouchableOpacity
-  //         onPress={() => {
-  //           navigation.navigate('singleItem', {item: item});
-  //         }}>
-  //         <View style={{flexDirection: 'row'}}>
-  //           <Image
-  //             resizeMode="cover"
-  //             source={{uri: item.images[0]}}
-  //             style={styles.itemImage}
-  //           />
-  //         </View>
-  //       </TouchableOpacity>
-  //     </View>
-  //   ));
-  // } else {
-  //   getFavitems = (
-  //     <View>
-  //       <Text> You have no favorites. </Text>
-  //     </View>
-  //   );
-  // }
-
-  // let getFavStore;
-  // let store = stores;
-
-  // if (store != null) {
-  //   getFavStore = stores.map(store => (
-  //     <TouchableOpacity onPress={() => navigation.navigate('store', {store})}>
-  //       <View>
-  //         <Image source={{uri: store.storeLogo}} style={styles.storeImage} />
-  //       </View>
-  //     </TouchableOpacity>
-  //   ));
-  // } else {
-  //   getFavStore = (
-  //     <View>
-  //       <Text> You have no favorites. </Text>
-  //     </View>
-  //   );
-  // }
-  console.log('displayscreen', displayscreen);
-
   return (
     <ScrollView>
-      {/* {getFavitems} */}
-      {/* {getFavStore} */}
-
       {displayscreen.items &&
         (items.length > 0 ? (
           items.map(item => (
@@ -90,7 +38,18 @@ const Faves = ({
           ))
         ) : (
           <View>
-            <Text> You have no favorites. </Text>
+            <Text style={styles.text}> Build your personal catalogue </Text>
+            <Text style={styles.subText}>
+              {' '}
+              Start favouriting styles and clothes you like to build your
+              personal catalogue{' '}
+            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Browse');
+              }}>
+              <Text style={styles.browseTxt}> Browse Clothes </Text>
+            </TouchableOpacity>
           </View>
         ))}
 
@@ -99,12 +58,21 @@ const Faves = ({
           brands.map(brand => (
             <TouchableOpacity
               onPress={() => navigation.navigate('brand', {brand: item})}>
-              <Brand brands={brands} faveBrandIds={faveBrandIds} />
+              <Brand brands={brands} />
             </TouchableOpacity>
           ))
         ) : (
           <View>
-            <Text> You have no favorites. </Text>
+            <Text style={styles.text}> See the brands you want </Text>
+            <Text style={styles.subText}>
+              {' '}
+              Curate your own personal brand by favouriting the brands that
+              represent you.{' '}
+            </Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Stores&Brands')}>
+              <Text style={styles.browseTxt}> Browse Brands </Text>
+            </TouchableOpacity>
           </View>
         ))}
 
@@ -121,17 +89,26 @@ const Faves = ({
           ))
         ) : (
           <View>
-            <Text> You have no favorites. </Text>
+            <View style={styles.containerImg}>
+              <Image
+                style={styles.iconImg}
+                source={require('../../assets/icons/heart.png')}
+              />
+            </View>
+            <Text style={styles.text}>
+              {' '}
+              Keep track of your favourite stores!{' '}
+            </Text>
+            <Text style={styles.subText}>
+              {' '}
+              Favourite stores to get notifications of sales and new arrivals !{' '}
+            </Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Stores&Brands')}>
+              <Text style={styles.browseTxt}>Browse Stores</Text>
+            </TouchableOpacity>
           </View>
         ))}
-
-      {/* {faveStoreIds.length > 0 ? (
-        <Browse />
-      ) : (
-        <View style={styles.container}>
-          <Text style={styles.favesText}> You have no favorites. </Text>
-        </View>
-      )} */}
     </ScrollView>
   );
 };
