@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
 import OnBoarding from './OnBoarding';
 import {withNavigation} from 'react-navigation';
 
@@ -10,11 +9,7 @@ class OnBoardingContainer extends Component {
   }
 
   render() {
-    return (
-      <View>
-        <OnBoarding navigation={this.props.navigation} />
-      </View>
-    );
+    return <OnBoarding navigation={this.props.navigation} />;
   }
 }
 

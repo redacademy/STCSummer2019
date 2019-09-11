@@ -1,12 +1,8 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 
 const ForYou = () => {
-  return (
-    <View>
-      <Text>For You Page</Text>
-    </View>
-  );
+  return <Text>For You Page</Text>;
 };
 
 export default ForYou;

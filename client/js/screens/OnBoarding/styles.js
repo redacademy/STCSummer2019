@@ -3,17 +3,18 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   imageContainer: {
     position: 'relative',
-    height: 300,
+    height: 310,
     width: '100%',
   },
   titleStyles: {
     fontSize: 16,
-    color: '#3f403f',
+    color: '#636261',
   },
   containerStyles: {
-    paddingLeft: '4%',
-    paddingRight: '5%',
+    paddingLeft: '6%',
+    paddingRight: '6%',
     display: 'flex',
+    height: '150%',
   },
 });
 

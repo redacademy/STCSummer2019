@@ -1,14 +1,15 @@
-import React, {Component} from 'react';
-import {Image, ImageBackground, Animated, LayoutAnimation} from 'react-native';
+import React from 'react';
+import {Image, Fragment, SafeAreaView} from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
 import styles from './styles';
 
 const OnBoarding = ({navigation}) => {
   return (
+
     <Onboarding
       onDone={() => navigation.navigate('SignUp')}
       onSkip={() => navigation.navigate('SignUp')}
-      bottomBarColor="#fff"
+      bottomBarColor="white"
       nextLabel=""
       titleStyles={styles.titleStyles}
       containerStyles={styles.containerStyles}
@@ -43,7 +44,7 @@ const OnBoarding = ({navigation}) => {
           image: (
             <Image
               style={[styles.imageContainer]}
-              source={require('../../assets/images/onboarding-3.gif')}
+              source={require('../../assets/images/onboard3.gif')}
             />
           ),
           title: '',
@@ -52,6 +53,8 @@ const OnBoarding = ({navigation}) => {
         },
       ]}
     />
+    //   </SafeAreaView>
+    // </Fragment>
   );
 };
 
