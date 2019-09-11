@@ -2,14 +2,9 @@ import React from 'react';
 import {ApolloProvider} from '@apollo/react-hooks';
 import client from './config/api';
 import RootStackNavigator from '../js/navigation/RootStackNavigator';
-<<<<<<< HEAD
 import {FaveStoresProvider} from './context/FaveStoresContext';
-
-=======
-import { FaveStoresProvider } from './context/FaveStoresContext'
-import { FaveBrandsProvider } from './context/FaveBrandsContext'
-import { FaveItemsProvider } from './context/FaveItemsContext'
->>>>>>> develop
+import {FaveBrandsProvider} from './context/FaveBrandsContext';
+import {FaveItemsProvider} from './context/FaveItemsContext';
 const App = () => {
   return (
     <ApolloProvider client={client}>
