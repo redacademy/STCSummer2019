@@ -16,14 +16,10 @@ const OnBoarding = ({navigation}) => {
         {
           backgroundColor: '#fff',
           image: (
-            <ImageBackground
+            <Image
               style={styles.imageContainer}
-              source={require('../../assets/images/map-background.png')}>
-              <Image
-                style={styles.imagePin}
-                source={require('../../assets/images/pin-animate.png')}
-              />
-            </ImageBackground>
+              source={require('../../assets/images/onboarding-1.gif')}
+            />
           ),
           title: 'Browse STC for styles, brands and any coveted items.',
           subtitle:
@@ -32,14 +28,10 @@ const OnBoarding = ({navigation}) => {
         {
           backgroundColor: '#fff',
           image: (
-            <ImageBackground
+            <Image
               style={[styles.imageContainer]}
-              source={require('../../assets/images/item-background.png')}>
-              <Image
-                style={styles.imageList}
-                source={require('../../assets/images/list-animate.png')}
-              />
-            </ImageBackground>
+              source={require('../../assets/images/onboarding-2.gif')}
+            />
           ),
           title:
             'Curate your own fashion catalogue by favouriting items, stores and brands.',
@@ -49,16 +41,10 @@ const OnBoarding = ({navigation}) => {
         {
           backgroundColor: '#fff',
           image: (
-            <ImageBackground style={styles.imageContainer}>
-              <Image
-                style={[styles.imageBubble]}
-                source={require('../../assets/images/bubble-animate.png')}
-              />
-              <Image
-                style={[styles.imageHouse]}
-                source={require('../../assets/images/house-animate.png')}
-              />
-            </ImageBackground>
+            <Image
+              style={[styles.imageContainer]}
+              source={require('../../assets/images/onboarding-3.gif')}
+            />
           ),
           title: '',
           subtitle:
