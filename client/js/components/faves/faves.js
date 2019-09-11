@@ -14,23 +14,28 @@ const Faves = ({
   displayscreen,
 }) => {
   return (
-    <View style={{margin: 10}}>
+    <View style={{marginLeft: 10, marginRight: 10, marginTop: 10}}>
       {displayscreen.items &&
         (items.length > 0 ? (
           <ScrollView>
-            {items.map(item => (
-              <TouchableOpacity
-                key={item.id}
-                onPress={() => {
-                  navigation.navigate('singleItem', {item: item});
-                }}>
-                <Image
-                  resizeMode="cover"
-                  source={{uri: item.images[0]}}
-                  style={styles.itemImage}
-                />
-              </TouchableOpacity>
-            ))}
+            <View style={styles.favItemWrapper}>
+              {items.map(item => (
+                <View style={{width: '50%', height: 235, padding: '1.3%'}}>
+                  <TouchableOpacity
+                    style={{width: '100%', height: '100%'}}
+                    key={item.id}
+                    onPress={() => {
+                      navigation.navigate('singleItem', {item: item});
+                    }}>
+                    <Image
+                      resizeMode="cover"
+                      source={{uri: item.images[0]}}
+                      style={styles.itemImage}
+                    />
+                  </TouchableOpacity>
+                </View>
+              ))}
+            </View>
           </ScrollView>
         ) : (
           <View>
