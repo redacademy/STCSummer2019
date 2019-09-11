@@ -31,17 +31,6 @@ const StoresBrands = ({
           onPress={() => displayBrands()}>
           <Text style={styles.navTitle}>Brands</Text>
         </TouchableOpacity>
-        {displayPage ? (
-          <TouchableOpacity
-            style={styles.mapLinkContainer}
-            onPress={() => {
-              Linking.openURL(
-                'http://maps.apple.com/?ll=37.484847,-122.148386',
-              );
-            }}>
-            <Text style={styles.mapText}>Map View</Text>
-          </TouchableOpacity>
-        ) : null}
       </View>
       {displayPage ? (
         <FlatList

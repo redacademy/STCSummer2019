@@ -55,17 +55,6 @@ const styles = StyleSheet.create({
     color: '#2B2D2F',
     fontFamily: 'Lato-regular',
   },
-  //Map Link styles
-  mapLinkContainer: {
-    width: '100%',
-    justifyContent: 'flex-start',
-    marginTop: '3%',
-  },
-  mapText: {
-    fontSize: 14,
-    textDecorationLine: 'underline',
-    fontFamily: 'Lato-bold',
-  },
 });
 
 export default styles;
