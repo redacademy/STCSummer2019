@@ -2,9 +2,10 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import FaveStoresContext from '../../context/FaveStoresContext';
 import Geocoder from 'react-native-geocoding';
+import {API_KEY} from 'react-native-dotenv';
 
 const Store = ({store}) => {
-  Geocoder.init('AIzaSyATF72UoEeW37Jb0YjqAmvX22cUyU0tFpQ');
+  Geocoder.init(API_KEY);
 
   Geocoder.from(store.address)
     .then(json => {
