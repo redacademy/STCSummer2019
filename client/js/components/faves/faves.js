@@ -43,9 +43,8 @@ const Faves = ({
             </View>
             <Text style={styles.text}> Build your personal catalogue </Text>
             <Text style={styles.subText}>
-              {' '}
               Start favouriting styles and clothes you like to build your
-              personal catalogue{' '}
+              personal catalogue
             </Text>
             <TouchableOpacity
               onPress={() => {
