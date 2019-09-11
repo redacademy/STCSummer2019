@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {Text, ActivityIndicator} from 'react-native';
+import React, { Component } from 'react';
+import { Text, ActivityIndicator } from 'react-native';
 import ItemsPage from './ItemsPage';
 import gql from 'graphql-tag';
-import {Query} from 'react-apollo';
-import {withNavigation} from 'react-navigation';
+import { Query } from 'react-apollo';
+import { withNavigation } from 'react-navigation';
 import styles from './styles';
 
 const GET_ITEMS = gql`
@@ -31,6 +31,7 @@ const GET_ITEMS = gql`
         email
         website
         sale
+        saledescription
       }
       size
       price
@@ -51,7 +52,7 @@ const GET_ITEMS = gql`
 `;
 
 class ItemsPageContainer extends Component {
-  static navigationOptions = ({navigation}) => ({
+  static navigationOptions = ({ navigation }) => ({
     title: navigation.state.params.category,
   });
   filterData = (items, filter) =>
@@ -60,7 +61,7 @@ class ItemsPageContainer extends Component {
   render() {
     return (
       <Query query={GET_ITEMS}>
-        {({loading, error, data}) => {
+        {({ loading, error, data }) => {
           if (loading)
             return <ActivityIndicator size="large" style={styles.loader} />;
           if (error) return <Text>Error :(</Text>;

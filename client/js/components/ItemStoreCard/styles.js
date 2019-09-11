@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import AuthLoading from '../../screens/AuthLoading';
 
 const styles = StyleSheet.create({
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     flexDirection: 'row',
-    shadowOffset: {width: 2, height: 3},
+    shadowOffset: { width: 2, height: 3 },
     shadowColor: '#D3D3D3',
     shadowOpacity: 1.0,
     backgroundColor: 'white',
@@ -33,13 +33,31 @@ const styles = StyleSheet.create({
   storeContentContainer: {
     justifyContent: 'space-around',
     paddingLeft: '5%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '60%'
+
   },
+  storeMeta: {
+    justifyContent: 'space-around',
+    height: '100%',
+    paddingVertical: '5%'
+  },
+
+  storeTitle: {
+    fontSize: 16,
+    fontWeight: '500',
+  },
+
   cardContent: {
     flexWrap: 'wrap',
   },
+
   storeSizes: {
     flexDirection: 'row',
     paddingRight: '1%',
+    // paddingBottom: '10%'
   },
   sizeStyle: {
     color: '#727073',

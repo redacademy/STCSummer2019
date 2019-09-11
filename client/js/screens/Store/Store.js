@@ -12,7 +12,13 @@ const Store = ({store}) => {
       {({faveStoreIds, removeFaveStore, createFaveStore}) => {
         return (
           <View>
-            <ImageCarousel images={store.images} id={store.id} />
+            <ImageCarousel
+              images={store.images}
+              id={store.id}
+              faveIds={faveStoreIds}
+              createFave={createFaveStore}
+              deleteFave={removeFaveStore}
+            />
             <View style={styles.contentContainer}>
               <View>
                 {console.log(store)}
@@ -51,6 +57,31 @@ const Store = ({store}) => {
         );
       }}
     </FaveStoresContext.Consumer>
+    //   {
+    //     ({ faveStoreIds, removeFaveStore, createFaveStore }) => {
+    //       return (
+    //         <View>
+    //           <Text>Store Page</Text>
+    //           <Text>{store.title}</Text>
+
+    //           <ImageCarousel images={store.images} id={store.id} faveIds={faveStoreIds} createFave={createFaveStore} deleteFave={removeFaveStore} />
+    //           <TouchableOpacity
+    //             onPress={() => removeFaveStore(store.id)}
+    //             activeOpacity={0.5}
+    //           >
+    //             <Text >Remove From Faves</Text>
+    //           </TouchableOpacity>
+    //           <TouchableOpacity
+    //             onPress={() => createFaveStore(store.id)}
+    //             activeOpacity={0.5}
+    //           >
+    //             <Text>Add To Faves</Text>
+    //           </TouchableOpacity>
+    //         </View>
+    //       )
+    //     }
+    //   }
+    // </FaveStoresContext.Consumer >
   );
 };
 

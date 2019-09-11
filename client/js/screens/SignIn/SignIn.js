@@ -121,12 +121,9 @@ class SignIn extends Component {
                         </Text>
                       </TouchableOpacity>
 
-                      <Text style={styles.error}>
-                        {(this.state.error &&
-                          this.state.error.graphQLErrors[0].message) ||
-                          (this.state.error &&
-                            this.state.error.graphQLErrors[0].message)}
-                      </Text>
+                      {this.state.error && (this.state.error.graphQLErrors[0].code === 5001 ?
+                        <Text style={styles.error}>Wrong Email or Password, please try again</Text> :
+                        <Text style={styles.error}>Server Error, please try again</Text>)}
                     </View>
 
                   </View>
