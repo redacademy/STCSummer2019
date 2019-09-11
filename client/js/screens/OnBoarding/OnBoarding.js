@@ -1,11 +1,10 @@
 import React from 'react';
-import {Image, Fragment, SafeAreaView} from 'react-native';
+import {Image} from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
 import styles from './styles';
 
 const OnBoarding = ({navigation}) => {
   return (
-
     <Onboarding
       onDone={() => navigation.navigate('SignUp')}
       onSkip={() => navigation.navigate('SignUp')}
@@ -53,8 +52,6 @@ const OnBoarding = ({navigation}) => {
         },
       ]}
     />
-    //   </SafeAreaView>
-    // </Fragment>
   );
 };
 
