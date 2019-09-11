@@ -2,19 +2,16 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Browse from '../../screens/Browse';
-import Faves from '../Faves';
+
 import styles from './styles';
-import FavesContainer from '../Faves/FavesContainer';
-import FavesBrandsContext from '../../context/FaveBrandsContext';
-import FavesStoresContext from '../../context/FaveStoresContext';
-import FavesItemsContext from '../../context/FaveItemsContext';
+import FavesContainer from '../faves/FavesContainer';
 
 class TabViewProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       items: true,
-      store: false,
+      stores: false,
       brands: false,
       myphotos: false,
     };
@@ -23,13 +20,14 @@ class TabViewProfile extends Component {
   onChangeStyle(tab) {
     this.setState({
       items: false,
-      store: false,
+      stores: false,
       brands: false,
       myphotos: false,
     });
     this.setState({[tab]: true});
   }
   render() {
+    const {items, brands, stores} = this.props;
     return (
       <View>
         <View style={styles.tabBarContainer}>
@@ -54,14 +52,14 @@ class TabViewProfile extends Component {
           </View>
           <View
             style={
-              this.state.store ? styles.highlighted : styles.tabTitleContainer
+              this.state.stores ? styles.highlighted : styles.tabTitleContainer
             }>
-            <TouchableOpacity onPress={() => this.onChangeStyle('store')}>
+            <TouchableOpacity onPress={() => this.onChangeStyle('stores')}>
               <View style={styles.imageWrapper}>
                 <Image
                   style={styles.itemHeart}
                   source={
-                    this.state.store
+                    this.state.stores
                       ? require('../../assets/active.png')
                       : require('../../assets/inactiveheart.png')
                   }
@@ -111,8 +109,16 @@ class TabViewProfile extends Component {
             </View>
           </View>
         </View>
-        {/* {this.state.items && <Browse />} */}
-        {this.state.items && <FavesContainer />}
+
+        {/* {this.state.items && <FavesContainer items={items} />}
+        {this.state.store && <FavesContainer store={store} />}
+        {this.state.brands && <FavesContainer brands={brands} />} */}
+        <FavesContainer
+          items={items}
+          stores={stores}
+          brands={brands}
+          displayscreen={this.state}
+        />
       </View>
     );
   }

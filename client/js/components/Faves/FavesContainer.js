@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
+import React, {Component} from './node_modules/react';
 import {View, Text, StyleSheet} from 'react-native';
 import Loader from '../Loader';
-import {gql} from 'apollo-boost';
+import {gql} from './node_modules/apollo-boost';
 import FavesBrandsContext from '../../context/FaveBrandsContext';
 import FavesStoresContext from '../../context/FaveStoresContext';
 import FavesItemsContext from '../../context/FaveItemsContext';
-import Faves from './Faves';
-import {Query} from 'react-apollo';
+import Faves from './faves';
+import {Query} from './node_modules/react-apollo';
+import {withNavigation} from 'react-navigation';
 
 const GET_All_STORES = gql`
   {
@@ -80,65 +81,70 @@ class FavesContainer extends Component {
     super(props);
   }
   render() {
+    const {navigation} = this.props;
     return (
       <FavesItemsContext.Consumer>
-        <Query query={GET_All_ITEMS}>
-          {({loading, error, data, faveItemIds, removeFaveItem}) => {
-            if (loading) return <Loader />;
-            if (error) return <Text>{error.message}</Text>;
-            const itemData = data.allItems;
-            return (
-              <FavesStoresContext.Consumer>
+        {({
+          faveItemIds,
+          faveStoreIds,
+          faveBrandIds,
+          removeFaveItem,
+          removeFaveBrand,
+        }) => (
+          <Query query={GET_All_ITEMS}>
+            {({loading, error, data}) => {
+              if (loading) return <Loader />;
+              if (error) return <Text>{error.message}</Text>;
+              const itemData = data.allItems;
+              console.log(faveItemIds, 'faveitem');
+              // console.log(faveBrandIds, 'brand');
+              return (
                 <Query query={GET_All_STORES}>
-                  {({loading, error, data, faveStoreIds, removeFaveStore}) => {
+                  {({loading, error, data}) => {
                     if (loading) return <Loader />;
                     if (error) return <Text>{error.message}</Text>;
                     const storesData = data.allStores;
                     return (
-                      <FavesBrandsContext.Consumer>
-                        <Query query={GET_All_BRANDS}>
-                          {({
-                            loading,
-                            error,
-                            data,
-                            faveBrandIds,
-                            removeFaveBrand,
-                          }) => {
-                            if (loading) return <Loader />;
-                            if (error) return <Text>{error.message}</Text>;
-                            const brandsData = data.allBrands;
-                            return (
-                              <Faves
-                                navigation={navigation}
-                                faveItemIds={faveItemIds}
-                                faveBrandIds={faveBrandIds}
-                                faveStoreIds={faveStoreIds}
-                                items={itemsData.filter(item =>
-                                  faveItemIds.includes(item.id),
-                                )}
-                                faveItemIds={faveItemIds}
-                                removeFaveItem={removeFaveItem}
-                                stores={storesData.filter(store =>
+                      <Query query={GET_All_BRANDS}>
+                        {({loading, error, data}) => {
+                          if (loading) return <Loader />;
+                          if (error) return <Text>{error.message}</Text>;
+                          const brandsData = data.allBrands;
+                          return (
+                            <Faves
+                              faveItemIds={faveItemIds}
+                              // faveBrandIds={faveBrandIds}
+                              faveStoreIds={faveStoreIds}
+                              items={itemData.filter(
+                                item =>
+                                  faveItemIds && faveItemIds.includes(item.id),
+                              )}
+                              navigation={navigation}
+                              displayscreen={this.props.displayscreen}
+                              stores={storesData.filter(
+                                store =>
+                                  faveStoreIds &&
                                   faveStoreIds.includes(store.id),
-                                )}
-                                brands={brandsData.filter(brand =>
+                              )}
+                              brands={brandsData.filter(
+                                brand =>
+                                  faveBrandIds &&
                                   faveBrandIds.includes(brand.id),
-                                )}
-                              />
-                            );
-                          }}
-                        </Query>
-                      </FavesBrandsContext.Consumer>
+                              )}
+                            />
+                          );
+                        }}
+                      </Query>
                     );
                   }}
                 </Query>
-              </FavesStoresContext.Consumer>
-            );
-          }}
-        </Query>
+              );
+            }}
+          </Query>
+        )}
       </FavesItemsContext.Consumer>
     );
   }
 }
 
-export default FavesContainer;
+export default withNavigation(FavesContainer);
