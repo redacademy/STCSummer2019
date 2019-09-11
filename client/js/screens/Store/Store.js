@@ -13,28 +13,40 @@ const Store = ({store}) => {
         return (
           <View>
             <ImageCarousel images={store.images} id={store.id} />
-            <View>
-              <Text>{store.title}</Text>
-              <TouchableOpacity
-                style={styles.mapLinkContainer}
-                onPress={() => {
-                  Linking.openURL(
-                    'http://maps.apple.com/?ll=37.484847,-122.148386',
-                  );
-                }}>
-                <Text style={styles.mapText}>Map View</Text>
-              </TouchableOpacity>
+            <View style={styles.contentContainer}>
+              <View>
+                {console.log(store)}
+                <Text>{store.title}</Text>
+                <TouchableOpacity
+                  style={styles.mapLinkContainer}
+                  onPress={() => {
+                    Linking.openURL(
+                      'http://maps.apple.com/?ll=37.484847,-122.148386',
+                    );
+                  }}>
+                  <Text style={styles.mapText}>Map View</Text>
+                </TouchableOpacity>
+              </View>
+
+              <Text style={styles.contentHeaders}>Store Hours</Text>
+              <View style={styles.dayHoursContainer}>
+                <View style={styles.daysContainer}>
+                  <Text style={styles.content}>Mon-Sat</Text>
+                  <Text style={styles.content}>Sun</Text>
+                </View>
+                <View style={styles.hoursContainer}>
+                  <Text style={styles.content}>{weekdayHours}</Text>
+                  <Text style={styles.content}>{sundayHours} </Text>
+                </View>
+              </View>
+              <View style={styles.contactInfoContainer}>
+                <Text style={styles.contentHeaders}>Contact Information</Text>
+                <Text style={styles.content}>{store.address}</Text>
+                <Text style={styles.content}>{store.phone}</Text>
+                <Text style={styles.content}>{store.email}</Text>
+                <Text style={styles.content}>{store.website}</Text>
+              </View>
             </View>
-            {/* <View style={styles.dayHoursContainer}> */}
-            <View style={styles.daysContainer}>
-              <Text>Mon-Sat</Text>
-              <Text>Sun</Text>
-            </View>
-            <View style={styles.hoursContainer}>
-              <Text>{weekdayHours}</Text>
-              <Text>{sundayHours} </Text>
-            </View>
-            {/* </View> */}
           </View>
         );
       }}

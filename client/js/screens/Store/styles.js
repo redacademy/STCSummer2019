@@ -13,8 +13,15 @@ const styles = StyleSheet.create({
     fontFamily: 'Lato-bold',
   },
   dayHoursContainer: {
-    // flexDirection: 'row',
-    // width: '60%',
+    flexDirection: 'row',
+    width: '50%',
+    justifyContent: 'space-between',
+  },
+  contentContainer: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: '1%',
+    width: 350,
   },
 });
 
