@@ -19,7 +19,18 @@ const GET_ITEMS = gql`
         brands {
           title
           id
+          images
+          description
         }
+        images
+        storeLogo
+        categories
+        hours
+        address
+        phone
+        email
+        website
+        sale
       }
       size
       price
@@ -32,6 +43,8 @@ const GET_ITEMS = gql`
       brand {
         id
         title
+        images
+        description
       }
     }
   }
@@ -41,7 +54,6 @@ class ItemsPageContainer extends Component {
   static navigationOptions = ({navigation}) => ({
     title: navigation.state.params.category,
   });
-
   filterData = (items, filter) =>
     items.filter(item => item.category === filter);
 
@@ -57,7 +69,9 @@ class ItemsPageContainer extends Component {
               data.allItems,
               this.props.navigation.state.params.category,
             );
-            return <ItemsPage allItems={items} />;
+            return (
+              <ItemsPage allItems={items} navigation={this.props.navigation} />
+            );
           }
         }}
       </Query>

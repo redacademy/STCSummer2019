@@ -5,6 +5,7 @@ import styles from './styles';
 
 const StoreCard = ({store, navigation}) => (
   <TouchableOpacity onPress={() => navigation.navigate('store', {store})}>
+<<<<<<< HEAD
     <View
       style={
         store.storelink
@@ -31,6 +32,21 @@ const StoreCard = ({store, navigation}) => (
         <Text style={styles.storeTitle}>{store.title}</Text>
         <Text style={styles.storeContent}>{store.address}</Text>
         <Text style={styles.storeContent}>{store.phone}</Text>
+=======
+    <View style={styles.storeCardContainer}>
+      <View style={styles.imageContainer}>
+        <Image
+          //   source={{uri: `${store.images}`}}
+          source={{uri: 'https://via.placeholder.com/150'}}
+          style={styles.image}
+          resizeMode="contain"
+        />
+      </View>
+      <View style={styles.storeContentContainer}>
+        <Text>{store.title}</Text>
+        <Text>{store.address}</Text>
+        <Text>{store.phone}</Text>
+>>>>>>> develop
       </View>
     </View>
   </TouchableOpacity>

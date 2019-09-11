@@ -5,7 +5,12 @@ const styles = StyleSheet.create({
   image: {
     width: '90%',
     height: '90%',
+<<<<<<< HEAD
     margin: 'auto',
+=======
+    marginTop: 'auto',
+    marginBottom: 'auto',
+>>>>>>> develop
   },
   storeCardContainer: {
     width: '90%',
@@ -70,6 +75,9 @@ const styles = StyleSheet.create({
   storeTitle: {
     fontFamily: 'Lato-Bold',
     fontSize: 14,
+  },
+  cardContent: {
+    flexWrap: 'wrap',
   },
 });
 
