@@ -70,7 +70,7 @@ const ForYouStack = createStackNavigator(
     forYou: {
       screen: ForYouScreen,
     },
-    item: {
+    singleItem: {
       screen: ItemScreen,
       navigationOptions: navigation => ({
         headerLeft: <BackButton navigation={navigation} />,
