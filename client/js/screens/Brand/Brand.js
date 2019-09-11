@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import FaveStoresContext from '../../context/FaveStoresContext';
+import FaveBrandsContext from '../../context/FaveBrandsContext';
 
 const Brand = ({ brand }) => {
   return (
-    <FaveStoresContext.Consumer>
+    <FaveBrandsContext.Consumer>
       {
         ({ faveBrandIds, removeFaveBrand, createFaveBrand }) => {
           return (
@@ -27,7 +27,7 @@ const Brand = ({ brand }) => {
           )
         }
       }
-    </FaveStoresContext.Consumer>
+    </FaveBrandsContext.Consumer>
   );
 };
 

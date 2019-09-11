@@ -14,6 +14,7 @@ class FaveBrandsProvider extends Component {
       const savedFaveBrands = await queryFaveBrands();
       const faveBrandIds = savedFaveBrands.map(faveBrand => faveBrand);
       this.setState({ faveBrandIds })
+      console.log(this.state.faveBrandIds)
     } catch (e) {
       return e
     }
