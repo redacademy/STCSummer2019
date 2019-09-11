@@ -16,7 +16,10 @@ import styles from './styles';
 import TabViewProfile from '../../components/TabViewProfile';
 import {withNavigation} from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
-const Profile = ({navigation, user}) => {
+
+
+const Profile = ({ navigation, user }) => {
+
   return (
     <View style={styles.container}>
       <Button
