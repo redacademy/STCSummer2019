@@ -5,12 +5,7 @@ const styles = StyleSheet.create({
   image: {
     width: '90%',
     height: '90%',
-<<<<<<< HEAD
     margin: 'auto',
-=======
-    marginTop: 'auto',
-    marginBottom: 'auto',
->>>>>>> develop
   },
   storeCardContainer: {
     width: '90%',
