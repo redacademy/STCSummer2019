@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import styles from './styles';
-import FavesContainer from '../faves/FavesContainer';
+import FavesContainer from '../Faves/FavesContainer';
 
 class TabViewProfile extends Component {
   constructor(props) {
@@ -114,19 +114,6 @@ class TabViewProfile extends Component {
           brands={brands}
           displayscreen={this.state}
         />
-        {this.state.photos && (
-          <View>
-            <Text style={styles.text}>
-              {' '}
-              Keep track of your favourite stores!{' '}
-            </Text>
-            <Text style={styles.subText}>
-              {' '}
-              Favourite stores to get notifications of sales and new arrivals !{' '}
-            </Text>
-            <Text style={styles.browseBtn}>Browse Stores</Text>
-          </View>
-        )}
       </View>
     );
   }
