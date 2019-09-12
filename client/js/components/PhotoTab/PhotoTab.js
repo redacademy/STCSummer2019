@@ -13,8 +13,21 @@ class PhotoTab extends Component {
 
   render() {
     const {navigation} = this.props;
-
-    return <Text>Coming Soon</Text>;
+    return (
+      <View>
+        <View style={styles.containerImg}>
+          <Image
+            style={styles.iconImg}
+            resizeMode="contain"
+            source={require('../../assets/icons/Photos.png')}
+          />
+        </View>
+        <Text style={styles.text}>Photo Feature Coming Soon!</Text>
+        <Text style={styles.subText}>
+          Save your photos here so you always keep track of fashion you love !
+        </Text>
+      </View>
+    );
   }
 }
 
