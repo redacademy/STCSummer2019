@@ -13,7 +13,6 @@ class TabViewProfile extends Component {
       brands: false,
       myphotos: false,
     };
-    console.log(this.statemyphotos, 'photos');
   }
 
   onChangeStyle(tab) {
