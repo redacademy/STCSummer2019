@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import styles from './styles';
-import FavesContainer from '../faves/FavesContainer';
+import FavesContainer from '../Faves/FavesContainer';
 
 class TabViewProfile extends Component {
   constructor(props) {
