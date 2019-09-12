@@ -3,7 +3,7 @@ import {Text} from 'react-native';
 import Loader from '../Loader';
 import {gql} from 'apollo-boost';
 import FavesItemsContext from '../../context/FaveItemsContext';
-import Faves from './faves';
+import Faves from './Faves1';
 import {Query} from 'react-apollo';
 import {withNavigation} from 'react-navigation';
 
