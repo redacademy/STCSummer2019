@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import styles from './styles';
-import FavesContainer from '../Faves/FavesContainer';
+import GetUserFaves from '../GetUserFaves/GetUserFaves';
 
 class TabViewProfile extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class TabViewProfile extends Component {
       items: true,
       stores: false,
       brands: false,
-      myphotos: false,
+      // myphotos: false,
     };
   }
 
@@ -20,7 +20,7 @@ class TabViewProfile extends Component {
       items: false,
       stores: false,
       brands: false,
-      myphotos: false,
+      // myphotos: false,
     });
     this.setState({[tab]: true});
   }
@@ -86,29 +86,29 @@ class TabViewProfile extends Component {
               </TouchableOpacity>
             </View>
           </View>
-          <View
+          {/* <View
             style={
               this.state.myphotos
                 ? styles.highlighted
                 : styles.tabTitleContainer
             }>
-            <View style={styles.imageWrapper}>
-              <Image
+            <View style={styles.imageWrapper}> */}
+          {/* <Image
                 style={styles.itemHeart}
                 source={
                   this.state.myphotos
                     ? require('../../assets/active.png')
                     : require('../../assets/inactiveheart.png')
                 }
-              />
-              <TouchableOpacity onPress={() => this.onChangeStyle('myphotos')}>
+              /> */}
+          {/* <TouchableOpacity onPress={() => this.onChangeStyle('myphotos')}>
                 <Text>My Photos</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
+              </TouchableOpacity> */}
+          {/* </View>
+          </View> */}
         </View>
 
-        <FavesContainer
+        <GetUserFaves
           items={items}
           stores={stores}
           brands={brands}
