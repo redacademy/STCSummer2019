@@ -82,13 +82,7 @@ class FavesContainer extends Component {
     const {navigation} = this.props;
     return (
       <FavesItemsContext.Consumer>
-        {({
-          faveItemIds,
-          faveStoreIds,
-          faveBrandIds,
-          removeFaveItem,
-          removeFaveBrand,
-        }) => (
+        {({faveItemIds, faveStoreIds, faveBrandIds}) => (
           <Query query={GET_All_ITEMS}>
             {({loading, error, data}) => {
               if (loading) return <Loader />;
@@ -108,12 +102,12 @@ class FavesContainer extends Component {
                           const brandsData = data.allBrands;
                           return (
                             <Faves
+                              navigation={navigation}
+                              displayscreen={this.props.displayscreen}
                               items={itemData.filter(
                                 item =>
                                   faveItemIds && faveItemIds.includes(item.id),
                               )}
-                              navigation={navigation}
-                              displayscreen={this.props.displayscreen}
                               stores={storesData.filter(
                                 store =>
                                   faveStoreIds &&
