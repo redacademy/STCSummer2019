@@ -1,18 +1,20 @@
-import {StyleSheet} from 'react-native';
-import {fonts} from '../../config/styles';
+import {StyleSheet, Dimensions} from 'react-native';
+import {fonts, colors} from '../../config/styles';
+const {height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     marginHorizontal: 10,
-    fontFamily: fonts.baseFont,
+    //fontFamily: fonts.baseFont,
+    color: colors.Black,
   },
   browseImage: {
-    height: 180,
+    height: height / 5,
     width: '94%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: 10,
-    marginTop: 10,
+    marginHorizontal: '3.5%',
+    marginVertical: '3.2%',
   },
 });
 

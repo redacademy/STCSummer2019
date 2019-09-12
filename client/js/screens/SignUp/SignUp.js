@@ -73,7 +73,7 @@ class SignUp extends Component {
                         const newUserEmail = await newUser.data.createUser.email;
                         const newUserPassword = await newUser.data.createUser.password;
                         const userToken = await authenticateUser({ variables: { email: newUserEmail, password: newUserPassword } }).catch(error => this.setState({ error }))
-                        await createToken(userToken.data.authenticateUser.token);
+                        await createToken(userToken.data.authenticateUser.token, userToken.data.authenticateUser.id);
                         // const newUserToken = await queryToken();
                         navigation.navigate('AuthLoading');
                       }
@@ -174,16 +174,11 @@ class SignUp extends Component {
                             }}
                           >
                             <Text style={styles.loginSwitch}>Already Have an Account? Sign In Here!
-                </Text>
+                            </Text>
                           </TouchableOpacity>
-
-                          <Text style={styles.error}>
-                            {(this.state.error &&
-                              this.state.error.graphQLErrors[0].message) ||
-                              (this.state.error &&
-                                this.state.error.graphQLErrors[0].message)}
-                          </Text>
-
+                          {this.state.error && (this.state.error.graphQLErrors[0].code === 5001 ?
+                            <Text style={styles.error}>Wrong Email or Password, please try again</Text> :
+                            <Text style={styles.error}>Server Error, please try again</Text>)}
                         </View>
                       </View>
                     )}//close Form render

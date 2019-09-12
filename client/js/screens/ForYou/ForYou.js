@@ -1,11 +1,17 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
+import ItemList from '../../components/ItemList'
+import styles from './styles'
 
-const ForYou = () => {
+const ForYou = ({ items, navigation }) => {
   return (
-    <View>
-      <Text>For You Page</Text>
-    </View>
+    <ScrollView>
+      <View style={styles.allItems}>
+        {
+          items.map((item) => <ItemList item={item} navigation={navigation} key={item.id} />)
+        }
+      </View>
+    </ScrollView>
   );
 };
 
