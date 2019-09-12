@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Linking} from 'react-native';
 import FaveStoresContext from '../../context/FaveStoresContext';
 import ImageCarousel from '../../components/ImageCarousel';
 import Geocoder from 'react-native-geocoding';
@@ -12,13 +12,16 @@ const Store = ({store}) => {
 
   Geocoder.init(API_KEY);
 
+  let geoLocation;
+
   Geocoder.from(store.address)
     .then(json => {
       var location = json.results[0].geometry.location;
-      console.log(location);
+      const converted = location.lat + ',' + location.lng;
+      geoLocation = converted;
+      console.log(geoLocation);
     })
     .catch(error => console.warn(error));
-
   return (
     <FaveStoresContext.Consumer>
       {({faveStoreIds, removeFaveStore, createFaveStore}) => {
@@ -39,7 +42,7 @@ const Store = ({store}) => {
                   style={styles.mapLinkContainer}
                   onPress={() => {
                     Linking.openURL(
-                      'http://maps.apple.com/?ll=37.484847,-122.148386',
+                      `https://maps.apple.com/?ll=${geoLocation}`,
                     );
                   }}>
                   <Text style={styles.mapText}>Map View</Text>
@@ -69,31 +72,6 @@ const Store = ({store}) => {
         );
       }}
     </FaveStoresContext.Consumer>
-    //   {
-    //     ({ faveStoreIds, removeFaveStore, createFaveStore }) => {
-    //       return (
-    //         <View>
-    //           <Text>Store Page</Text>
-    //           <Text>{store.title}</Text>
-
-    //           <ImageCarousel images={store.images} id={store.id} faveIds={faveStoreIds} createFave={createFaveStore} deleteFave={removeFaveStore} />
-    //           <TouchableOpacity
-    //             onPress={() => removeFaveStore(store.id)}
-    //             activeOpacity={0.5}
-    //           >
-    //             <Text >Remove From Faves</Text>
-    //           </TouchableOpacity>
-    //           <TouchableOpacity
-    //             onPress={() => createFaveStore(store.id)}
-    //             activeOpacity={0.5}
-    //           >
-    //             <Text>Add To Faves</Text>
-    //           </TouchableOpacity>
-    //         </View>
-    //       )
-    //     }
-    //   }
-    // </FaveStoresContext.Consumer >
   );
 };
 
