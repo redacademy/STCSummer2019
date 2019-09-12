@@ -11,7 +11,6 @@ class TabViewProfile extends Component {
       items: true,
       stores: false,
       brands: false,
-      // myphotos: false,
     };
   }
 
@@ -20,7 +19,6 @@ class TabViewProfile extends Component {
       items: false,
       stores: false,
       brands: false,
-      // myphotos: false,
     });
     this.setState({[tab]: true});
   }
@@ -44,7 +42,7 @@ class TabViewProfile extends Component {
                   }
                 />
 
-                <Text>Items</Text>
+                <Text style={styles.text}>Items</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -63,7 +61,7 @@ class TabViewProfile extends Component {
                   }
                 />
 
-                <Text>Stores</Text>
+                <Text style={styles.text}>Stores</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -82,30 +80,10 @@ class TabViewProfile extends Component {
               />
 
               <TouchableOpacity onPress={() => this.onChangeStyle('brands')}>
-                <Text>Brands</Text>
+                <Text style={styles.text}>Brands</Text>
               </TouchableOpacity>
             </View>
           </View>
-          {/* <View
-            style={
-              this.state.myphotos
-                ? styles.highlighted
-                : styles.tabTitleContainer
-            }>
-            <View style={styles.imageWrapper}> */}
-          {/* <Image
-                style={styles.itemHeart}
-                source={
-                  this.state.myphotos
-                    ? require('../../assets/active.png')
-                    : require('../../assets/inactiveheart.png')
-                }
-              /> */}
-          {/* <TouchableOpacity onPress={() => this.onChangeStyle('myphotos')}>
-                <Text>My Photos</Text>
-              </TouchableOpacity> */}
-          {/* </View>
-          </View> */}
         </View>
 
         <GetUserFaves
