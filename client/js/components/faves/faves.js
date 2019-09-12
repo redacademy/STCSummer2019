@@ -14,16 +14,20 @@ const Faves = ({
   displayscreen,
 }) => {
   return (
-    <View style={{marginLeft: 10, marginRight: 10, marginTop: 10}}>
+    <View style={styles.container}>
       {displayscreen.items &&
         (items.length > 0 ? (
           <ScrollView>
             <View style={styles.favItemWrapper}>
               {items.map(item => (
-                <View style={{width: '50%', height: 235, padding: '1.3%'}}>
+                <View
+                  key={item.id}
+                  style={styles.subfavItemWrapper}
+                  // style={{width: '50%', height: 235, padding: '1.3%'}}
+                >
                   <TouchableOpacity
-                    style={{width: '100%', height: '100%'}}
-                    key={item.id}
+                    style={styles.imgWrapper}
+                    // style={{width: '100%', height: '100%'}}
                     onPress={() => {
                       navigation.navigate('singleItem', {item: item});
                     }}>

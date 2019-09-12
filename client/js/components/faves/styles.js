@@ -1,13 +1,12 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import {colors} from '../../config/styles';
+
+const {height} = Dimensions.get('window');
+
 const styles = StyleSheet.create({
   itemImage: {
     height: '100%',
     width: '98%',
-    // marginLeft: '4%',
-    // marginRight: '4%',
-    // marginBottom: '4%',
-    // margin: '5%',
   },
 
   storeImage: {
@@ -61,6 +60,20 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     flexWrap: 'wrap',
+  },
+  subfavItemWrapper: {
+    width: '50%',
+    height: 235,
+    padding: 4,
+  },
+  imgWrapper: {
+    width: '100%',
+  },
+  container: {
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 10,
+    height: height / 2,
   },
 });
 export default styles;
