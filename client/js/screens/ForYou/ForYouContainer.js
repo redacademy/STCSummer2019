@@ -36,10 +36,13 @@ query allItems($newArrival:Boolean!){
     tags
     discount
   }
-  
 }
 `
+
 class ForYouContainer extends Component {
+
+
+
   static navigationOptions = {
     title: 'New Arrivals',
   };

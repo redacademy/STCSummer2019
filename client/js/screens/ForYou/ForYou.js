@@ -2,15 +2,15 @@ import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import ItemList from '../../components/ItemList'
 import styles from './styles'
-
-const ForYou = ({ items, navigation }) => {
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import Filter from "../../components/Filter";
+const ForYou = ({ items, navigation, }) => {
   return (
     <ScrollView>
-      <View style={styles.allItems}>
-        {
-          items.map((item) => <ItemList item={item} navigation={navigation} key={item.id} />)
-        }
-      </View>
+      <TouchableOpacity>
+        <Text>Filter</Text>
+      </TouchableOpacity>
+      <Filter items={items} navigation={navigation} />
     </ScrollView>
   );
 };
