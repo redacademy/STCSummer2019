@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import styles from './styles';
-import FavesContainer from '../faves/FavesContainer';
+import GetUserFaves from '../GetUserFaves/GetUserFaves';
 
 class TabViewProfile extends Component {
   constructor(props) {
@@ -11,7 +11,6 @@ class TabViewProfile extends Component {
       items: true,
       stores: false,
       brands: false,
-      myphotos: false,
     };
   }
 
@@ -20,7 +19,6 @@ class TabViewProfile extends Component {
       items: false,
       stores: false,
       brands: false,
-      myphotos: false,
     });
     this.setState({[tab]: true});
   }
@@ -44,7 +42,7 @@ class TabViewProfile extends Component {
                   }
                 />
 
-                <Text>Items</Text>
+                <Text style={styles.text}>Items</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -63,7 +61,7 @@ class TabViewProfile extends Component {
                   }
                 />
 
-                <Text>Stores</Text>
+                <Text style={styles.text}>Stores</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -82,51 +80,18 @@ class TabViewProfile extends Component {
               />
 
               <TouchableOpacity onPress={() => this.onChangeStyle('brands')}>
-                <Text>Brands</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-          <View
-            style={
-              this.state.myphotos
-                ? styles.highlighted
-                : styles.tabTitleContainer
-            }>
-            <View style={styles.imageWrapper}>
-              <Image
-                style={styles.itemHeart}
-                source={
-                  this.state.myphotos
-                    ? require('../../assets/active.png')
-                    : require('../../assets/inactiveheart.png')
-                }
-              />
-              <TouchableOpacity onPress={() => this.onChangeStyle('myphotos')}>
-                <Text>My Photos</Text>
+                <Text style={styles.text}>Brands</Text>
               </TouchableOpacity>
             </View>
           </View>
         </View>
 
-        <FavesContainer
+        <GetUserFaves
           items={items}
           stores={stores}
           brands={brands}
           displayscreen={this.state}
         />
-        {this.state.photos && (
-          <View>
-            <Text style={styles.text}>
-              {' '}
-              Keep track of your favourite stores!{' '}
-            </Text>
-            <Text style={styles.subText}>
-              {' '}
-              Favourite stores to get notifications of sales and new arrivals !{' '}
-            </Text>
-            <Text style={styles.browseBtn}>Browse Stores</Text>
-          </View>
-        )}
       </View>
     );
   }

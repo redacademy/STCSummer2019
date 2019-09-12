@@ -3,7 +3,7 @@ import {Text} from 'react-native';
 import Loader from '../Loader';
 import {gql} from 'apollo-boost';
 import FavesItemsContext from '../../context/FaveItemsContext';
-import Faves from './faves';
+import Faves from '../Faves';
 import {Query} from 'react-apollo';
 import {withNavigation} from 'react-navigation';
 
@@ -74,7 +74,7 @@ const GET_All_ITEMS = gql`
   }
 `;
 
-class FavesContainer extends Component {
+class GetUserFaves extends Component {
   constructor(props) {
     super(props);
   }
@@ -82,13 +82,7 @@ class FavesContainer extends Component {
     const {navigation} = this.props;
     return (
       <FavesItemsContext.Consumer>
-        {({
-          faveItemIds,
-          faveStoreIds,
-          faveBrandIds,
-          removeFaveItem,
-          removeFaveBrand,
-        }) => (
+        {({faveItemIds, faveStoreIds, faveBrandIds}) => (
           <Query query={GET_All_ITEMS}>
             {({loading, error, data}) => {
               if (loading) return <Loader />;
@@ -108,12 +102,12 @@ class FavesContainer extends Component {
                           const brandsData = data.allBrands;
                           return (
                             <Faves
+                              navigation={navigation}
+                              displayscreen={this.props.displayscreen}
                               items={itemData.filter(
                                 item =>
                                   faveItemIds && faveItemIds.includes(item.id),
                               )}
-                              navigation={navigation}
-                              displayscreen={this.props.displayscreen}
                               stores={storesData.filter(
                                 store =>
                                   faveStoreIds &&
@@ -140,4 +134,4 @@ class FavesContainer extends Component {
   }
 }
 
-export default withNavigation(FavesContainer);
+export default withNavigation(GetUserFaves);
