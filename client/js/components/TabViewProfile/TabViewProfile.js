@@ -13,6 +13,7 @@ class TabViewProfile extends Component {
       brands: false,
       myphotos: false,
     };
+    console.log(this.statemyphotos, 'photos');
   }
 
   onChangeStyle(tab) {
@@ -114,19 +115,6 @@ class TabViewProfile extends Component {
           brands={brands}
           displayscreen={this.state}
         />
-        {this.state.photos && (
-          <View>
-            <Text style={styles.text}>
-              {' '}
-              Keep track of your favourite stores!{' '}
-            </Text>
-            <Text style={styles.subText}>
-              {' '}
-              Favourite stores to get notifications of sales and new arrivals !{' '}
-            </Text>
-            <Text style={styles.browseBtn}>Browse Stores</Text>
-          </View>
-        )}
       </View>
     );
   }

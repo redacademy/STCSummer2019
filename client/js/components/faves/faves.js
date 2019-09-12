@@ -1,18 +1,9 @@
 import React from 'react';
 import {Text, View, Image, ScrollView} from 'react-native';
 import styles from './styles';
-import {TouchableOpacity, FlatList} from 'react-native-gesture-handler';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const Faves = ({
-  stores,
-  brands,
-  items,
-  faveItemIds,
-  faveBrandIds,
-  faveStoreIds,
-  navigation,
-  displayscreen,
-}) => {
+const Faves = ({stores, brands, items, navigation, displayscreen}) => {
   return (
     <View style={styles.container}>
       {displayscreen.items &&
@@ -20,14 +11,9 @@ const Faves = ({
           <ScrollView>
             <View style={styles.favItemWrapper}>
               {items.map(item => (
-                <View
-                  key={item.id}
-                  style={styles.subfavItemWrapper}
-                  // style={{width: '50%', height: 235, padding: '1.3%'}}
-                >
+                <View key={item.id} style={styles.subfavItemWrapper}>
                   <TouchableOpacity
                     style={styles.imgWrapper}
-                    // style={{width: '100%', height: '100%'}}
                     onPress={() => {
                       navigation.navigate('singleItem', {item: item});
                     }}>
@@ -69,12 +55,14 @@ const Faves = ({
       {displayscreen.brands &&
         (brands.length > 0 ? (
           <ScrollView>
-            {brands.map(brand => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate('brand', {brand: item})}>
-                <Brand brands={brands} />
-              </TouchableOpacity>
-            ))}
+            <View style={styles.favItemWrapper}>
+              {brands.map(brand => (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('brand', {brand: item})}>
+                  <Brand brands={brands} />
+                </TouchableOpacity>
+              ))}
+            </View>
           </ScrollView>
         ) : (
           <View>
@@ -103,15 +91,17 @@ const Faves = ({
       {displayscreen.stores &&
         (stores.length > 0 ? (
           <ScrollView>
-            {stores.map(store => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate('store', {store})}>
-                <Image
-                  source={{uri: store.storeLogo}}
-                  style={styles.storeImage}
-                />
-              </TouchableOpacity>
-            ))}
+            <View style={styles.favItemWrapper}>
+              {stores.map(store => (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('store', {store})}>
+                  <Image
+                    source={{uri: store.storeLogo}}
+                    style={styles.storeImage}
+                  />
+                </TouchableOpacity>
+              ))}
+            </View>
           </ScrollView>
         ) : (
           <View>
@@ -122,7 +112,6 @@ const Faves = ({
                 source={require('../../assets/icons/heart.png')}
               />
             </View>
-
             <Text style={styles.text}>
               Keep track of your favourite stores!
             </Text>
@@ -137,6 +126,32 @@ const Faves = ({
             </TouchableOpacity>
           </View>
         ))}
+
+      {displayscreen.myphotos && (
+        <View>
+          <View style={styles.containerImg}>
+            <Image
+              style={styles.iconImg}
+              resizeMode="contain"
+              source={require('../../assets/icons/Photos.png')}
+            />
+          </View>
+          <Text style={styles.text}>Keep track of photos!</Text>
+          <Text style={styles.subText}>
+            Save your photos here so you always keep track of fashion you love !
+          </Text>
+          <TouchableOpacity>
+            <View style={styles.txtWrapper}>
+              <Text style={styles.browseTxt}>Capture a Picture</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <View style={styles.txtWrapper}>
+              <Text style={styles.browseTxt}>Upload from Photos</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
