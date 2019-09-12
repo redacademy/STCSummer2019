@@ -23,6 +23,8 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    marginLeft: '4%',
+    marginRight: '4%',
   },
   imgWrapper: {
     flexDirection: 'row',

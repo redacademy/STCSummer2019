@@ -6,15 +6,15 @@ const {height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   itemImage: {
     height: '100%',
-    width: '98%',
+    width: '100%',
+    borderColor: 'black',
+    borderWidth: 0.5,
   },
 
-  storeImage: {
-    width: '90%',
-    height: '90%',
-    marginTop: 'auto',
-    marginBottom: 'auto',
+  container: {
+    marginTop: '5%',
   },
+
   iconImg: {
     width: '100%',
     height: '100%',

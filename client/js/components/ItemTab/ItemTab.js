@@ -59,7 +59,7 @@ class ItemTab extends Component {
                 );
 
                 return (
-                  <View>
+                  <View style={styles.container}>
                     {items.length > 0 ? (
                       <ScrollView>
                         <View style={styles.favItemWrapper}>
@@ -85,7 +85,7 @@ class ItemTab extends Component {
                         </View>
                       </ScrollView>
                     ) : (
-                      <View>
+                      <View style={styles.container}>
                         <View style={styles.containerImg}>
                           <Image
                             style={styles.iconImg}

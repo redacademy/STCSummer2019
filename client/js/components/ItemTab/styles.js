@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
     width: '98%',
   },
 
+  container: {
+    marginTop: '5%',
+  },
+
   storeImage: {
     width: '90%',
     height: '90%',

@@ -50,7 +50,7 @@ class StoreTab extends Component {
                 );
 
                 return (
-                  <View>
+                  <View style={styles.container}>
                     {stores.length > 0 ? (
                       <ScrollView>
                         <View style={styles.favItemWrapper}>
@@ -66,7 +66,7 @@ class StoreTab extends Component {
                                 <Image
                                   resizeMode="cover"
                                   source={{uri: store.storeLogo}}
-                                  style={styles.itemImage}
+                                  style={styles.storeImage}
                                 />
                               </TouchableOpacity>
                             </View>
@@ -74,7 +74,7 @@ class StoreTab extends Component {
                         </View>
                       </ScrollView>
                     ) : (
-                      <View>
+                      <View style={styles.container}>
                         <View style={styles.containerImg}>
                           <Image
                             style={styles.iconImg}

@@ -48,7 +48,7 @@ class BrandTab extends Component {
                 );
 
                 return (
-                  <View>
+                  <View style={styles.container}>
                     {brands.length > 0 ? (
                       <ScrollView>
                         <View style={styles.favItemWrapper}>
@@ -72,7 +72,7 @@ class BrandTab extends Component {
                         </View>
                       </ScrollView>
                     ) : (
-                      <View>
+                      <View style={styles.container}>
                         <View style={styles.containerImg}>
                           <Image
                             style={styles.iconImg}
