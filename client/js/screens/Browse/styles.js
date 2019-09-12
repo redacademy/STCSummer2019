@@ -9,12 +9,12 @@ const styles = StyleSheet.create({
     color: colors.Black,
   },
   browseImage: {
-    height: height / 4,
+    height: height / 5,
     width: '94%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: '5%',
-    margin: '5%',
+    marginHorizontal: '3.5%',
+    marginVertical: '3.2%',
   },
 });
 
