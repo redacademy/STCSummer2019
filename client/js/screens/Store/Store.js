@@ -2,11 +2,23 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import FaveStoresContext from '../../context/FaveStoresContext';
 import ImageCarousel from '../../components/ImageCarousel';
+import Geocoder from 'react-native-geocoding';
+import {API_KEY} from 'react-native-dotenv';
 import styles from './styles';
 
 const Store = ({store}) => {
   const weekdayHours = store.hours.split(', ')[0];
   const sundayHours = store.hours.split(', ')[1];
+
+  Geocoder.init(API_KEY);
+
+  Geocoder.from(store.address)
+    .then(json => {
+      var location = json.results[0].geometry.location;
+      console.log(location);
+    })
+    .catch(error => console.warn(error));
+
   return (
     <FaveStoresContext.Consumer>
       {({faveStoreIds, removeFaveStore, createFaveStore}) => {
