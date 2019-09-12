@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {View, StyleSheet, Dimensions} from 'react-native';
-import {TabView, SceneMap} from 'react-native-tab-view';
+import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import ItemTab from '../ItemTab';
 import StoreTab from '../StoreTab';
 import BrandTab from '../BrandTab';
+import styles from './styles';
 
 const ItemRoute = () => <ItemTab />;
 
@@ -35,13 +36,16 @@ export default class TabProfile extends React.Component {
         })}
         onIndexChange={index => this.setState({index})}
         initialLayout={{width: Dimensions.get('window').width}}
+        renderTabBar={props => (
+          <TabBar
+            {...props}
+            indicatorStyle={{backgroundColor: '#003399'}}
+            style={{backgroundColor: 'white'}}
+            activeColor={'black'}
+            inactiveColor={'black'}
+          />
+        )}
       />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  scene: {
-    flex: 1,
-  },
-});
