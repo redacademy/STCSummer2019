@@ -36,12 +36,7 @@ const Profile = ({navigation, user}) => {
           <Text style={styles.userName}>{user.fullname}</Text>
         </View>
       </View>
-      <TouchableOpacity
-        onPress={() => {
-          Linking.openURL('http://maps.apple.com/?ll=37.484847,-122.148386');
-        }}>
-        <Text>Open Map</Text>
-      </TouchableOpacity>
+
       <TabViewProfile />
     </View>
   );
