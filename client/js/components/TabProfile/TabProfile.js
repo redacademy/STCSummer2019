@@ -47,7 +47,10 @@ export default class TabProfile extends React.Component {
             style={{backgroundColor: 'white'}}
             activeColor={'black'}
             inactiveColor={'black'}
-            labelStyle={{flexWrap: 'nowrap'}}
+            labelStyle={{
+              textTransform: 'capitalize',
+              color: '#2B2D2f',
+            }}
           />
         )}
       />
