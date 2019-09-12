@@ -213,6 +213,7 @@ export default createBottomTabNavigator(
       inactiveTintColor: '#2B2D2F',
       labelStyle: {
         fontSize: 10,
+        fontFamily: 'Lato-regular',
       },
       style: {
         marginTop: '5%',

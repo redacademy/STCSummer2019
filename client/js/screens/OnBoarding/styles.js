@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
   titleStyles: {
     fontSize: 16,
     color: '#636261',
+    fontFamily: 'Lato-regular',
   },
   containerStyles: {
     paddingLeft: '6%',

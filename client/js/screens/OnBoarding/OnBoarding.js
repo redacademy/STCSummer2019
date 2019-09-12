@@ -12,6 +12,7 @@ const OnBoarding = ({navigation}) => {
       nextLabel=""
       titleStyles={styles.titleStyles}
       containerStyles={styles.containerStyles}
+      subTitleStyles={styles.titleStyles}
       pages={[
         {
           backgroundColor: '#fff',

@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import {fonts, colors} from '../../config/styles';
 const styles = StyleSheet.create({
   topNavContainer: {
     width: '90%',
@@ -31,7 +30,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Lato-Bold',
   },
-  //Brand section
   brandContainer: {
     borderBottomColor: '#D3D3D3',
     borderBottomWidth: 1,
