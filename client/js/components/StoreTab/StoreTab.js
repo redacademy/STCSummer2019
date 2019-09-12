@@ -48,23 +48,28 @@ class StoreTab extends Component {
                 const stores = storesData.filter(
                   store => faveStoreIds && faveStoreIds.includes(store.id),
                 );
-                console.log(stores);
+
                 return (
                   <View>
                     {stores.length > 0 ? (
                       <ScrollView>
                         <View style={styles.favItemWrapper}>
                           {stores.map(store => (
-                            <TouchableOpacity
-                              key={store.id}
-                              onPress={() =>
-                                navigation.navigate('store', {store})
-                              }>
-                              <Image
-                                source={{uri: store.storeLogo}}
-                                style={styles.itemImage}
-                              />
-                            </TouchableOpacity>
+                            <View
+                              style={styles.subfavItemWrapper}
+                              key={store.id}>
+                              <TouchableOpacity
+                                style={styles.imgWrapper}
+                                onPress={() =>
+                                  navigation.navigate('store', {store})
+                                }>
+                                <Image
+                                  resizeMode="cover"
+                                  source={{uri: store.storeLogo}}
+                                  style={styles.itemImage}
+                                />
+                              </TouchableOpacity>
+                            </View>
                           ))}
                         </View>
                       </ScrollView>

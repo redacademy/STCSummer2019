@@ -4,6 +4,11 @@ import {colors} from '../../config/styles';
 const {height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
+  itemImage: {
+    height: '100%',
+    width: '98%',
+  },
+
   storeImage: {
     width: '90%',
     height: '90%',
@@ -51,7 +56,16 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
     marginTop: '4.5%',
   },
-
+  favItemWrapper: {
+    width: '100%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  subfavItemWrapper: {
+    width: '50%',
+    height: 235,
+    padding: 4,
+  },
   imgWrapper: {
     width: '100%',
   },

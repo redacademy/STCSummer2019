@@ -57,7 +57,6 @@ class ItemTab extends Component {
                 const items = itemData.filter(
                   item => faveItemIds && faveItemIds.includes(item.id),
                 );
-                console.log(items);
 
                 return (
                   <View>
