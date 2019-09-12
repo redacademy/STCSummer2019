@@ -13,13 +13,12 @@ import {
   queryToken,
 } from '../../config/models/authentication';
 import styles from './styles';
-import TabViewProfile from '../../components/TabViewProfile';
+//import TabViewProfile from '../../components/TabViewProfile';
+import TabProfile from '../../components/TabProfile';
 import {withNavigation} from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 
-
-const Profile = ({ navigation, user }) => {
-
+const Profile = ({navigation, user}) => {
   return (
     <View style={styles.container}>
       <Button
@@ -46,7 +45,7 @@ const Profile = ({ navigation, user }) => {
         }}>
         <Text>Open Map</Text>
       </TouchableOpacity>
-      <TabViewProfile />
+      <TabProfile />
     </View>
   );
 };
