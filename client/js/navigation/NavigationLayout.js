@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import {View, Image} from 'react-native';
 import styles from './styles';
-
-import { createStackNavigator } from 'react-navigation-stack';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
+import {createStackNavigator} from 'react-navigation-stack';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 import sharedNavigationOptions from './config';
 import BrowseScreen from '../screens/Browse';
 import ForYouScreen from '../screens/ForYou';
@@ -14,7 +13,8 @@ import ItemsPageScreen from '../screens/ItemsPage';
 import ItemScreen from '../screens/Item';
 import StoreScreen from '../screens/Store';
 import BrandScreen from '../screens/Brand';
-import { BackButton } from './config';
+import {BackButton, CogWheel} from './config';
+import SettingsScreen from '../screens/Settings';
 
 const BrowseStack = createStackNavigator(
   {
@@ -29,13 +29,13 @@ const BrowseStack = createStackNavigator(
     },
     singleItem: {
       screen: ItemScreen,
-      navigationOptions: (navigation) => ({
+      navigationOptions: navigation => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
   },
   {
-    defaultNavigationOptions: ({ navigation }) => ({
+    defaultNavigationOptions: ({navigation}) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -48,19 +48,19 @@ const StoresBrandsStack = createStackNavigator(
     },
     store: {
       screen: StoreScreen,
-      navigationOptions: (navigation) => ({
+      navigationOptions: navigation => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
     brand: {
       screen: BrandScreen,
-      navigationOptions: (navigation) => ({
+      navigationOptions: navigation => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
   },
   {
-    defaultNavigationOptions: ({ navigation }) => ({
+    defaultNavigationOptions: ({navigation}) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -73,13 +73,13 @@ const ForYouStack = createStackNavigator(
     },
     singleItem: {
       screen: ItemScreen,
-      navigationOptions: (navigation) => ({
+      navigationOptions: navigation => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
     store: {
       screen: StoreScreen,
-      navigationOptions: (navigation) => ({
+      navigationOptions: navigation => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
@@ -91,7 +91,7 @@ const ForYouStack = createStackNavigator(
     },
   },
   {
-    defaultNavigationOptions: ({ navigation }) => ({
+    defaultNavigationOptions: ({navigation}) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -104,13 +104,13 @@ const SaleStack = createStackNavigator(
     },
     store: {
       screen: StoreScreen,
-      navigationOptions: (navigation) => ({
+      navigationOptions: navigation => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
   },
   {
-    defaultNavigationOptions: ({ navigation }) => ({
+    defaultNavigationOptions: ({navigation}) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -120,10 +120,19 @@ const ProfileStack = createStackNavigator(
   {
     profile: {
       screen: ProfileScreen,
+      navigationOptions: ({navigation}) => ({
+        headerRight: <CogWheel navigation={navigation} />,
+      }),
+    },
+    settings: {
+      screen: SettingsScreen,
+      navigationOptions: navigation => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
     },
   },
   {
-    defaultNavigationOptions: ({ navigation }) => ({
+    defaultNavigationOptions: ({navigation}) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -138,9 +147,9 @@ export default createBottomTabNavigator(
     Profile: ProfileStack,
   },
   {
-    defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused }) => {
-        const { routeName } = navigation.state;
+    defaultNavigationOptions: ({navigation}) => ({
+      tabBarIcon: ({focused}) => {
+        const {routeName} = navigation.state;
         if (routeName === 'Browse') {
           return (
             <View style={styles.imageContainer}>
@@ -216,7 +225,6 @@ export default createBottomTabNavigator(
         fontSize: 10,
       },
       style: {
-        marginTop: '5%',
         backgroundColor: '#E0D5C4',
       },
     },
