@@ -7,6 +7,7 @@ const BrowseItem = ({navigation, data}) => {
   let images = data.map(item => {
     return (
       <TouchableOpacity
+        key={item.id}
         onPress={() => {
           navigation.navigate('allItems', {
             category: `${item.category}`,
