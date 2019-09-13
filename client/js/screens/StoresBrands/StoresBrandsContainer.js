@@ -33,12 +33,60 @@ const GET_All_BRANDS = gql`
       title
       description
       items {
+        title
+        tags
+        styles
+        stores {
+          id
+          title
+          storelink
+          brands {
+            title
+            id
+            images
+            description
+          }
+          images
+          storeLogo
+          categories
+          hours
+          address
+          phone
+          email
+          website
+          sale
+          saledescription
+        }
+        size
+        price
+        newArrival
+        images
         id
+        discount
+        color
+        category
+        brand {
+          id
+          title
+          images
+          description
+        }
       }
+
       stores {
         id
         address
+        categories
+        storelink
+        email
+        hours
+        id
+        images
         phone
+        sale
+        storeLogo
+        title
+        website
       }
     }
   }

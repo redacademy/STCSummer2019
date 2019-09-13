@@ -13,6 +13,7 @@ import ItemsPageScreen from '../screens/ItemsPage';
 import ItemScreen from '../screens/Item';
 import StoreScreen from '../screens/Store';
 import BrandScreen from '../screens/Brand';
+import BrandItemsScreen from '../screens/BrandItems';
 import {BackButton} from './config';
 
 const BrowseStack = createStackNavigator(
@@ -53,6 +54,12 @@ const StoresBrandsStack = createStackNavigator(
     },
     brand: {
       screen: BrandScreen,
+      navigationOptions: navigation => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
+    },
+    brandItems: {
+      screen: BrandItemsScreen,
       navigationOptions: navigation => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
@@ -215,7 +222,6 @@ export default createBottomTabNavigator(
         fontSize: 10,
       },
       style: {
-        marginTop: '5%',
         backgroundColor: '#E0D5C4',
       },
     },

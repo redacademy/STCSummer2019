@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Linking} from 'react-native';
+import {View, Text, TouchableOpacity, Linking, ScrollView} from 'react-native';
 import FaveStoresContext from '../../context/FaveStoresContext';
 import ImageCarousel from '../../components/ImageCarousel';
 import Geocoder from 'react-native-geocoding';
@@ -19,14 +19,16 @@ const Store = ({store}) => {
       var location = json.results[0].geometry.location;
       const converted = location.lat + ',' + location.lng;
       geoLocation = converted;
-      console.log(geoLocation);
     })
     .catch(error => console.warn(error));
+
+  console.log(store);
+
   return (
     <FaveStoresContext.Consumer>
       {({faveStoreIds, removeFaveStore, createFaveStore}) => {
         return (
-          <View>
+          <ScrollView>
             <ImageCarousel
               images={store.images}
               id={store.id}
@@ -35,9 +37,8 @@ const Store = ({store}) => {
               deleteFave={removeFaveStore}
             />
             <View style={styles.contentContainer}>
-              <View>
-                {console.log(store)}
-                <Text>{store.title}</Text>
+              <View style={styles.storeMapContainer}>
+                <Text style={styles.storeTitle}>{store.title}</Text>
                 <TouchableOpacity
                   style={styles.mapLinkContainer}
                   onPress={() => {
@@ -45,9 +46,12 @@ const Store = ({store}) => {
                       `https://maps.apple.com/?ll=${geoLocation}`,
                     );
                   }}>
-                  <Text style={styles.mapText}>Map View</Text>
+                  <Text style={styles.mapText}>See Map</Text>
                 </TouchableOpacity>
               </View>
+              <Text style={styles.storeCategories}>
+                {store.categories.join(', ')}
+              </Text>
 
               <Text style={styles.contentHeaders}>Store Hours</Text>
               <View style={styles.dayHoursContainer}>
@@ -68,7 +72,7 @@ const Store = ({store}) => {
                 <Text style={styles.content}>{store.website}</Text>
               </View>
             </View>
-          </View>
+          </ScrollView>
         );
       }}
     </FaveStoresContext.Consumer>
