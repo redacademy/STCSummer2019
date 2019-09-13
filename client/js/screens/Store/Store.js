@@ -1,21 +1,16 @@
-import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Linking,
-  ScrollView
-} from "react-native";
-import FaveStoresContext from "../../context/FaveStoresContext";
-import ImageCarousel from "../../components/ImageCarousel";
-import Geocoder from "react-native-geocoding";
-import { API_KEY } from "react-native-dotenv";
-import styles from "./styles";
-import PropTypes from "prop-types";
+import React from 'react';
+import {View, Text, TouchableOpacity, Linking, ScrollView} from 'react-native';
+import FaveStoresContext from '../../context/FaveStoresContext';
+import ImageCarousel from '../../components/ImageCarousel';
+import Geocoder from 'react-native-geocoding';
+import {API_KEY} from 'react-native-dotenv';
+import styles from './styles';
+import MapView from 'react-native-maps';
+import PropTypes from 'prop-types';
 
-const Store = ({ store }) => {
-  const weekdayHours = store.hours.split(", ")[0];
-  const sundayHours = store.hours.split(", ")[1];
+const Store = ({store}) => {
+  const weekdayHours = store.hours.split(', ')[0];
+  const sundayHours = store.hours.split(', ')[1];
 
   Geocoder.init(API_KEY);
 
@@ -24,16 +19,14 @@ const Store = ({ store }) => {
   Geocoder.from(store.address)
     .then(json => {
       var location = json.results[0].geometry.location;
-      const converted = location.lat + "," + location.lng;
+      const converted = location.lat + ',' + location.lng;
       geoLocation = converted;
     })
     .catch(error => console.warn(error));
 
-  console.log(store);
-
   return (
     <FaveStoresContext.Consumer>
-      {({ faveStoreIds, removeFaveStore, createFaveStore }) => {
+      {({faveStoreIds, removeFaveStore, createFaveStore}) => {
         return (
           <ScrollView>
             <ImageCarousel
@@ -50,14 +43,13 @@ const Store = ({ store }) => {
                   style={styles.mapLinkContainer}
                   onPress={() => {
                     Linking.openURL(
-                      `https://maps.apple.com/?ll=${geoLocation}`
+                      `https://maps.apple.com/?ll=${geoLocation}`,
                     );
-                  }}
-                >
+                  }}>
                   <Text style={styles.mapText}>See Map</Text>
                 </TouchableOpacity>
               </View>
-              <Text style={styles.content}>{store.categories.join(", ")}</Text>
+              <Text style={styles.content}>{store.categories.join(', ')}</Text>
 
               <Text style={styles.contentHeaders}>Store Hours</Text>
               <View style={styles.dayHoursContainer}>
@@ -100,7 +92,7 @@ Store.propTypes = {
     website: PropTypes.string.isRequired,
     sale: PropTypes.number.isRequired,
     saledescription: PropTypes.string,
-    storelink: PropTypes.bool.isRequired
-  })
+    storelink: PropTypes.bool.isRequired,
+  }),
 };
 export default Store;
