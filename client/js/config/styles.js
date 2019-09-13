@@ -1,7 +1,3 @@
-// export const fonts = {
-//   baseFont: 'Lato-Regular',
-// };
-
 export const colors = {
   Grey: '#4E0D5C',
   LighterGrey: '#F2EDE6',
