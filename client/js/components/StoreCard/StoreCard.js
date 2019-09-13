@@ -1,15 +1,10 @@
 import React from 'react';
 import {Image, Text, View, TouchableOpacity} from 'react-native';
 import styles from './styles';
-<<<<<<< HEAD
+import PropTypes from 'prop-types';
 
 const StoreCard = ({store, navigation}) => (
   <TouchableOpacity onPress={() => navigation.navigate('store', {store})}>
-=======
-import PropTypes from 'prop-types';
-const StoreCard = ({ store, navigation }) => (
-  <TouchableOpacity onPress={() => navigation.navigate('store', { store })}>
->>>>>>> develop
     <View
       style={
         store.storelink
@@ -59,7 +54,7 @@ StoreCard.propTypes = {
     address: PropTypes.string.isRequired,
     hours: PropTypes.string.isRequired,
   }),
-  navigation: PropTypes.object.isRequired
-}
+  navigation: PropTypes.object.isRequired,
+};
 
 export default StoreCard;

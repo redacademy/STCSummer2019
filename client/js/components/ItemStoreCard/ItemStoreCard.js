@@ -1,16 +1,10 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import styles from './styles';
-<<<<<<< HEAD
-
-const ItemStoreCard = ({store, item}) => {
-  const onSale = !!(store.sale > 0 && item.styles === store.saledescription);
-=======
 import Store from '../../screens/Store/Store';
 import PropTypes from 'prop-types';
-const ItemStoreCard = ({ store, item }) => {
-  const onSale = !!(store.sale > 0 && item.styles === store.saledescription)
->>>>>>> develop
+const ItemStoreCard = ({store, item}) => {
+  const onSale = !!(store.sale > 0 && item.styles === store.saledescription);
   return (
     <View style={styles.storeCardContainer}>
       <View style={styles.imageContainer}>
@@ -65,15 +59,15 @@ ItemStoreCard.propTypes = {
     website: PropTypes.string.isRequired,
     sale: PropTypes.number.isRequired,
     saledescription: PropTypes.string,
-    storelink: PropTypes.bool
+    storelink: PropTypes.bool,
   }),
   item: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     styles: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    size: PropTypes.array.isRequired
-  })
-}
+    size: PropTypes.array.isRequired,
+  }),
+};
 
 export default ItemStoreCard;

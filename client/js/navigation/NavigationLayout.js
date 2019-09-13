@@ -13,13 +13,9 @@ import ItemsPageScreen from '../screens/ItemsPage';
 import ItemScreen from '../screens/Item';
 import StoreScreen from '../screens/Store';
 import BrandScreen from '../screens/Brand';
-<<<<<<< HEAD
 import BrandItemsScreen from '../screens/BrandItems';
-import {BackButton} from './config';
-=======
 import {BackButton, CogWheel} from './config';
 import SettingsScreen from '../screens/Settings';
->>>>>>> develop
 
 const BrowseStack = createStackNavigator(
   {
@@ -60,15 +56,12 @@ const StoresBrandsStack = createStackNavigator(
     brand: {
       screen: BrandScreen,
       navigationOptions: navigation => ({
-<<<<<<< HEAD
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
     brandItems: {
       screen: BrandItemsScreen,
       navigationOptions: navigation => ({
-=======
->>>>>>> develop
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
