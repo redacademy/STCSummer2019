@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import FaveBrandsContext from '../../context/FaveBrandsContext';
 import ImageCarousel from '../../components/ImageCarousel'
+import PropTypes from 'prop-types';
 const Brand = ({ brand }) => {
   return (
     <FaveBrandsContext.Consumer>
@@ -32,5 +33,14 @@ const Brand = ({ brand }) => {
     </FaveBrandsContext.Consumer>
   );
 };
-
+Brand.propTypes = {
+  brand: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    images: PropTypes.array.isRequired,
+    items: PropTypes.object.isRequired,
+    description: PropTypes.string.isRequired,
+    stores: PropTypes.array.isRequired
+  })
+}
 export default Brand;

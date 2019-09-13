@@ -5,7 +5,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import { withNavigation } from 'react-navigation';
 import styles from './styles';
-
+import PropTypes from 'prop-types';
 const GET_ITEMS = gql`
   {
     allItems {
@@ -78,6 +78,9 @@ class ItemsPageContainer extends Component {
       </Query>
     );
   }
+}
+ItemsPageContainer.propTypes = {
+  navigation: PropTypes.object.isRequired,
 }
 
 export default withNavigation(ItemsPageContainer);
