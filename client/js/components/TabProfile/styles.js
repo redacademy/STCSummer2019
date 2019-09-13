@@ -7,5 +7,10 @@ const styles = StyleSheet.create({
   tabView: {
     backgroundColor: 'white',
   },
+  container: {
+    padding: 4,
+    width: '100%',
+    height: '100%',
+  },
 });
 export default styles;

@@ -12,6 +12,7 @@ const ItemRoute = () => <ItemTab />;
 const StoreRoute = () => <StoreTab />;
 
 const BrandRoute = () => <BrandTab />;
+
 const Photos = () => <PhotoLab />;
 
 export default class TabProfile extends React.Component {
@@ -43,7 +44,9 @@ export default class TabProfile extends React.Component {
         renderTabBar={props => (
           <TabBar
             {...props}
-            indicatorStyle={{backgroundColor: '#003399'}}
+            indicatorStyle={{
+              backgroundColor: '#003399',
+            }}
             style={{backgroundColor: 'white'}}
             activeColor={'black'}
             inactiveColor={'black'}
