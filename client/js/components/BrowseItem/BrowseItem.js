@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
 import {withNavigation} from 'react-navigation';
 import styles from './styles';
-
+import PropTypes from 'prop-types';
 const BrowseItem = ({navigation, data}) => {
   let images = data.map(item => {
     return (
@@ -25,4 +25,7 @@ const BrowseItem = ({navigation, data}) => {
   );
 };
 
+BrowseItem.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 export default withNavigation(BrowseItem);
