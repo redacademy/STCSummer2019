@@ -1,11 +1,14 @@
 import React from 'react';
 import {View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import styles from './styles';
+import BrowseItem from '../../components/BrowseItem';
 
-const Browse = ({navigation}) => {
+const Browse = ({navigation, data}) => {
   return (
     <ScrollView>
-      <View>
+      <BrowseItem navigation={navigation} data={data} />
+
+      {/* <View>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('allItems', {category: 'Clothes'});
@@ -52,7 +55,7 @@ const Browse = ({navigation}) => {
           />
           <Text style={styles.text}>Accessories</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </ScrollView>
   );
 };
