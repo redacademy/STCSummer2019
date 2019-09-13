@@ -1,16 +1,17 @@
-import React from 'react';
-import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
-import FaveBrandsContext from '../../context/FaveBrandsContext';
-import ImageCarousel from '../../components/ImageCarousel';
-import styles from './styles';
-import StoreCard from '../../components/StoreCard';
-import {withNavigation, NavigationEvents} from 'react-navigation';
-import ItemsPage from '../ItemsPage';
+import React from "react";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+import FaveBrandsContext from "../../context/FaveBrandsContext";
+import ImageCarousel from "../../components/ImageCarousel";
+import styles from "./styles";
+import StoreCard from "../../components/StoreCard";
+import { withNavigation, NavigationEvents } from "react-navigation";
+import ItemsPage from "../ItemsPage";
+import PropTypes from "prop-types";
 
-const Brand = ({brand, navigation}) => {
+const Brand = ({ brand, navigation }) => {
   return (
     <FaveBrandsContext.Consumer>
-      {({faveBrandIds, removeFaveBrand, createFaveBrand}) => {
+      {({ faveBrandIds, removeFaveBrand, createFaveBrand }) => {
         console.log(brand);
         return (
           <ScrollView>
@@ -27,8 +28,11 @@ const Brand = ({brand, navigation}) => {
                 <TouchableOpacity
                   style={styles.linkContainer}
                   onPress={() =>
-                    navigation.navigate('brandItems', {brandItems: brand.items})
-                  }>
+                    navigation.navigate("brandItems", {
+                      brandItems: brand.items
+                    })
+                  }
+                >
                   <Text style={styles.linkText}>See more items</Text>
                 </TouchableOpacity>
               </View>
@@ -45,6 +49,17 @@ const Brand = ({brand, navigation}) => {
       }}
     </FaveBrandsContext.Consumer>
   );
+};
+
+Brand.propTypes = {
+  brand: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    images: PropTypes.array.isRequired,
+    items: PropTypes.object.isRequired,
+    description: PropTypes.string.isRequired,
+    stores: PropTypes.array.isRequired
+  })
 };
 
 export default withNavigation(Brand);

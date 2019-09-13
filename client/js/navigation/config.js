@@ -14,10 +14,19 @@ export const BackButton = ({navigation}) => (
   </TouchableOpacity>
 );
 
+export const CogWheel = ({navigation}) => (
+  <TouchableOpacity
+    style={styles.backContainer}
+    onPress={() => navigation.navigate('settings')}>
+    <Image
+      style={styles.cogwheelIcon}
+      source={require('../assets/icons/inactive.png')}
+    />
+  </TouchableOpacity>
+);
 export default sharedNavigationOptions = navigation => ({
   headerBackTitle: null,
   headerTintColor: 'white',
-  // headerTitleStyle: {},
   header: props => <Header {...props} />,
   headerStyle: {
     backgroundColor: '#E0D5C4',

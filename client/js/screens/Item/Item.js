@@ -6,7 +6,8 @@ import RNPickerSelect from 'react-native-picker-select';
 import ItemStoreCard from '../../components/ItemStoreCard';
 import FaveItemsContext from '../../context/FaveItemsContext';
 import { createFaveItem } from '../../config/models/favedItems';
-export default class Item extends Component {
+import PropTypes from 'prop-types';
+class Item extends Component {
   getSizeValues = item => {
     const sizeobj = item.size
       .reverse()
@@ -73,3 +74,16 @@ export default class Item extends Component {
     );
   }
 }
+
+Item.propTypes = {
+  items: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    images: PropTypes.array.isRequired,
+    brand: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+    }),
+    stores: PropTypes.array.isRequired
+  })
+}
+export default Item;

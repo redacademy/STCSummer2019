@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Store from './Store';
-
-export default class StoreContainer extends Component {
+import PropTypes from 'prop-types';
+class StoreContainer extends Component {
   static navigationOptions = {
     title: 'Store',
   };
@@ -13,3 +13,8 @@ export default class StoreContainer extends Component {
     );
   }
 }
+StoreContainer.propType = {
+  navigation: PropTypes.object.isRequired
+}
+
+export default StoreContainer
