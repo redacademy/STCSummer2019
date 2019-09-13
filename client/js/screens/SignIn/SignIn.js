@@ -8,7 +8,7 @@ import { Mutation } from "react-apollo";
 import { withNavigation } from 'react-navigation';
 import { createToken, queryToken } from "../../config/models/authentication"
 import Loader from "../../components/Loader"
-
+import PropTypes from 'prop-types';
 export const LOGIN = gql`
 mutation authenticateUser($email: String!, $password: String!){
   authenticateUser(email: $email, password: $password) {
@@ -137,5 +137,7 @@ class SignIn extends Component {
   }
 }
 
-
+SignIn.PropTypes = {
+  navigation: PropTypes.object.isRequired
+}
 export default withNavigation(SignIn);
