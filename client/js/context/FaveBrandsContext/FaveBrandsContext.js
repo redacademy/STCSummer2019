@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { createFaveBrand, deleteFaveBrand, queryFaveBrands } from "../../config/models/favedBrands"
-
+import PropTypes from 'prop-types';
 const FaveBrandsContext = React.createContext();
 class FaveBrandsProvider extends Component {
   constructor(props) {
@@ -56,6 +56,8 @@ class FaveBrandsProvider extends Component {
     );
   }
 }
-
+FaveBrandsContext.propTypes = {
+  children: PropTypes.object
+}
 export { FaveBrandsProvider };
 export default FaveBrandsContext;

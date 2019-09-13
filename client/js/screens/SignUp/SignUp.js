@@ -9,7 +9,7 @@ import CheckBox from 'react-native-check-box';
 import { withNavigation } from 'react-navigation';
 import { createToken, queryToken } from "../../config/models/authentication"
 import Loader from "../../components/Loader"
-
+import PropTypes from 'prop-types';
 
 
 export const SIGNUP = gql`
@@ -193,6 +193,8 @@ class SignUp extends Component {
     );
   }
 }
-
+SignUp.propTypes = {
+  navigation: PropTypes.object.isRequired
+}
 
 export default withNavigation(SignUp);

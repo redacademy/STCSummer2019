@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Browse from './Browse';
+import PropTypes from 'prop-types';
 import {withNavigation} from 'react-navigation';
 import {categories} from '../../config/BrowseItemData';
 
@@ -11,5 +12,7 @@ class BrowseContainer extends Component {
     return <Browse navigation={this.props.navigation} data={categories} />;
   }
 }
-
+BrowseContainer.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 export default withNavigation(BrowseContainer);
