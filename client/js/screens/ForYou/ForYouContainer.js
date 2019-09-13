@@ -13,6 +13,7 @@ query allItems($newArrival:Boolean!){
     id
     title
     brand{
+      id
       title
     }
     stores{
