@@ -57,6 +57,3 @@ buck-out/
 
 # CocoaPods
 Pods/
-
-#api
-*.env
