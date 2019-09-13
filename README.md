@@ -30,9 +30,15 @@
 
 # Instructions to run the project 
 
-## IOS
+1. Git Clone the repository 
 
-1. react-native run-ios
+1. yarn install 
+
+1. cd ios 
+
+1. pod install
+
+1. react-native run-ios (react-native run-ios)
 
 # Technologies: 
 
