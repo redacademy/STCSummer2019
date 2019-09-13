@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import StoresBrands from './StoresBrands';
 
-import {gql} from 'apollo-boost';
-import {Query} from 'react-apollo';
-import {Text} from 'react-native';
+import { gql } from 'apollo-boost';
+import { Query } from 'react-apollo';
+import { Text } from 'react-native';
 import Loader from '../../components/Loader';
+import PropTypes from "prop-types";
 
 const GET_All_STORES = gql`
   {
@@ -56,24 +57,24 @@ class StoresBrandsContainer extends Component {
   }
 
   displayStores = () => {
-    this.setState({displayStore: true});
+    this.setState({ displayStore: true });
   };
 
   displayBrands = () => {
-    this.setState({displayStore: false});
+    this.setState({ displayStore: false });
   };
 
   render() {
-    const {navigation} = this.props;
+    const { navigation } = this.props;
     return (
       <Query query={GET_All_STORES}>
-        {({loading, error, data}) => {
+        {({ loading, error, data }) => {
           if (loading) return <Loader />;
           if (error) return <Text>{error.message}</Text>;
           const storesData = data.allStores;
           return (
             <Query query={GET_All_BRANDS}>
-              {({loading, error, data}) => {
+              {({ loading, error, data }) => {
                 if (loading) return <Loader />;
                 if (error) return <Text>{error.message}</Text>;
                 const brandsData = data.allBrands;
@@ -94,6 +95,9 @@ class StoresBrandsContainer extends Component {
       </Query>
     );
   }
+}
+StoresBrandsContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
 }
 
 export default StoresBrandsContainer;

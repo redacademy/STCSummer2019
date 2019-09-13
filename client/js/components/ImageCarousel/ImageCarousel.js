@@ -7,6 +7,7 @@ import FaveItemsContext from '../../context/FaveItemsContext';
 import FaveStoresContext from '../../context/FaveStoresContext';
 import FaveBrandsContext from '../../context/FaveBrandsContext';
 import { withNavigation } from 'react-navigation'
+import PropTypes from 'prop-types';
 export class ImageCarousel extends React.Component {
   constructor(props) {
     super(props);
@@ -72,6 +73,13 @@ export class ImageCarousel extends React.Component {
       </View>
     );
   }
+}
+ImageCarousel.propTypes = {
+  images: PropTypes.array.isRequired,
+  id: PropTypes.string.isRequired,
+  createFave: PropTypes.func.isRequired,
+  deleteFave: PropTypes.func.isRequired,
+  faveIds: PropTypes.array.isRequired,
 }
 
 export default withNavigation(ImageCarousel);

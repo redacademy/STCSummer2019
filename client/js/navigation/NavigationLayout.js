@@ -13,7 +13,9 @@ import ItemsPageScreen from '../screens/ItemsPage';
 import ItemScreen from '../screens/Item';
 import StoreScreen from '../screens/Store';
 import BrandScreen from '../screens/Brand';
-import {BackButton} from './config';
+import {BackButton, CogWheel} from './config';
+import SettingsScreen from '../screens/Settings';
+
 
 const BrowseStack = createStackNavigator(
   {
@@ -119,6 +121,15 @@ const ProfileStack = createStackNavigator(
   {
     profile: {
       screen: ProfileScreen,
+      navigationOptions: ({navigation}) => ({
+        headerRight: <CogWheel navigation={navigation} />,
+      }),
+    },
+    settings: {
+      screen: SettingsScreen,
+      navigationOptions: navigation => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
     },
   },
   {
@@ -215,7 +226,6 @@ export default createBottomTabNavigator(
         fontSize: 10,
       },
       style: {
-        marginTop: '5%',
         backgroundColor: '#E0D5C4',
       },
     },

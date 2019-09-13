@@ -24,6 +24,7 @@ type Brand @model {
   images: [String!]
   description: String!
   stores: [Store!]! @relation(name: "BrandStore")
+  brandLogo: String!
 }
 
 type Store @model {
