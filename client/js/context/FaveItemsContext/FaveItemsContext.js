@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   createFaveItem,
   deleteFaveItem,
   queryFaveItems,
 } from '../../config/models/favedItems';
-
+import PropTypes from 'prop-types';
 const FaveItemsContext = React.createContext();
 class FaveItemsProvider extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class FaveItemsProvider extends Component {
     try {
       const savedFaveItems = await queryFaveItems();
       const faveItemIds = savedFaveItems.map(faveItem => faveItem);
-      this.setState({faveItemIds});
+      this.setState({ faveItemIds });
     } catch (e) {
       return e;
     }
@@ -26,7 +26,7 @@ class FaveItemsProvider extends Component {
     try {
       const newFaveItem = await createFaveItem(itemId);
       if (newFaveItem)
-        this.setState({faveItemIds: [...this.state.faveItemIds, newFaveItem]});
+        this.setState({ faveItemIds: [...this.state.faveItemIds, newFaveItem] });
       this.getFavedItemIds();
     } catch (e) {
       throw e;
@@ -59,6 +59,8 @@ class FaveItemsProvider extends Component {
     );
   }
 }
-
-export {FaveItemsProvider};
+FaveItemsContext.propTypes = {
+  children: PropTypes.object
+}
+export { FaveItemsProvider };
 export default FaveItemsContext;

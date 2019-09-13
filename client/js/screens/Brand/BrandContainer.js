@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import Brand from './Brand'
+import PropTypes from 'prop-types';
 class BrandContainer extends Component {
   static navigationOptions = {
     title: 'Brand',
@@ -13,5 +14,8 @@ class BrandContainer extends Component {
     );
   }
 }
+BrandContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
 
+}
 export default BrandContainer;

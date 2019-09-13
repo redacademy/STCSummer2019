@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, Text, ScrollView, Image, FlatList} from 'react-native';
+import { View, Text, ScrollView, Image, FlatList } from 'react-native';
 import ItemList from '../../components/ItemList';
 import styles from './styles';
+import PropTypes from 'prop-types';
 
-const ItemsPage = ({allItems, navigation}) => {
+const ItemsPage = ({ allItems, navigation }) => {
   return (
     <ScrollView style={styles.allItemsContainer}>
       <View style={styles.sortItems}>
@@ -37,5 +38,9 @@ const ItemsPage = ({allItems, navigation}) => {
     </ScrollView>
   );
 };
+ItemsPage.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  allItems: PropTypes.array.isRequired
+}
 
 export default ItemsPage;

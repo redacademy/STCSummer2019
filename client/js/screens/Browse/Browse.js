@@ -1,14 +1,15 @@
 import React from 'react';
-import {View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
 import styles from './styles';
+import PropTypes from 'prop-types';
 
-const Browse = ({navigation}) => {
+const Browse = ({ navigation }) => {
   return (
     <ScrollView>
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('allItems', {category: 'Clothes'});
+            navigation.navigate('allItems', { category: 'Clothes' });
           }}>
           <Image
             source={require('../../assets/images/clothing.png')}
@@ -20,7 +21,7 @@ const Browse = ({navigation}) => {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('allItems', {category: 'Shoes'});
+            navigation.navigate('allItems', { category: 'Shoes' });
           }}>
           <Image
             source={require('../../assets/images/shoes.png')}
@@ -32,7 +33,7 @@ const Browse = ({navigation}) => {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('allItems', {category: 'Bags'});
+            navigation.navigate('allItems', { category: 'Bags' });
           }}>
           <Image
             source={require('../../assets/images/bags.png')}
@@ -44,7 +45,7 @@ const Browse = ({navigation}) => {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('allItems', {category: 'Accessories'});
+            navigation.navigate('allItems', { category: 'Accessories' });
           }}>
           <Image
             source={require('../../assets/images/accessories.png')}
@@ -57,4 +58,8 @@ const Browse = ({navigation}) => {
   );
 };
 
+Browse.propTypes = {
+  navigation: PropTypes.object.isRequired
+
+}
 export default Browse;
