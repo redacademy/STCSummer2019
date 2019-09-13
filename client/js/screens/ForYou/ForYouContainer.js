@@ -17,12 +17,11 @@ query allItems($newArrival:Boolean!){
       title
     }
     stores{
-     id
+    id
     address
     categories
     email
     hours
-    id
     images
     phone
     sale

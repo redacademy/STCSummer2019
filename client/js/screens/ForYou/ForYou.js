@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
-import ForYouItemList from '../../components/ForYouItemList'
+import ItemList from '../../components/ItemList'
 import styles from './styles'
 import PropTypes from 'prop-types';
 const ForYou = ({ items, navigation }) => {
@@ -8,7 +8,7 @@ const ForYou = ({ items, navigation }) => {
     <ScrollView>
       <View style={styles.allItems}>
         {
-          items.map((item) => <ForYouItemList item={item} navigation={navigation} key={item.id} />)
+          items.map((item) => <ItemList item={item} navigation={navigation} key={item.id} />)
         }
       </View>
     </ScrollView>
