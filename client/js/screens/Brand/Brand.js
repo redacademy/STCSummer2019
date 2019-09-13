@@ -29,7 +29,7 @@ const Brand = ({brand, navigation}) => {
                   onPress={() =>
                     navigation.navigate('brandItems', {brandItems: brand.items})
                   }>
-                  <Text style={styles.linkText}>See More Items</Text>
+                  <Text style={styles.linkText}>See more items</Text>
                 </TouchableOpacity>
               </View>
               <Text style={styles.content}>{brand.description}</Text>

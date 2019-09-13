@@ -7,13 +7,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mapText: {
-    fontSize: 14,
     textDecorationLine: 'underline',
-    fontFamily: 'Lato-bold',
+    fontFamily: 'Lato-Bold',
+    color: '#333638',
+    fontSize: 14,
   },
   dayHoursContainer: {
     flexDirection: 'row',
-    width: '50%',
+    width: '60%',
     justifyContent: 'space-between',
     marginTop: '2.5%',
   },
@@ -32,12 +33,14 @@ const styles = StyleSheet.create({
   contentHeaders: {
     marginTop: '5%',
     fontFamily: 'Lato-Bold',
-    fontSize: 14,
+    fontSize: 16,
   },
   content: {
     marginTop: '2.5%',
     fontFamily: 'Lato-Light',
-    fontSize: 14,
+    color: '#333638',
+    fontSize: 16,
+    lineHeight: 21,
   },
   storeCategories: {
     marginTop: '2.5%',
@@ -45,9 +48,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   storeTitle: {
-    fontFamily: 'Lato',
-    fontSize: 16,
-    color: '#2B2D2F',
+    fontFamily: 'Lato-Regular',
+    fontSize: 20,
   },
   contactInfoContainer: {
     marginBottom: '5%',

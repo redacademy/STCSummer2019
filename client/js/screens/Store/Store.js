@@ -49,9 +49,7 @@ const Store = ({store}) => {
                   <Text style={styles.mapText}>See Map</Text>
                 </TouchableOpacity>
               </View>
-              <Text style={styles.storeCategories}>
-                {store.categories.join(', ')}
-              </Text>
+              <Text style={styles.content}>{store.categories.join(', ')}</Text>
 
               <Text style={styles.contentHeaders}>Store Hours</Text>
               <View style={styles.dayHoursContainer}>
