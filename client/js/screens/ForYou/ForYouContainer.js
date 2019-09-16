@@ -13,15 +13,15 @@ query allItems($newArrival:Boolean!){
     id
     title
     brand{
+      id
       title
     }
     stores{
-     id
+    id
     address
     categories
     email
     hours
-    id
     images
     phone
     sale

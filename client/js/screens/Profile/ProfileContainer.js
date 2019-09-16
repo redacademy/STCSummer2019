@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
 import Profile from './Profile';
-import {withNavigation} from 'react-navigation';
-import {
-  createToken,
-  deleteToken,
-  queryToken,
-} from '../../config/models/authentication';
+import {queryToken} from '../../config/models/authentication';
 import {Query} from 'react-apollo';
 import gql from 'graphql-tag';
 import Loader from '../../components/Loader';
@@ -32,8 +27,8 @@ class ProfileContainer extends Component {
   getUser = async () => {
     const userToken = await queryToken('userToken');
 
-    this.setState({ userId: userToken.userId })
-  }
+    this.setState({userId: userToken.userId});
+  };
 
   componentDidMount() {
     this.getUser();
