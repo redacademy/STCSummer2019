@@ -16,6 +16,7 @@ import BrandScreen from '../screens/Brand';
 import BrandItemsScreen from '../screens/BrandItems';
 import {BackButton, CogWheel} from './config';
 import SettingsScreen from '../screens/Settings';
+import MapScreen from '../screens/Map';
 
 const BrowseStack = createStackNavigator(
   {
@@ -61,6 +62,12 @@ const StoresBrandsStack = createStackNavigator(
     },
     brandItems: {
       screen: BrandItemsScreen,
+      navigationOptions: navigation => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
+    },
+    map: {
+      screen: MapScreen,
       navigationOptions: navigation => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),

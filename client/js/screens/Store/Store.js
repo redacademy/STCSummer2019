@@ -7,22 +7,25 @@ import {API_KEY} from 'react-native-dotenv';
 import styles from './styles';
 import MapView from 'react-native-maps';
 import PropTypes from 'prop-types';
+import {NavigationEvents, withNavigation} from 'react-navigation';
 
-const Store = ({store}) => {
+const Store = ({store, navigation}) => {
   const weekdayHours = store.hours.split(', ')[0];
   const sundayHours = store.hours.split(', ')[1];
+  // let latitude;
+  // let longitude;
 
-  Geocoder.init(API_KEY);
+  const MapCordinates = navigation => {
+    Geocoder.init(API_KEY);
 
-  let geoLocation;
-
-  Geocoder.from(store.address)
-    .then(json => {
-      var location = json.results[0].geometry.location;
-      const converted = location.lat + ',' + location.lng;
-      geoLocation = converted;
-    })
-    .catch(error => console.warn(error));
+    return Geocoder.from(store.address)
+      .then(json => {
+        var location = json.results[0].geometry.location;
+        console.log(location.lat);
+        navigation.navigate('map', {lat: location.lat, lng: location.lng});
+      })
+      .catch(error => console.warn(error));
+  };
 
   return (
     <FaveStoresContext.Consumer>
@@ -41,11 +44,7 @@ const Store = ({store}) => {
                 <Text style={styles.storeTitle}>{store.title}</Text>
                 <TouchableOpacity
                   style={styles.mapLinkContainer}
-                  onPress={() => {
-                    Linking.openURL(
-                      `https://maps.apple.com/?ll=${geoLocation}`,
-                    );
-                  }}>
+                  onPress={() => MapCordinates(navigation)}>
                   <Text style={styles.mapText}>See Map</Text>
                 </TouchableOpacity>
               </View>
@@ -95,4 +94,4 @@ Store.propTypes = {
     storelink: PropTypes.bool.isRequired,
   }),
 };
-export default Store;
+export default withNavigation(Store);
