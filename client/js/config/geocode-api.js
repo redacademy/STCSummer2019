@@ -4,8 +4,7 @@ Geocoder.init('AIzaSyB8nDguUXruPB-lHMXUxDG2yP_U88oa8jw');
 
 Geocoder.from('Colosseum')
   .then(json => {
-    var location = json.results[0].geometry.location;
-    console.log(location);
+    json.results[0].geometry.location;
   })
   .catch(error => console.warn(error));
 
