@@ -11,6 +11,7 @@ import {NavigationEvents, withNavigation} from 'react-navigation';
 
 const Store = ({store, navigation}) => {
   const weekdayHours = store.hours.split(', ')[0];
+  const sundayHours = store.hours.split(', ')[1];
 
   const MapCordinates = navigation => {
     Geocoder.init(API_KEY);
