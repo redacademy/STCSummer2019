@@ -4,7 +4,7 @@
   
 ## GIF
   
-![Alt Text] (https://media.giphy.com/media/YPtCW7ow8HpTiisAPP/giphy.gif)
+![] (https://media.giphy.com/media/YPtCW7ow8HpTiisAPP/giphy.gif)
 
 
 
