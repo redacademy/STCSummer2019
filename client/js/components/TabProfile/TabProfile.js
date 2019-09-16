@@ -1,11 +1,10 @@
 import * as React from 'react';
-import {View, StyleSheet, Dimensions} from 'react-native';
+import {Dimensions} from 'react-native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import ItemTab from '../ItemTab';
 import StoreTab from '../StoreTab';
 import BrandTab from '../BrandTab';
 import PhotoLab from '../PhotoTab';
-import styles from './styles';
 
 const ItemRoute = () => <ItemTab />;
 

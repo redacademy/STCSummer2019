@@ -25,9 +25,7 @@ const GET_All_BRANDS = gql`
     }
   }
 `;
-const BrandTab = () => {
-  const {navigation} = this.props;
-
+const BrandTab = navigation => {
   return (
     <FavesBrandsContext.Consumer>
       {({faveBrandIds}) => (
