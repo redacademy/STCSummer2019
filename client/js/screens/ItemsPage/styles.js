@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingBottom: 15,
     paddingLeft: '5%',
+    fontFamily: 'Lato-regular',
   },
   allItemsContainer: {
     paddingTop: '5%',
@@ -22,6 +23,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
     paddingLeft: '3%',
     paddingRight: '3%',
+    fontFamily: 'Lato-Bold',
   },
   dropdown: {
     height: 15,
@@ -30,6 +32,7 @@ const styles = StyleSheet.create({
   itemFilter: {
     flexDirection: 'row',
     alignItems: 'center',
+    fontFamily: 'Lato-regular',
   },
   loader: {
     justifyContent: 'center',

@@ -1,32 +1,11 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Button,
-  TouchableOpacity,
-  Linking,
-  Image,
-} from 'react-native';
-import {
-  createToken,
-  deleteToken,
-  queryToken,
-} from '../../config/models/authentication';
+import {View, Text, Image} from 'react-native';
 import styles from './styles';
-import TabViewProfile from '../../components/TabViewProfile';
-import {withNavigation} from 'react-navigation';
-import AsyncStorage from '@react-native-community/async-storage';
+import TabProfile from '../../components/TabProfile';
 
-const Profile = ({navigation, user}) => {
+const Profile = ({user}) => {
   return (
     <View style={styles.container}>
-      <Button
-        title={'Log Out'}
-        onPress={async () => {
-          await deleteToken();
-          navigation.navigate('AuthLoading');
-        }}
-      />
       <View style={styles.imgWrapper}>
         <Image
           source={require('../../assets/profilepic.png')}
@@ -36,10 +15,9 @@ const Profile = ({navigation, user}) => {
           <Text style={styles.userName}>{user.fullname}</Text>
         </View>
       </View>
-
-      <TabViewProfile />
+      <TabProfile />
     </View>
   );
 };
 
-export default withNavigation(Profile);
+export default Profile;
