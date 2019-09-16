@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     marginLeft: 'auto',
     marginRight: 'auto',
-    padding: '1%',
+    padding: '1.5%',
     width: 350,
   },
   storeMapContainer: {

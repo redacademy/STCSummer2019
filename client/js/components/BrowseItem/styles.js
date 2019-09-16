@@ -5,15 +5,17 @@ const {height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   text: {
     fontSize: 18,
-    marginHorizontal: 10,
+    width: '90%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    fontFamily: 'Lato-Regular',
   },
   browseImage: {
     height: height / 5,
-    width: '94%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginHorizontal: '3.5%',
-    marginVertical: '3.2%',
+    width: '90%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: '5%',
   },
 });
 

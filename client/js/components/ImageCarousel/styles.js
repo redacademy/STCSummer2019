@@ -11,15 +11,15 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: 350,
-    height: 370,
-    alignSelf: 'center',
+    height: 375,
+    padding: '1%',
     justifyContent: 'center',
     position: 'relative',
-    padding: '1%',
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: 18,
     marginBottom: 18,
+    paddingRight: '2%',
   },
   carousel: {
     justifyContent: 'center',
@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
     width: 15,
     height: 15,
     borderRadius: 10,
-    marginHorizontal: 8,
     backgroundColor: '#003399',
   },
   inactiveDotStyle: {

@@ -5,6 +5,7 @@ import RootStackNavigator from '../js/navigation/RootStackNavigator';
 import {FaveStoresProvider} from './context/FaveStoresContext';
 import {FaveBrandsProvider} from './context/FaveBrandsContext';
 import {FaveItemsProvider} from './context/FaveItemsContext';
+
 const App = () => {
   return (
     <ApolloProvider client={client}>
