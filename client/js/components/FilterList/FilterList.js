@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ScrollView, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './styles'
 import ItemList from '../ItemList'
@@ -12,6 +12,7 @@ class FilterList extends React.Component {
       filteredStyles: [],
       toggleStores: false,
       toggleStyles: false,
+      displayFilter: false,
     }
   }
 
@@ -57,52 +58,77 @@ class FilterList extends React.Component {
       this.setState({ filteredStyles: [...this.state.filteredStyles, styleName] }) : this.setState({ filteredStyles: this.state.filteredStyles.filter((style) => style !== styleName) })
   }
 
-
   render() {
     const { stores, itemStyles, items, navigation } = this.props
     let newItems = (this.state.filteredStores.length > 0 || this.state.filteredStyles.length > 0) ? this.filterHelper(items, this.state.filteredStores, this.state.filteredStyles) : items
     return (
-      <View>
-        <View>
-          <TouchableOpacity
+      <ScrollView style={styles.allItemsContainer}>
+        <View style={styles.sortItems}>
+          <View style={styles.itemFilter}>
+            <Text style={styles.sortItemsText}>Sort</Text>
+            <Image
+              style={styles.dropdown}
+              source={require('../../assets/dropdown.png')}
+            />
+          </View>
+          <View style={styles.itemFilter}>
+            <Text style={styles.sortItemsText}>Tags</Text>
+            <Image
+              style={styles.dropdown}
+              source={require('../../assets/dropdown.png')}
+            />
+          </View>
+          <TouchableOpacity style={styles.itemFilter}
             onPress={() => this.setState({
-              toggleStores: false,
-              toggleStyles: false,
+              displayFilter: !this.state.displayFilter
             })}
           >
-            <Text>XXXXXXXXXXXXXX</Text>
+            <Text style={styles.sortItemsText}>Filter</Text>
+            <Image
+              style={styles.dropdown}
+              source={require('../../assets/inactivefilter.png')}
+            />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.toggleStores()}
-          >
-            <Text style={{ fontSize: 20 }}>Stores</Text>
-          </TouchableOpacity>
-          {this.state.toggleStores &&
-            stores.map((store) => (
-              <TouchableOpacity
-                onPress={() => this.addfilterStore(store)}
-              >
-                <Text>{store}</Text>
-                {this.state.filteredStores.includes(store) && <Text>x</Text>}
-              </TouchableOpacity>
-            ))
-          }
-          <TouchableOpacity
-            onPress={() => this.toggleStyles()}
-          >
-            <Text style={{ fontSize: 20 }}>Styles</Text>
-          </TouchableOpacity>
-          {this.state.toggleStyles &&
-            itemStyles.map((itemStyle) => (
-              <TouchableOpacity
-                onPress={() => this.addfilterStyle(itemStyle)}
-              >
-                <Text>{itemStyle}</Text>
-                {this.state.filteredStyles.includes(itemStyle) ? <Text>x</Text> : null}
-              </TouchableOpacity>
-            ))
-          }
         </View>
+        {this.state.displayFilter &&
+          <View>
+            <View>
+              <TouchableOpacity
+                onPress={() => this.toggleStores()}
+              >
+                <Text style={{ fontSize: 20 }}>Stores</Text>
+              </TouchableOpacity>
+              {this.state.toggleStores &&
+                stores.map((store) => (
+                  <TouchableOpacity
+                    onPress={() => this.addfilterStore(store)}
+                    key={store.id}
+                  >
+                    <Text>{store}</Text>
+                    {this.state.filteredStores.includes(store) && <Text>x</Text>}
+                  </TouchableOpacity>
+                ))
+              }
+              <TouchableOpacity
+                onPress={() => this.toggleStyles()}
+              >
+                <Text style={{ fontSize: 20 }}>Styles</Text>
+              </TouchableOpacity>
+              {this.state.toggleStyles &&
+                itemStyles.map((itemStyle) => (
+                  <TouchableOpacity
+                    onPress={() => this.addfilterStyle(itemStyle)}
+                    key={itemStyle}
+                  >
+                    <Text>{itemStyle}</Text>
+                    {this.state.filteredStyles.includes(itemStyle) ? <Text>x</Text> : null}
+                  </TouchableOpacity>
+                ))
+              }
+            </View>
+
+          </View>
+        }
         <View style={styles.allItems}>
           {
             newItems && newItems.length > 0 ?
@@ -113,7 +139,7 @@ class FilterList extends React.Component {
               <View><Text>Sorry No Items At This Time, Please Try Again</Text></View>
           }
         </View>
-      </View>
+      </ScrollView>
     )
   }
 }
