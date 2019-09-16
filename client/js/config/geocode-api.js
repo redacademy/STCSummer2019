@@ -9,9 +9,6 @@ Geocoder.from('Colosseum')
   })
   .catch(error => console.warn(error));
 
-// Works as well :
-// ------------
-
 // location object
 Geocoder.from({
   latitude: 41.89,
@@ -24,5 +21,4 @@ Geocoder.from({
   lng: 12.49,
 });
 
-// array
 Geocoder.from([41.89, 12.49]);

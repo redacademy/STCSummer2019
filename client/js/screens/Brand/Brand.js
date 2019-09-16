@@ -1,18 +1,17 @@
-import React from "react";
-import { View, Text, TouchableOpacity, ScrollView } from "react-native";
-import FaveBrandsContext from "../../context/FaveBrandsContext";
-import ImageCarousel from "../../components/ImageCarousel";
-import styles from "./styles";
-import StoreCard from "../../components/StoreCard";
-import { withNavigation, NavigationEvents } from "react-navigation";
-import ItemsPage from "../ItemsPage";
-import PropTypes from "prop-types";
+import React from 'react';
+import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import FaveBrandsContext from '../../context/FaveBrandsContext';
+import ImageCarousel from '../../components/ImageCarousel';
+import styles from './styles';
+import StoreCard from '../../components/StoreCard';
+import {withNavigation, NavigationEvents} from 'react-navigation';
+import ItemsPage from '../ItemsPage';
+import PropTypes from 'prop-types';
 
-const Brand = ({ brand, navigation }) => {
+const Brand = ({brand, navigation}) => {
   return (
     <FaveBrandsContext.Consumer>
-      {({ faveBrandIds, removeFaveBrand, createFaveBrand }) => {
-        console.log(brand);
+      {({faveBrandIds, removeFaveBrand, createFaveBrand}) => {
         return (
           <ScrollView>
             <ImageCarousel
@@ -28,11 +27,10 @@ const Brand = ({ brand, navigation }) => {
                 <TouchableOpacity
                   style={styles.linkContainer}
                   onPress={() =>
-                    navigation.navigate("brandItems", {
-                      brandItems: brand.items
+                    navigation.navigate('brandItems', {
+                      brandItems: brand.items,
                     })
-                  }
-                >
+                  }>
                   <Text style={styles.linkText}>See more items</Text>
                 </TouchableOpacity>
               </View>
@@ -58,8 +56,8 @@ Brand.propTypes = {
     images: PropTypes.array.isRequired,
     items: PropTypes.object.isRequired,
     description: PropTypes.string.isRequired,
-    stores: PropTypes.array.isRequired
-  })
+    stores: PropTypes.array.isRequired,
+  }),
 };
 
 export default withNavigation(Brand);
