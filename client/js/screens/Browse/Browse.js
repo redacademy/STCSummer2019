@@ -8,7 +8,7 @@ const Browse = ({navigation}) => {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('allItems', {category: 'Clothes'});
+            navigation.navigate('allItems', {category: 'Clothing'});
           }}>
           <Image
             source={require('../../assets/images/clothing.png')}
