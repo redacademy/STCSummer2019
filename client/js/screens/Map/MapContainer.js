@@ -4,7 +4,7 @@ import Map from './Map';
 
 class MapContainer extends Component {
   static navigationOptions = {
-    title: 'Stores & Brands',
+    title: 'Store',
   };
   render() {
     const lng = this.props.navigation.getParam('lng');
