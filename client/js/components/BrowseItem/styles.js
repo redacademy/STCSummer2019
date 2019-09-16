@@ -6,6 +6,8 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     marginHorizontal: 10,
+    color: '#333638',
+    fontFamily: 'Lato-regular',
   },
   browseImage: {
     height: height / 5,
