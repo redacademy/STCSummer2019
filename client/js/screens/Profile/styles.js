@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    marginLeft: '4%',
+    marginRight: '4%',
+    paddingTop: '6%',
   },
   imgWrapper: {
     flexDirection: 'row',
