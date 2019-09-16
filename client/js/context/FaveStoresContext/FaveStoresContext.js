@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { createFaveStore, deleteFaveStore, queryFaveStores } from "../../config/models/favedStores"
-
+import PropTypes from 'prop-types';
 const FaveStoresContext = React.createContext();
 class FaveStoresProvider extends Component {
   constructor(props) {
@@ -55,6 +55,9 @@ class FaveStoresProvider extends Component {
       </ FaveStoresContext.Provider>
     );
   }
+}
+FaveStoresContext.propTypes = {
+  children: PropTypes.object
 }
 
 export { FaveStoresProvider };

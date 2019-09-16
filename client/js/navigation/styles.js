@@ -20,6 +20,13 @@ const styles = StyleSheet.create({
     width: '15%',
     marginLeft: '5%',
   },
+
+  cogwheelIcon: {
+    resizeMode: 'contain',
+    height: '25%',
+    width: '25%',
+    marginLeft: '55%',
+  },
   backContainer: {
     height: 100,
     width: 100,

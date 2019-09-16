@@ -3,7 +3,7 @@ import {Text} from 'react-native';
 import Loader from '../Loader';
 import {gql} from 'apollo-boost';
 import FavesItemsContext from '../../context/FaveItemsContext';
-import Faves from './faves';
+import Faves from '../Faves';
 import {Query} from 'react-apollo';
 import {withNavigation} from 'react-navigation';
 
@@ -74,7 +74,7 @@ const GET_All_ITEMS = gql`
   }
 `;
 
-class FavesContainer extends Component {
+class GetUserFaves extends Component {
   constructor(props) {
     super(props);
   }
@@ -134,4 +134,4 @@ class FavesContainer extends Component {
   }
 }
 
-export default withNavigation(FavesContainer);
+export default withNavigation(GetUserFaves);

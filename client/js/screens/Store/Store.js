@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import FaveStoresContext from '../../context/FaveStoresContext';
 import ImageCarousel from '../../components/ImageCarousel'
-
+import PropTypes from 'prop-types';
 const Store = ({ store }) => {
   return (
     <FaveStoresContext.Consumer>
@@ -33,5 +33,23 @@ const Store = ({ store }) => {
     </FaveStoresContext.Consumer >
   );
 };
-
+Store.propTypes = {
+  store: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    items: PropTypes.array,
+    brands: PropTypes.array,
+    images: PropTypes.array.isRequired,
+    storeLogo: PropTypes.string.isRequired,
+    categories: PropTypes.array.isRequired,
+    hours: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    website: PropTypes.string.isRequired,
+    sale: PropTypes.number.isRequired,
+    saledescription: PropTypes.string,
+    storelink: PropTypes.bool.isRequired
+  })
+}
 export default Store;

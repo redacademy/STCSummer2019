@@ -1,6 +1,7 @@
 import React from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 import Loader from '../../components/Loader';
+import PropTypes from 'prop-types';
 
 class AuthLoadingScreen extends React.Component {
   componentDidMount() {
@@ -18,5 +19,7 @@ class AuthLoadingScreen extends React.Component {
     );
   }
 }
-
+AuthLoadingScreen.propTypes = {
+  navigation: PropTypes.object.isRequired
+}
 export default AuthLoadingScreen;
