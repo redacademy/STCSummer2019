@@ -17,7 +17,7 @@ const Map = ({lng, lat}) => {
           latitude: lat,
           longitude: lng,
         }}
-        image={require('../../assets/icons/heart.png')}
+        image={require('../../assets/icons/location-marker3x.png')}
       />
     </MapView>
   );
