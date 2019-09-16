@@ -1,5 +1,4 @@
-import { StyleSheet } from 'react-native';
-import AuthLoading from '../../screens/AuthLoading';
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   image: {
@@ -8,6 +7,7 @@ const styles = StyleSheet.create({
     marginTop: 'auto',
     marginBottom: 'auto',
   },
+
   storeCardContainer: {
     width: '90%',
     height: 100,
@@ -18,11 +18,12 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     flexDirection: 'row',
-    shadowOffset: { width: 2, height: 3 },
+    shadowOffset: {width: 2, height: 3},
     shadowColor: '#D3D3D3',
     shadowOpacity: 1.0,
     backgroundColor: 'white',
   },
+
   imageContainer: {
     width: '30%',
     height: '100%',
@@ -36,18 +37,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '60%'
-
+    width: '60%',
   },
   storeMeta: {
     justifyContent: 'space-around',
     height: '100%',
-    paddingVertical: '5%'
+    paddingVertical: '5%',
   },
 
   storeTitle: {
     fontSize: 16,
     fontWeight: '500',
+    fontFamily: 'Lato-Bold',
   },
 
   cardContent: {
@@ -57,13 +58,14 @@ const styles = StyleSheet.create({
   storeSizes: {
     flexDirection: 'row',
     paddingRight: '1%',
-    // paddingBottom: '10%'
   },
+
   sizeStyle: {
     color: '#727073',
     paddingBottom: '2%',
     fontSize: 14,
     paddingRight: '1%',
+    fontFamily: 'Lato-regular',
   },
 });
 

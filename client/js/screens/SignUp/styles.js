@@ -1,33 +1,36 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   forms: {
     flex: 1,
     marginTop: 20,
     height: '65%',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   inputContainer: {
     height: 30,
-    marginBottom: 10
+    marginBottom: 10,
   },
   input: {
     fontSize: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#686868'
+    borderBottomColor: '#686868',
+    fontFamily: 'Lato-regular',
   },
   lable: {
-    color: '#686868'
+    color: '#686868',
   },
   error: {
-    color: 'red'
+    color: 'red',
+    fontFamily: 'Lato-regular',
   },
   terms: {
     color: '#2D2B2F',
-    fontWeight: '500'
+    fontWeight: '500',
+    fontFamily: 'Lato-Bold',
   },
   logoContainer: {
     height: '35%',
@@ -36,14 +39,14 @@ const styles = StyleSheet.create({
   logo: {
     height: '85%',
     width: '100%',
-    resizeMode: 'contain'
+    resizeMode: 'contain',
   },
   loginSwitch: {
     color: '#2D2B2F',
   },
   checkBox: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   button: {
     marginTop: 10,
@@ -56,9 +59,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: '600'
-  }
+    fontWeight: '600',
+    fontFamily: 'Lato-regular',
+  },
 });
 export default styles;
-
-
