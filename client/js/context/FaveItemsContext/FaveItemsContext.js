@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import { createFaveItem, deleteFaveItem, queryFaveItems } from "../../config/models/favedItems"
-
+import {
+  createFaveItem,
+  deleteFaveItem,
+  queryFaveItems,
+} from '../../config/models/favedItems';
+import PropTypes from 'prop-types';
 const FaveItemsContext = React.createContext();
 class FaveItemsProvider extends Component {
   constructor(props) {
@@ -13,30 +17,30 @@ class FaveItemsProvider extends Component {
     try {
       const savedFaveItems = await queryFaveItems();
       const faveItemIds = savedFaveItems.map(faveItem => faveItem);
-      this.setState({ faveItemIds })
+      this.setState({ faveItemIds });
     } catch (e) {
-      return e
+      return e;
     }
-  }
-  addFaveItem = async (itemId) => {
+  };
+  addFaveItem = async itemId => {
     try {
       const newFaveItem = await createFaveItem(itemId);
-      if (newFaveItem) this.setState({ faveItemIds: [...this.state.faveItemIds, newFaveItem] })
-      this.getFavedItemIds()
+      if (newFaveItem)
+        this.setState({ faveItemIds: [...this.state.faveItemIds, newFaveItem] });
+      this.getFavedItemIds();
     } catch (e) {
-      throw e
+      throw e;
     }
-  }
+  };
 
-  removeFaveItem = async (itemId) => {
+  removeFaveItem = async itemId => {
     try {
       await deleteFaveItem(itemId);
-      this.getFavedItemIds()
+      this.getFavedItemIds();
+    } catch (e) {
+      throw e;
     }
-    catch (e) {
-      throw e
-    }
-  }
+  };
 
   componentDidMount() {
     this.getFavedItemIds();
@@ -47,15 +51,16 @@ class FaveItemsProvider extends Component {
       <FaveItemsContext.Provider
         value={{
           ...this.state,
-          createFaveItem
-            : this.addFaveItem,
-          removeFaveItem: this.removeFaveItem
-        }}  >
+          createFaveItem: this.addFaveItem,
+          removeFaveItem: this.removeFaveItem,
+        }}>
         {this.props.children}
-      </ FaveItemsContext.Provider>
+      </FaveItemsContext.Provider>
     );
   }
 }
-
+FaveItemsContext.propTypes = {
+  children: PropTypes.object
+}
 export { FaveItemsProvider };
 export default FaveItemsContext;

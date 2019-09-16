@@ -1,37 +1,39 @@
-import { createStackNavigator } from 'react-navigation-stack';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import NavigationLayout from './NavigationLayout';
 import FilterModal from '../screens/Filter';
 import SignInScreen from '../screens/SignIn';
 import SignUpScreen from '../screens/SignUp';
-import AuthLoadingScreen from '../screens/AuthLoading'
+import AuthLoadingScreen from '../screens/AuthLoading';
+import OnBoarding from '../screens/OnBoarding';
 
-
-const AuthStack = createStackNavigator({
-  SignIn: {
-    screen: SignInScreen
+const AuthStack = createStackNavigator(
+  {
+    OnBoarding: {
+      screen: OnBoarding,
+    },
+    SignIn: {
+      screen: SignInScreen,
+    },
+    SignUp: {
+      screen: SignUpScreen,
+    },
   },
-  SignUp: {
-    screen: SignUpScreen
-  }
-}, {
-  headerMode: 'none',
-});
+  {
+    headerMode: 'none',
+  },
+);
 
-
-
-const AppStack =
-  createStackNavigator(
-    {
-      Layout: NavigationLayout,
-      Filter: FilterModal,
-    },
-    {
-      headerMode: 'none',
-      mode: 'modal',
-    },
-  );
-
+const AppStack = createStackNavigator(
+  {
+    Layout: NavigationLayout,
+    Filter: FilterModal,
+  },
+  {
+    headerMode: 'none',
+    mode: 'modal',
+  },
+);
 
 export default createAppContainer(
   createSwitchNavigator(
@@ -41,7 +43,7 @@ export default createAppContainer(
       Auth: AuthStack,
     },
     {
-      initialRouteName: "AuthLoading",
-    }
-  )
+      initialRouteName: 'AuthLoading',
+    },
+  ),
 );

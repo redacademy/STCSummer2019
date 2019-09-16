@@ -5,6 +5,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import Loader from '../../components/Loader';
 import { View, Text, Button } from 'react-native';
+import PropTypes from 'prop-types';
 
 const GET_NEW_ARRIVAL_ITEMS = gql`
 query allItems($newArrival:Boolean!){
@@ -12,15 +13,15 @@ query allItems($newArrival:Boolean!){
     id
     title
     brand{
+      id
       title
     }
     stores{
-     id
+    id
     address
     categories
     email
     hours
-    id
     images
     phone
     sale
@@ -60,5 +61,8 @@ class ForYouContainer extends Component {
     )
   }
 }
+ForYouContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
 
+}
 export default ForYouContainer;

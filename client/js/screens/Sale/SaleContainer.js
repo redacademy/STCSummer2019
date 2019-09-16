@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import Loader from '../../components/Loader';
 import { Text } from 'react-native';
-
+import PropTypes from 'prop-types';
 const GET_SALE_STORES = gql`
 query {
   allStores(filter:{sale_gt: 0}){
@@ -43,6 +43,10 @@ class SaleContainer extends Component {
       </Query>
     )
   }
+}
+SaleContainer.propType = {
+  navigation: PropTypes.object.isRequired,
+
 }
 
 export default SaleContainer;

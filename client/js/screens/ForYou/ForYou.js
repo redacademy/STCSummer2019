@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import ItemList from '../../components/ItemList'
 import styles from './styles'
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import Filter from "../../components/Filter";
+import PropTypes from "prop-types";
 const ForYou = ({ items, navigation, }) => {
   return (
     <ScrollView>
@@ -13,6 +13,10 @@ const ForYou = ({ items, navigation, }) => {
       <Filter items={items} navigation={navigation} />
     </ScrollView>
   );
+};
+ForYou.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  items: PropTypes.array.isRequired
 };
 
 export default ForYou;

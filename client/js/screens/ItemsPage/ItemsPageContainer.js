@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import { Text, ActivityIndicator } from 'react-native';
+import React, {Component} from 'react';
+import {Text, ActivityIndicator} from 'react-native';
 import ItemsPage from './ItemsPage';
 import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
-import { withNavigation } from 'react-navigation';
+import {Query} from 'react-apollo';
+import {withNavigation} from 'react-navigation';
 import styles from './styles';
-
+import PropTypes from 'prop-types';
+import Loader from '../../components/Loader';
 const GET_ITEMS = gql`
   {
     allItems {
@@ -52,7 +53,7 @@ const GET_ITEMS = gql`
 `;
 
 class ItemsPageContainer extends Component {
-  static navigationOptions = ({ navigation }) => ({
+  static navigationOptions = ({navigation}) => ({
     title: navigation.state.params.category,
   });
   filterData = (items, filter) =>
@@ -61,9 +62,8 @@ class ItemsPageContainer extends Component {
   render() {
     return (
       <Query query={GET_ITEMS}>
-        {({ loading, error, data }) => {
-          if (loading)
-            return <ActivityIndicator size="large" style={styles.loader} />;
+        {({loading, error, data}) => {
+          if (loading) return <Loader />;
           if (error) return <Text>Error :(</Text>;
           if (data) {
             const items = this.filterData(
@@ -79,5 +79,8 @@ class ItemsPageContainer extends Component {
     );
   }
 }
+ItemsPageContainer.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 
 export default withNavigation(ItemsPageContainer);
