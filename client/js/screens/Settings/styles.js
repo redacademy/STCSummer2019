@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: '3.5%',
     color: colors.Black,
+    flexDirection: 'row',
   },
   logoutTxt: {
     fontSize: 14,
@@ -25,11 +26,8 @@ const styles = StyleSheet.create({
   helpContainer: {
     marginVertical: '5%',
     borderBottomWidth: 1,
-    flexDirection: 'row',
     width: '100%',
-    justifyContent: 'flex-start',
     borderBottomColor: '#D3D3D3',
-    justifyContent: 'space-between',
   },
   image: {
     width: '100%',
@@ -38,7 +36,6 @@ const styles = StyleSheet.create({
   arrowContainer: {
     height: 15,
     width: 15,
-    marginTop: '8%',
     marginRight: '5%',
   },
 });
