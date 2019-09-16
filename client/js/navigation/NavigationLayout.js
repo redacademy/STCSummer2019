@@ -33,7 +33,14 @@ const BrowseStack = createStackNavigator(
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
+    store: {
+      screen: StoreScreen,
+      navigationOptions: navigation => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
+    },
   },
+
   {
     defaultNavigationOptions: ({navigation}) => ({
       ...sharedNavigationOptions(navigation),
@@ -223,6 +230,7 @@ export default createBottomTabNavigator(
       inactiveTintColor: '#2B2D2F',
       labelStyle: {
         fontSize: 10,
+        fontFamily: 'Lato-regular',
       },
       style: {
         backgroundColor: '#E0D5C4',

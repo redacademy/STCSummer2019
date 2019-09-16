@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import React, {Component} from 'react';
+import {View, Text, ScrollView} from 'react-native';
 import ImageCarousel from '../../components/ImageCarousel';
 import styles from './styles';
 import RNPickerSelect from 'react-native-picker-select';
 import ItemStoreCard from '../../components/ItemStoreCard';
 import FaveItemsContext from '../../context/FaveItemsContext';
-import { createFaveItem } from '../../config/models/favedItems';
 import PropTypes from 'prop-types';
 class Item extends Component {
   getSizeValues = item => {
     const sizeobj = item.size
       .reverse()
-      .map(size => ({ label: size, value: size }));
+      .map(size => ({label: size, value: size}));
     return sizeobj;
   };
 
   getColorValues = item => {
     const colorobj = item.color
       .reverse()
-      .map(color => ({ label: color, value: color }));
+      .map(color => ({label: color, value: color}));
     return colorobj;
   };
 
@@ -30,46 +29,56 @@ class Item extends Component {
       },
       placeholderColor: 'black',
     };
-    const { item } = this.props;
+    const {item, navigation} = this.props;
     return (
       <FaveItemsContext.Consumer>
-        {
-          ({ faveItemIds, removeFaveItem, createFaveItem }) => {
-            return (
-              <ScrollView>
-                <ImageCarousel style={styles.carousel} images={item.images} id={item.id} faveIds={faveItemIds} createFave={createFaveItem} deleteFave={removeFaveItem} />
-                <View style={styles.singleItem}>
-                  <View style={styles.itemInfo}>
-                    <Text style={styles.itemBrand}>{item.brand.title}</Text>
-                    <Text style={styles.itemTitle}>{item.title}</Text>
-                    <Text style={styles.itemTags}>Tags: {item.tags[0]}</Text>
+        {({faveItemIds, removeFaveItem, createFaveItem}) => {
+          return (
+            <ScrollView>
+              <ImageCarousel
+                style={styles.carousel}
+                images={item.images}
+                id={item.id}
+                faveIds={faveItemIds}
+                createFave={createFaveItem}
+                deleteFave={removeFaveItem}
+              />
+              <View style={styles.singleItem}>
+                <View style={styles.itemInfo}>
+                  <Text style={styles.itemBrand}>{item.brand.title}</Text>
+                  <Text style={styles.itemTitle}>{item.title}</Text>
+                  <Text style={styles.itemTags}>Tags: {item.tags[0]}</Text>
+                </View>
+                <View style={styles.allDropdown}>
+                  <View style={styles.sizedropdown}>
+                    <RNPickerSelect
+                      onValueChange={value => console.log(value)}
+                      items={this.getSizeValues(item)}
+                      placeholder={{label: 'Size', value: '', color: 'black'}}
+                      style={pickerStyle}
+                    />
                   </View>
-                  <View style={styles.allDropdown}>
-                    <View style={styles.sizedropdown}>
-                      <RNPickerSelect
-                        onValueChange={value => console.log(value)}
-                        items={this.getSizeValues(item)}
-                        placeholder={{ label: 'Size', value: '', color: 'black' }}
-                        style={pickerStyle}
-                      />
-                    </View>
-                    <View style={styles.dropdown}>
-                      <RNPickerSelect
-                        onValueChange={value => console.log(value)}
-                        items={this.getColorValues(item)}
-                        placeholder={{ label: 'Color', value: '', color: 'black' }}
-                        style={pickerStyle}
-                      />
-                    </View>
+                  <View style={styles.dropdown}>
+                    <RNPickerSelect
+                      onValueChange={value => console.log(value)}
+                      items={this.getColorValues(item)}
+                      placeholder={{label: 'Color', value: '', color: 'black'}}
+                      style={pickerStyle}
+                    />
                   </View>
                 </View>
-                {item.stores.map(store => (
-                  <ItemStoreCard key={store.id} store={store} item={item} />
-                ))}
-              </ScrollView>
-            )
-          }
-        }
+              </View>
+              {item.stores.map(store => (
+                <ItemStoreCard
+                  key={store.id}
+                  store={store}
+                  item={item}
+                  navigation={navigation}
+                />
+              ))}
+            </ScrollView>
+          );
+        }}
       </FaveItemsContext.Consumer>
     );
   }
@@ -83,7 +92,7 @@ Item.propTypes = {
     brand: PropTypes.shape({
       title: PropTypes.string.isRequired,
     }),
-    stores: PropTypes.array.isRequired
-  })
-}
+    stores: PropTypes.array.isRequired,
+  }),
+};
 export default Item;

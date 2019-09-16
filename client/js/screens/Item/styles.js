@@ -11,14 +11,17 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     paddingBottom: '2%',
     paddingTop: '3%',
+    fontFamily: 'Lato-regular',
   },
   itemTags: {
     fontSize: 12,
     fontWeight: '200',
+    fontFamily: 'Lato-regular',
   },
   itemTitle: {
     fontWeight: '500',
     paddingBottom: '2%',
+    fontFamily: 'Lato-Bold',
   },
   dropdown: {
     borderColor: 'black',
