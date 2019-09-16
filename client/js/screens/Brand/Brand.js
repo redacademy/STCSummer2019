@@ -38,7 +38,7 @@ Brand.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     images: PropTypes.array.isRequired,
-    items: PropTypes.object.isRequired,
+    items: PropTypes.array.isRequired,
     description: PropTypes.string.isRequired,
     stores: PropTypes.array.isRequired
   })
