@@ -10,7 +10,7 @@ const Settings = ({navigation}) => {
     <View>
       <View style={styles.helpContainer}>
         <Text style={styles.text}> Help </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Browse')}>
+        <TouchableOpacity onPress={() => navigation.navigate('OnBoarding')}>
           <View style={styles.arrowContainer}>
             <Image
               source={require('../../assets/icons/forward-inactive2x.png')}
