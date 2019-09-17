@@ -18,8 +18,6 @@ class FilterList extends React.Component {
     }
   }
 
-
-
   filterHelper = (data, stores, itemStyles) => {
     let newData;
     if (stores.length > 0 && itemStyles.length > 0) {
@@ -163,7 +161,7 @@ class FilterList extends React.Component {
                   return (
                     <ItemList item={item} navigation={navigation} key={item.id} />)
                 }) :
-                <View><Text>Sorry No Items At This Time, Please Try Again</Text></View>
+                <View><Text>Sorry No Available Items At This Time, Please Try Again</Text></View>
             }
           </View>
         </ScrollView>
