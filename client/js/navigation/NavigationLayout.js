@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Image} from 'react-native';
+import { View, Image } from 'react-native';
 import styles from './styles';
-import {createStackNavigator} from 'react-navigation-stack';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import sharedNavigationOptions from './config';
 import BrowseScreen from '../screens/Browse';
 import ForYouScreen from '../screens/ForYou';
@@ -14,9 +14,10 @@ import ItemScreen from '../screens/Item';
 import StoreScreen from '../screens/Store';
 import BrandScreen from '../screens/Brand';
 import BrandItemsScreen from '../screens/BrandItems';
-import {BackButton, CogWheel} from './config';
+import { BackButton, CogWheel } from './config';
 import SettingsScreen from '../screens/Settings';
 import MapScreen from '../screens/Map';
+import OnBoarding from '../screens/OnBoarding';
 
 const BrowseStack = createStackNavigator(
   {
@@ -25,26 +26,32 @@ const BrowseStack = createStackNavigator(
     },
     allItems: {
       screen: ItemsPageScreen,
-      navigationOptions: navigation => ({
+      navigationOptions: ({ navigation }) => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
     singleItem: {
       screen: ItemScreen,
-      navigationOptions: navigation => ({
+      navigationOptions: ({ navigation }) => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
     store: {
       screen: StoreScreen,
-      navigationOptions: navigation => ({
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
+    },
+    map: {
+      screen: MapScreen,
+      navigationOptions: ({ navigation }) => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
   },
 
   {
-    defaultNavigationOptions: ({navigation}) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -57,31 +64,37 @@ const StoresBrandsStack = createStackNavigator(
     },
     store: {
       screen: StoreScreen,
-      navigationOptions: navigation => ({
+      navigationOptions: ({ navigation }) => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
     brand: {
       screen: BrandScreen,
-      navigationOptions: navigation => ({
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
+    },
+    singleItem: {
+      screen: ItemScreen,
+      navigationOptions: ({ navigation }) => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
     brandItems: {
       screen: BrandItemsScreen,
-      navigationOptions: navigation => ({
+      navigationOptions: ({ navigation }) => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
     map: {
       screen: MapScreen,
-      navigationOptions: navigation => ({
+      navigationOptions: ({ navigation }) => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
   },
   {
-    defaultNavigationOptions: ({navigation}) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -94,25 +107,37 @@ const ForYouStack = createStackNavigator(
     },
     singleItem: {
       screen: ItemScreen,
-      navigationOptions: navigation => ({
+      navigationOptions: ({ navigation }) => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
     store: {
       screen: StoreScreen,
-      navigationOptions: navigation => ({
+      navigationOptions: ({ navigation }) => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
     brand: {
       screen: BrandScreen,
-      navigationOptions: navigation => ({
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
+    },
+    store: {
+      screen: StoreScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
+    },
+    map: {
+      screen: MapScreen,
+      navigationOptions: ({ navigation }) => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
   },
   {
-    defaultNavigationOptions: ({navigation}) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -125,13 +150,19 @@ const SaleStack = createStackNavigator(
     },
     store: {
       screen: StoreScreen,
-      navigationOptions: navigation => ({
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
+    },
+    map: {
+      screen: MapScreen,
+      navigationOptions: ({ navigation }) => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
   },
   {
-    defaultNavigationOptions: ({navigation}) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -141,19 +172,52 @@ const ProfileStack = createStackNavigator(
   {
     profile: {
       screen: ProfileScreen,
-      navigationOptions: ({navigation}) => ({
+      navigationOptions: ({ navigation }) => ({
         headerRight: <CogWheel navigation={navigation} />,
       }),
     },
     settings: {
       screen: SettingsScreen,
-      navigationOptions: navigation => ({
+      navigationOptions: ({ navigation }) => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
+    singleItem: {
+      screen: ItemScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
+    },
+    store: {
+      screen: StoreScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
+    },
+    brand: {
+      screen: BrandScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
+    },
+    brandItems: {
+      screen: BrandItemsScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
+    },
+    map: {
+      screen: MapScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: <BackButton navigation={navigation} />,
+      }),
+    },
+    OnBoarding: {
+      screen: OnBoarding,
+    },
   },
   {
-    defaultNavigationOptions: ({navigation}) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation),
     }),
   },
@@ -168,9 +232,9 @@ export default createBottomTabNavigator(
     Profile: ProfileStack,
   },
   {
-    defaultNavigationOptions: ({navigation}) => ({
-      tabBarIcon: ({focused}) => {
-        const {routeName} = navigation.state;
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused }) => {
+        const { routeName } = navigation.state;
         if (routeName === 'Browse') {
           return (
             <View style={styles.imageContainer}>

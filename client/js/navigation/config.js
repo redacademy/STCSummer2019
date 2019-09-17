@@ -1,12 +1,12 @@
 import React from 'react';
-import {Header} from 'react-navigation-stack';
-import {Image, TouchableOpacity} from 'react-native';
+import { Header } from 'react-navigation-stack';
+import { Image, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
-export const BackButton = ({navigation}) => (
+export const BackButton = ({ navigation }) => (
   <TouchableOpacity
     style={styles.backContainer}
-    onPress={() => navigation.navigation.goBack()}>
+    onPress={() => navigation.goBack()}>
     <Image
       style={styles.backIcon}
       source={require('../assets/icons/back-inactive3x.png')}
@@ -14,7 +14,7 @@ export const BackButton = ({navigation}) => (
   </TouchableOpacity>
 );
 
-export const CogWheel = ({navigation}) => (
+export const CogWheel = ({ navigation }) => (
   <TouchableOpacity
     style={styles.backContainer}
     onPress={() => navigation.navigate('settings')}>
@@ -31,5 +31,5 @@ export default sharedNavigationOptions = navigation => ({
   headerStyle: {
     backgroundColor: '#E0D5C4',
   },
-  headerTitleStyle: {color: '#2B2D2F'},
+  headerTitleStyle: { color: '#2B2D2F' },
 });

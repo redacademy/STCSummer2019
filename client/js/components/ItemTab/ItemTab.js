@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
-import {gql} from 'apollo-boost';
+import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { gql } from 'apollo-boost';
 import FavesItemsContext from '../../context/FaveItemsContext';
-import {Query} from 'react-apollo';
+import { Query } from 'react-apollo';
 import styles from './styles';
-import {withNavigation} from 'react-navigation';
+import { withNavigation } from 'react-navigation';
 import Loader from '../Loader';
 
 const GET_All_ITEMS = gql`
@@ -16,10 +16,23 @@ const GET_All_ITEMS = gql`
       stores {
         id
         title
+        storelink
         brands {
           title
           id
+          images
+          description
         }
+        images
+        storeLogo
+        categories
+        hours
+        address
+        phone
+        email
+        website
+        sale
+        saledescription
       }
       size
       price
@@ -32,17 +45,19 @@ const GET_All_ITEMS = gql`
       brand {
         id
         title
+        images
+        description
       }
-    }
   }
+}
 `;
 
-const ItemTab = navigation => {
+const ItemTab = ({ navigation }) => {
   return (
     <FavesItemsContext.Consumer>
-      {({faveItemIds}) => (
+      {({ faveItemIds }) => (
         <Query query={GET_All_ITEMS}>
-          {({loading, error, data}) => {
+          {({ loading, error, data }) => {
             if (loading) return <Loader />;
             if (error) return <Text>Error :(</Text>;
             if (data) {
@@ -67,7 +82,7 @@ const ItemTab = navigation => {
                               }}>
                               <Image
                                 resizeMode="cover"
-                                source={{uri: item.images[0]}}
+                                source={{ uri: item.images[0] }}
                                 style={styles.itemImage}
                               />
                             </TouchableOpacity>
@@ -76,31 +91,31 @@ const ItemTab = navigation => {
                       </View>
                     </ScrollView>
                   ) : (
-                    <View style={styles.container}>
-                      <View style={styles.containerImg}>
-                        <Image
-                          style={styles.iconImg}
-                          resizeMode="contain"
-                          source={require('../../assets/icons/heart-dress.png')}
-                        />
-                      </View>
-                      <Text style={styles.text}>
-                        Build your personal catalogue
-                      </Text>
-                      <Text style={styles.subText}>
-                        Start favouriting styles and clothes you like to build
-                        your personal catalogue
-                      </Text>
-                      <TouchableOpacity
-                        onPress={() => {
-                          navigation.navigate('Browse');
-                        }}>
-                        <View style={styles.txtWrapper}>
-                          <Text style={styles.browseTxt}> Browse Clothes </Text>
+                      <View style={styles.container}>
+                        <View style={styles.containerImg}>
+                          <Image
+                            style={styles.iconImg}
+                            resizeMode="contain"
+                            source={require('../../assets/icons/heart-dress.png')}
+                          />
                         </View>
-                      </TouchableOpacity>
-                    </View>
-                  )}
+                        <Text style={styles.text}>
+                          Build your personal catalogue
+                      </Text>
+                        <Text style={styles.subText}>
+                          Start favouriting styles and clothes you like to build
+                          your personal catalogue
+                      </Text>
+                        <TouchableOpacity
+                          onPress={() => {
+                            navigation.navigate('Browse');
+                          }}>
+                          <View style={styles.txtWrapper}>
+                            <Text style={styles.browseTxt}> Browse Clothes </Text>
+                          </View>
+                        </TouchableOpacity>
+                      </View>
+                    )}
                 </View>
               );
             }
