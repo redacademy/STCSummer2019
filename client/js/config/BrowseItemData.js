@@ -1,7 +1,7 @@
 export const categories = [
   {
     id: 1,
-    category: 'Clothes',
+    category: 'Clothing',
     image: require('../assets/images/clothing.png'),
   },
 

@@ -23,7 +23,7 @@
 
 ## To run the app
 
-```react-native run-ios ```
+```react-native run-ios```
 
 Note: React Native Tools are required to run the app - kindly follow the instructions on https://facebook.github.io/react-native/docs/getting-started
 

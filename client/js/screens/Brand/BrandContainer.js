@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
 import Brand from './Brand'
 import PropTypes from 'prop-types';
 class BrandContainer extends Component {
@@ -19,3 +18,4 @@ BrandContainer.propTypes = {
 
 }
 export default BrandContainer;
+

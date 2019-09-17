@@ -1,16 +1,30 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import PropTypes from 'prop-types';
-const ItemStoreCard = ({store, item, navigation}) => {
+const ItemStoreCard = ({ store, item, navigation }) => {
   const onSale = !!(store.sale > 0 && item.styles === store.saledescription);
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('store', {store})}>
-      <View style={styles.storeCardContainer}>
+    <TouchableOpacity onPress={() => navigation.navigate('store', { store })}>
+      <View
+        style={
+          store.storelink
+            ? styles.partnerStoreCardContainer
+            : styles.storeCardContainer
+        }>
+        {store.storelink ? (
+          <View style={styles.partnerImageContainer}>
+            <Image
+              source={require('../../assets/icons/partner-active3x.png')}
+              resizeMode="cover"
+              style={styles.partnerImage}
+            />
+          </View>
+        ) : null}
         <View style={styles.imageContainer}>
           <Image
-            source={{uri: store.storeLogo}}
+            source={{ uri: store.storeLogo }}
             style={styles.image}
             resizeMode="contain"
           />
@@ -23,8 +37,8 @@ const ItemStoreCard = ({store, item, navigation}) => {
                 ${item.price * (1 - store.sale / 100)}
               </Text>
             ) : (
-              <Text style={styles.itemPrice}>${item.price}</Text>
-            )}
+                <Text style={styles.itemPrice}>${item.price}</Text>
+              )}
             <View style={styles.storeSizes}>
               <Text style={styles.sizeStyle}>Sizes:</Text>
               {item.size.map(sizes => (
@@ -40,11 +54,6 @@ const ItemStoreCard = ({store, item, navigation}) => {
             </View>
           )}
         </View>
-        {onSale && (
-          <View>
-            <Text>SALE</Text>
-          </View>
-        )}
       </View>
     </TouchableOpacity>
   );
