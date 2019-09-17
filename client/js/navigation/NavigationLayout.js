@@ -17,6 +17,7 @@ import BrandItemsScreen from '../screens/BrandItems';
 import { BackButton, CogWheel } from './config';
 import SettingsScreen from '../screens/Settings';
 import MapScreen from '../screens/Map';
+import OnBoarding from '../screens/OnBoarding';
 
 const BrowseStack = createStackNavigator(
   {
@@ -210,6 +211,9 @@ const ProfileStack = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         headerLeft: <BackButton navigation={navigation} />,
       }),
+    },
+    OnBoarding: {
+      screen: OnBoarding,
     },
   },
   {
