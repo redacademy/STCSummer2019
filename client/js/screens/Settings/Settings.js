@@ -9,14 +9,21 @@ const Settings = ({navigation}) => {
   return (
     <View>
       <View style={styles.helpContainer}>
-        <Text style={styles.text}> Help </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Browse')}>
-          <View style={styles.arrowContainer}>
-            <Image
-              source={require('../../assets/icons/forward-inactive2x.png')}
-              resizeMode="cover"
-              style={styles.image}
-            />
+        <TouchableOpacity onPress={() => navigation.navigate('OnBoarding')}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              width: '98%',
+            }}>
+            <Text style={styles.text}> Help </Text>
+            <View style={styles.arrowContainer}>
+              <Image
+                source={require('../../assets/icons/forward-inactive2x.png')}
+                resizeMode="cover"
+                style={styles.image}
+              />
+            </View>
           </View>
         </TouchableOpacity>
       </View>
