@@ -1,9 +1,10 @@
 import React from 'react';
-import { Image, Text, View, TouchableOpacity } from 'react-native';
+import {Image, Text, View, TouchableOpacity} from 'react-native';
 import styles from './styles';
 import PropTypes from 'prop-types';
-const StoreCard = ({ store, navigation }) => (
-  <TouchableOpacity onPress={() => navigation.navigate('store', { store })}>
+
+const StoreCard = ({store, navigation}) => (
+  <TouchableOpacity onPress={() => navigation.navigate('store', {store})}>
     <View
       style={
         store.storelink
@@ -21,25 +22,26 @@ const StoreCard = ({ store, navigation }) => (
       ) : null}
       <View style={styles.imageContainer}>
         <Image
-          source={{ uri: `${store.storeLogo}` }}
+          source={{uri: `${store.storeLogo}`}}
           resizeMode="cover"
           style={styles.image}
         />
       </View>
 
-      {navigation.state.routeName === "sale" ?
+      {navigation.state.routeName === 'sale' ? (
         <View style={styles.storeContentContainer}>
           <Text style={styles.storeTitle}>{store.title}</Text>
-          <Text style={styles.storeContent}>Sale on {store.saledescription} - {store.sale}% off</Text>
+          <Text style={styles.storeContent}>
+            Sale on {store.saledescription} - {store.sale}% off
+          </Text>
         </View>
-        :
+      ) : (
         <View style={styles.storeContentContainer}>
           <Text style={styles.storeTitle}>{store.title}</Text>
           <Text style={styles.storeContent}>{store.address}</Text>
           <Text style={styles.storeContent}>{store.phone}</Text>
         </View>
-      }
-
+      )}
     </View>
   </TouchableOpacity>
 );
@@ -52,7 +54,7 @@ StoreCard.propTypes = {
     address: PropTypes.string.isRequired,
     hours: PropTypes.string.isRequired,
   }),
-  navigation: PropTypes.object.isRequired
-}
+  navigation: PropTypes.object.isRequired,
+};
 
 export default StoreCard;
