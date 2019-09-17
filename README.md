@@ -41,6 +41,11 @@ Note: React Native Tools are required to run the app - kindly follow the instruc
 ```Apollo``` 
 
 
+## Personal Development 
+
+- Importance of React-Native UI elements in allowing mobile applications to load quickly
+
+- GraphCool is a backend developement framework that allows flexibility in managing applications.
 
 ### Authors
 
