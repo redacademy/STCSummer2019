@@ -176,7 +176,7 @@ class SignIn extends Component {
   }
 }
 
-SignIn.PropTypes = {
+SignIn.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 export default withNavigation(SignIn);

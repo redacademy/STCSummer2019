@@ -1,60 +1,50 @@
-## Shop This City
+# Shop This City
+
   A mobile friendly application build on iOS Platform using React Native. It allows Users to favourite items from assorted well-known brands by their categories which enables the User to build up their own Pinterest Board. A divine feature that allows a User to go back to the items easily when the item has not been purchased. 
   
-  # SnapShots
- 
- ### Browse Screen 
-
-![Simulator Screen Shot - iPhone X - 2019-09-13 at 13 43 06](https://user-images.githubusercontent.com/43800526/64897394-1deb8e00-d638-11e9-912a-2db10d0bc12d.png)
-
-
-  ### Store Screen  
- 
-![Simulator Screen Shot - iPhone X - 2019-09-13 at 13 43 31](https://user-images.githubusercontent.com/43800526/64897369-06140a00-d638-11e9-8e65-22e07a1d391b.png)
-
-
-### Brand Screen 
-
-![Simulator Screen Shot - iPhone X - 2019-09-13 at 13 43 34](https://user-images.githubusercontent.com/43800526/64897341-f0064980-d637-11e9-88eb-cbdbe8dfa014.png)
-
-
-### New Arrivals 
-
-![Simulator Screen Shot - iPhone X - 2019-09-13 at 13 43 46](https://user-images.githubusercontent.com/43800526/64897309-d1a04e00-d637-11e9-8e3f-e0faa4190614.png)
-
-
-### Sale 
-
-![Simulator Screen Shot - iPhone X - 2019-09-13 at 13 43 50](https://user-images.githubusercontent.com/43800526/64897252-9ef65580-d637-11e9-8594-9b9c06664449.png)
+## GIF
+  
+![] (https://media.giphy.com/media/YPtCW7ow8HpTiisAPP/giphy.gif)
 
 
 
+## Instructions to run the project 
 
-# Instructions to run the project 
+```Git Clone the repository``` 
 
-1. Git Clone the repository 
+```change directory into client directory```
 
-1. yarn install 
+```yarn install``` 
 
-1. cd ios 
+```change directory into ios``` 
 
-1. pod install
+```pod install```
 
-1. react-native run-ios (react-native run-ios)
+```go back to client directory```
 
-# Technologies: 
+run your app  with  ```react-native run-ios ```
 
-1.	GraphCool 
-1.	GraphQL
-1.	React Native
-1.	Async Storage
-1.	React-Native Maps 
-1.	Apollo-Client 
-1.	React-Native Tab-Views 
+
+## Technologies: 
+
+```GraphCool```
+
+```React Native```
+
+```Async Storage```
+
+```Apple Maps```
+
+```Apollo``` 
+
+
 
 ### Authors
 
 - Vera
-- Ying
+
+- Yen Yin
+
 - Sydney
+
 - Andrew
