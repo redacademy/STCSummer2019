@@ -13,12 +13,9 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
     paddingBottom: '10%',
     paddingTop: '3%',
-<<<<<<< HEAD
     fontFamily: 'Lato-Bold',
     textDecorationLine: 'underline',
     color: '#333638',
-=======
->>>>>>> develop
   },
   imageHeartContainer: {
     position: 'relative',
