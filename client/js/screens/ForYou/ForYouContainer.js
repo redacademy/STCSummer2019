@@ -37,6 +37,27 @@ const GET_NEW_ARRIVAL_ITEMS = gql`
       tags
       discount
     }
+    stores {
+      id
+      address
+      categories
+      email
+      hours
+      images
+      phone
+      sale
+      storeLogo
+      title
+      website
+      storelink
+    }
+    styles
+    size
+    color
+    price
+    images
+    tags
+    discount
   }
 `;
 

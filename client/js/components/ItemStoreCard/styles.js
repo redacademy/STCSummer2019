@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   image: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     flexDirection: 'row',
-    shadowOffset: {width: 2, height: 3},
+    shadowOffset: { width: 2, height: 3 },
     shadowColor: '#D3D3D3',
     shadowOpacity: 1.0,
     backgroundColor: 'white',
@@ -38,6 +38,34 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '60%',
+  },
+  partnerImageContainer: {
+    height: 30,
+    width: 30,
+    position: 'absolute',
+    zIndex: 2,
+    right: '5%',
+    top: -15,
+  },
+  partnerImage: {
+    width: '100%',
+    height: '100%',
+  },
+  partnerStoreCardContainer: {
+    width: '90%',
+    height: 100,
+    borderWidth: 1,
+    borderColor: '#D3D3D3',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 15,
+    marginBottom: 10,
+    flexDirection: 'row',
+    shadowOffset: { width: 4, height: 2 },
+    shadowColor: '#D3D3D3',
+    shadowOpacity: 0.8,
+    backgroundColor: 'white',
+    position: 'relative',
   },
   storeMeta: {
     justifyContent: 'space-around',
