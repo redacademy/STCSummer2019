@@ -28,6 +28,7 @@ query allItems($newArrival:Boolean!){
     storeLogo
     title
     website 
+    storelink
     }
     styles
     size
