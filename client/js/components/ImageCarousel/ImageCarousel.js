@@ -28,13 +28,13 @@ export class ImageCarousel extends React.Component {
             <Image
               style={styles.itemHeart}
               resizeMode="cover"
-              source={require('../../assets/activeheart.png')}
+              source={require('../../assets/icons/activeheart.png')}
             />
           ) : (
             <Image
               style={styles.itemHeart}
               resizeMode="cover"
-              source={require('../../assets/inactiveheart.png')}
+              source={require('../../assets/icons/inactiveheart.png')}
             />
           )}
         </TouchableOpacity>
