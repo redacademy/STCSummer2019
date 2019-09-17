@@ -2,13 +2,12 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 import styles from './styles';
 import TabProfile from '../../components/TabProfile';
-import {Gravatar, GravatarApi} from 'react-native-gravatar';
+import {Gravatar} from 'react-native-gravatar';
 
 const Profile = ({user}) => {
   return (
     <View style={styles.container}>
       <View style={styles.imgWrapper}>
-
         <Gravatar
           options={{
             email: user.email,
