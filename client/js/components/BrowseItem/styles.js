@@ -8,7 +8,9 @@ const styles = StyleSheet.create({
     width: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',
-    fontFamily: 'Lato-Regular',
+    marginHorizontal: 10,
+    color: '#333638',
+    fontFamily: 'Lato-regular',
   },
   browseImage: {
     height: height / 5,

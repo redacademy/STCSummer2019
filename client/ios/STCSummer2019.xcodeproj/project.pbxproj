@@ -55,7 +55,6 @@
 		00E356EE1AD99517003FC87E /* STCSummer2019Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STCSummer2019Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* STCSummer2019Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STCSummer2019Tests.m; sourceTree = "<group>"; };
-		023125AA6EB6474AAE0E379B /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		0323CABA22C0497E8A257BE6 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-BoldItalic.ttf"; path = "../js/assets/fonts/Lato/Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
 		1042B5CDD49C73558DB14048 /* libPods-STCSummer2019-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-STCSummer2019-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C19156942343CE9D60EFD7 /* Lato-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Bold.ttf"; path = "../js/assets/fonts/Lato/Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -98,7 +97,6 @@
 		C234CD01383CECBFFAF5286B /* Pods-STCSummer2019-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STCSummer2019-tvOS.release.xcconfig"; path = "Target Support Files/Pods-STCSummer2019-tvOS/Pods-STCSummer2019-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		C82C8A7310DD71311CF21425 /* Pods-STCSummer2019.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STCSummer2019.release.xcconfig"; path = "Target Support Files/Pods-STCSummer2019/Pods-STCSummer2019.release.xcconfig"; sourceTree = "<group>"; };
 		CC9A2412A2993C5B5601DFBC /* libPods-STCSummer2019Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-STCSummer2019Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDB325DE0C954C1298F4CD21 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		DE5E9749BA5A4908AF8F1D28 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-LightItalic.ttf"; path = "../js/assets/fonts/Lato/Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		E7BB0625A4754A67BD0D6AB0 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Light.ttf"; path = "../js/assets/fonts/Lato/Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		E9577E8015A340D79A44CED0 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-HairlineItalic.ttf"; path = "../js/assets/fonts/Lato/Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
@@ -174,22 +172,6 @@
 				DE5E9749BA5A4908AF8F1D28 /* Lato-LightItalic.ttf */,
 				61A57F5B9B8E428490B4928A /* Lato-Regular.ttf */,
 				E7BB0625A4754A67BD0D6AB0 /* Montserrat-Light.ttf */,
-				64C9CB2C46B542C7B206C136 /* AntDesign.ttf */,
-				9B66D5D97F9049CAA0520F02 /* Entypo.ttf */,
-				9A786951918943EAB917700B /* EvilIcons.ttf */,
-				16F6EA64CB10422BA49C213A /* Feather.ttf */,
-				92D244B2E0CE44C692562D54 /* FontAwesome.ttf */,
-				47BA05C749064EE0954D7988 /* FontAwesome5_Brands.ttf */,
-				2BA60A48D37C40D2931E7E68 /* FontAwesome5_Regular.ttf */,
-				3423EA58DEB6425DA2A73B36 /* FontAwesome5_Solid.ttf */,
-				DDB325DE0C954C1298F4CD21 /* Fontisto.ttf */,
-				4E0DAED984054B94A918FE91 /* Foundation.ttf */,
-				4E46F2DA2AA14EDB9C16DFB1 /* Ionicons.ttf */,
-				8E6D924E5C4D4F9FB5904149 /* MaterialCommunityIcons.ttf */,
-				39975C37A8814C5A81C2A615 /* MaterialIcons.ttf */,
-				023125AA6EB6474AAE0E379B /* Octicons.ttf */,
-				95E2BB0AE5C34919B106B8D6 /* SimpleLineIcons.ttf */,
-				4073B005D1E44D8F8C366F69 /* Zocial.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -199,11 +181,11 @@
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
-				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = STCSummer2019;
 			sourceTree = "<group>";

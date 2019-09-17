@@ -38,7 +38,9 @@ const GET_NEW_ARRIVAL_ITEMS = gql`
       discount
     }
   }
+}
 `;
+
 class ForYouContainer extends Component {
   static navigationOptions = {
     title: 'New Arrivals',
