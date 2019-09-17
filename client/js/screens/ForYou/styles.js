@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   allItems: {
     flexDirection: 'row',
@@ -11,9 +11,9 @@ const styles = StyleSheet.create({
     paddingLeft: '5%',
   },
   allItemsContainer: {
-    paddingTop: '5%',
-    paddingLeft: '3%',
-    paddingRight: '3%',
+    marginTop: '5%',
+    marginLeft: '3%',
+    marginRight: '3%',
   },
   sortItemsText: {
     fontWeight: '500',
@@ -36,7 +36,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-
 
 export default styles;
