@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, ScrollView, Image, FlatList } from 'react-native';
+import {View, Text, ScrollView, Image, FlatList} from 'react-native';
 import ItemList from '../../components/ItemList';
 import styles from './styles';
 import PropTypes from 'prop-types';
 
-const ItemsPage = ({ allItems, navigation }) => {
+const ItemsPage = ({allItems, navigation}) => {
   return (
     <ScrollView style={styles.allItemsContainer}>
       <View style={styles.sortItems}>
@@ -12,21 +12,21 @@ const ItemsPage = ({ allItems, navigation }) => {
           <Text style={styles.sortItemsText}>Sort</Text>
           <Image
             style={styles.dropdown}
-            source={require('../../assets/dropdown.png')}
+            source={require('../../assets/icons/dropdown.png')}
           />
         </View>
         <View style={styles.itemFilter}>
           <Text style={styles.sortItemsText}>Tags</Text>
           <Image
             style={styles.dropdown}
-            source={require('../../assets/dropdown.png')}
+            source={require('../../assets/icons/dropdown.png')}
           />
         </View>
         <View style={styles.itemFilter}>
           <Text style={styles.sortItemsText}>Filter</Text>
           <Image
             style={styles.dropdown}
-            source={require('../../assets/inactivefilter.png')}
+            source={require('../../assets/icons/inactivefilter.png')}
           />
         </View>
       </View>
@@ -40,7 +40,7 @@ const ItemsPage = ({ allItems, navigation }) => {
 };
 ItemsPage.propTypes = {
   navigation: PropTypes.object.isRequired,
-  allItems: PropTypes.array.isRequired
-}
+  allItems: PropTypes.array.isRequired,
+};
 
 export default ItemsPage;

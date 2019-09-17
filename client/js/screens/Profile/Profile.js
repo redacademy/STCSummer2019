@@ -8,7 +8,7 @@ const Profile = ({user}) => {
     <View style={styles.container}>
       <View style={styles.imgWrapper}>
         <Image
-          source={require('../../assets/profilepic.png')}
+          source={require('../../assets/icons/profilepic.png')}
           styles={styles.img}
         />
         <View style={styles.btnWrapper}>
