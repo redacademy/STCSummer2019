@@ -4,25 +4,28 @@
   
 ## GIF
   
-![Alt Text] (https://media.giphy.com/media/YPtCW7ow8HpTiisAPP/giphy.gif)
-
+![Animated GIF-downsized_large (1)](https://user-images.githubusercontent.com/43800526/65062503-ff83dc00-d930-11e9-9c48-b04a886a7197.gif)
 
 
 ## Instructions to run the project 
 
-```Git Clone the repository``` 
+```git clone https://github.com/redacademy/STCSummer2019.git``` 
 
-```change directory into client dir```
+```cd client```
 
 ```yarn install``` 
 
-```change directory into ios``` 
+```cd ios``` 
 
 ```pod install```
 
-```go back to client dir```
+```cd ..```
 
-run your app  with  ```react-native run-ios ```
+## To run the app
+
+```react-native run-ios ```
+
+Note: React Native Tools are required to run the app - kindly follow the instructions on https://facebook.github.io/react-native/docs/getting-started
 
 
 ## Technologies: 

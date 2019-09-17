@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   image: {
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 10,
     flexDirection: 'row',
-    shadowOffset: { width: 4, height: 2 },
+    shadowOffset: {width: 4, height: 2},
     shadowColor: '#D3D3D3',
     shadowOpacity: 0.8,
     backgroundColor: 'white',
@@ -65,10 +65,12 @@ const styles = StyleSheet.create({
   storeContent: {
     fontFamily: 'Lato-regular',
     fontSize: 14,
+    color: '#333638',
   },
   storeTitle: {
     fontFamily: 'Lato-Bold',
     fontSize: 14,
+    color: '#333638',
   },
   cardContent: {
     flexWrap: 'wrap',

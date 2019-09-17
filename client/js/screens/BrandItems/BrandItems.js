@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, ScrollView, Image } from 'react-native';
-import ItemList from '../../components/ItemList'
-import styles from './styles'
-import PropTypes from 'prop-types';
-const ForYou = ({ items, navigation }) => {
+import {View, Text, ScrollView, Image} from 'react-native';
+import ItemsList from '../../components/ItemList';
+import styles from './styles';
+
+const BrandItems = ({navigation, allItems}) => {
   return (
     <ScrollView style={styles.allItemsContainer}>
       <View style={styles.sortItems}>
@@ -30,16 +30,12 @@ const ForYou = ({ items, navigation }) => {
         </View>
       </View>
       <View style={styles.allItems}>
-        {items.map(item => (
-          <ItemList item={item} navigation={navigation} key={item.id} />
+        {allItems.map(item => (
+          <ItemsList item={item} key={item.id} navigation={navigation} />
         ))}
       </View>
     </ScrollView>
   );
 };
-ForYou.propTypes = {
-  navigation: PropTypes.object.isRequired,
-  items: PropTypes.array.isRequired
-};
 
-export default ForYou;
+export default BrandItems;
