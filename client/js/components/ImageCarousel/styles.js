@@ -1,21 +1,25 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   image: {
     height: '100%',
     resizeMode: 'cover',
-    width: '98%',
+    width: '100%',
     alignSelf: 'center',
     justifyContent: 'center',
     position: 'relative',
   },
   imageContainer: {
-    width: '100%',
-    height: 430,
+    width: 350,
+    height: 370,
     alignSelf: 'center',
     justifyContent: 'center',
     position: 'relative',
     padding: '1%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 18,
+    marginBottom: 18,
   },
   carousel: {
     justifyContent: 'center',
@@ -42,14 +46,13 @@ const styles = StyleSheet.create({
     width: 40,
     position: 'absolute',
     zIndex: 2,
-    bottom: "3%",
-    right: "5%",
+    bottom: '3%',
+    right: '5%',
   },
   itemHeart: {
     width: '100%',
-    height: "100%",
+    height: '100%',
     zIndex: 2,
-
   },
 });
 
