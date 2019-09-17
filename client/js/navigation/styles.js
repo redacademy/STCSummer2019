@@ -22,9 +22,9 @@ const styles = StyleSheet.create({
 
   cogwheelIcon: {
     resizeMode: 'contain',
-    height: '25%',
-    width: '25%',
-    marginLeft: '55%',
+    height: '58%',
+    width: '58%',
+    marginLeft: '10%',
   },
   backContainer: {
     height: 50,

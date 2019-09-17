@@ -11,11 +11,14 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     letterSpacing: 0.3,
-    paddingBottom: '3%',
+    paddingBottom: '10%',
     paddingTop: '3%',
+<<<<<<< HEAD
     fontFamily: 'Lato-Bold',
     textDecorationLine: 'underline',
     color: '#333638',
+=======
+>>>>>>> develop
   },
   imageHeartContainer: {
     position: 'relative',

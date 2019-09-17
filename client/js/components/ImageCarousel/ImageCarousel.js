@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, Text} from 'react-native';
+import {View, Image, ImageBackground} from 'react-native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import styles from './styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
