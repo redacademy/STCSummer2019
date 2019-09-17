@@ -1,8 +1,7 @@
 import React from 'react';
-import {Text, View, Image, ImageBackground} from 'react-native';
+import {Text, View, Image} from 'react-native';
 import styles from './styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {ThemeColors} from 'react-navigation';
 import FaveItemsContext from '../../context/FaveItemsContext';
 
 const ItemList = ({item, navigation}) => (
@@ -51,7 +50,7 @@ const ItemList = ({item, navigation}) => (
               navigation.navigate('singleItem', {item: item});
             }}>
             <Text style={styles.itemText}>
-              {item.title}-{item.brand.title}
+              {item.title} - {item.brand.title}
             </Text>
           </TouchableOpacity>
         </View>
