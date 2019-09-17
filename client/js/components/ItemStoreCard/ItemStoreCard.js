@@ -40,11 +40,6 @@ const ItemStoreCard = ({store, item, navigation}) => {
             </View>
           )}
         </View>
-        {onSale && (
-          <View>
-            <Text>SALE</Text>
-          </View>
-        )}
       </View>
     </TouchableOpacity>
   );
