@@ -10,13 +10,20 @@ const Settings = ({ navigation }) => {
     <View>
       <View style={styles.helpContainer}>
         <TouchableOpacity onPress={() => navigation.navigate('OnBoarding')}>
-          <Text style={styles.text}> Help </Text>
-          <View style={styles.arrowContainer}>
-            <Image
-              source={require('../../assets/icons/forward-inactive2x.png')}
-              resizeMode="cover"
-              style={styles.image}
-            />
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              width: '98%',
+            }}>
+            <Text style={styles.text}> Help </Text>
+            <View style={styles.arrowContainer}>
+              <Image
+                source={require('../../assets/icons/forward-inactive2x.png')}
+                resizeMode="cover"
+                style={styles.image}
+              />
+            </View>
           </View>
         </TouchableOpacity>
       </View>

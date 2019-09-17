@@ -1,31 +1,38 @@
-import React, { Component } from 'react';
-import styles from './styles'
-import { Form, Field } from 'react-final-form';
-import { View, Text, TextInput, TouchableHighlight, TouchableOpacity, Image, KeyboardAvoidingView } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
-import { Mutation } from "react-apollo";
-import gql from "graphql-tag";
+import React, {Component} from 'react';
+import styles from './styles';
+import {Form, Field} from 'react-final-form';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableHighlight,
+  TouchableOpacity,
+  Image,
+  KeyboardAvoidingView,
+} from 'react-native';
+import {SafeAreaView} from 'react-navigation';
+import {Mutation} from 'react-apollo';
+import gql from 'graphql-tag';
 import CheckBox from 'react-native-check-box';
-import { withNavigation } from 'react-navigation';
-import { createToken, queryToken } from "../../config/models/authentication"
-import Loader from "../../components/Loader"
+import {withNavigation} from 'react-navigation';
+import {createToken, queryToken} from '../../config/models/authentication';
+import Loader from '../../components/Loader';
 import PropTypes from 'prop-types';
 
-
 export const SIGNUP = gql`
-mutation createUser($email: String!, $password: String!, $fullname: String!){
-  createUser(email: $email, password: $password, fullname:$fullname) {
-    email
-    password
+  mutation createUser($email: String!, $password: String!, $fullname: String!) {
+    createUser(email: $email, password: $password, fullname: $fullname) {
+      email
+      password
+    }
   }
-}
 `;
 export const LOGIN = gql`
-mutation authenticateUser($email: String!, $password: String!){
-  authenticateUser(email: $email, password: $password) {
-    token
+  mutation authenticateUser($email: String!, $password: String!) {
+    authenticateUser(email: $email, password: $password) {
+      token
+    }
   }
-}
 `;
 
 class SignUp extends Component {
@@ -34,156 +41,209 @@ class SignUp extends Component {
     this.state = {
       error: null,
       isChecked: false,
-      color: '#003399'
+      color: '#003399',
     };
   }
 
   render() {
-    const { navigation } = this.props;
+    const {navigation} = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <KeyboardAvoidingView behavior="padding" enabled>
           <Mutation mutation={SIGNUP}>
-            {(createUser, { loading }) => (
+            {(createUser, {loading}) => (
               <Mutation mutation={LOGIN}>
-                {(authenticateUser, { loading }) => (
+                {(authenticateUser, {loading}) => (
                   <Form
                     validate={values => {
-                      const errors = {}
-                      if (!values.email || !(/\S+@\S+\.\S+/.test(values.email))) {
-                        errors.email = 'Email Required'
+                      const errors = {};
+                      if (!values.email || !/\S+@\S+\.\S+/.test(values.email)) {
+                        errors.email = 'Email Required';
                       }
                       if (!values.password) {
-                        errors.password = 'Password Required 6 Characters'
+                        errors.password = 'Password Required 6 Characters';
                       }
                       if (!values.fullname) {
-                        errors.fullname = 'Full Name Required'
+                        errors.fullname = 'Full Name Required';
                       }
                       if (!this.state.isChecked) {
-                        errors.termsAgreement = 'Agree to Terms and Condition is required'
+                        errors.termsAgreement =
+                          'Agree to Terms and Condition is required';
                       }
-                      return errors
+                      return errors;
                     }}
-                    onSubmit={async (values) => {
+                    onSubmit={async values => {
                       const email = values.email;
-                      const password = values.password
-                      const fullname = values.fullname
+                      const password = values.password;
+                      const fullname = values.fullname;
                       try {
-                        const newUser = await createUser({ variables: { email, password, fullname } }).catch(error => this.setState({ error }));
-                        const newUserEmail = await newUser.data.createUser.email;
-                        const newUserPassword = await newUser.data.createUser.password;
-                        const userToken = await authenticateUser({ variables: { email: newUserEmail, password: newUserPassword } }).catch(error => this.setState({ error }))
-                        await createToken(userToken.data.authenticateUser.token, userToken.data.authenticateUser.id);
+                        const newUser = await createUser({
+                          variables: {email, password, fullname},
+                        }).catch(error => this.setState({error}));
+                        const newUserEmail = await newUser.data.createUser
+                          .email;
+                        const newUserPassword = await newUser.data.createUser
+                          .password;
+                        const userToken = await authenticateUser({
+                          variables: {
+                            email: newUserEmail,
+                            password: newUserPassword,
+                          },
+                        }).catch(error => this.setState({error}));
+                        await createToken(
+                          userToken.data.authenticateUser.token,
+                          userToken.data.authenticateUser.id,
+                        );
                         // const newUserToken = await queryToken();
                         navigation.navigate('AuthLoading');
-                      }
-                      catch (error) {
-                        throw error
+                      } catch (error) {
+                        throw error;
                       }
                     }}
-
-                    render={({ handleSubmit, form }) => (
+                    render={({handleSubmit, form}) => (
                       <View>
-                        {loading ? <Loader /> :
+                        {loading ? (
+                          <Loader />
+                        ) : (
                           <View style={styles.logoContainer}>
                             <Image
                               style={styles.logo}
-                              source={require('../../assets/logo.png')}
+                              source={require('../../assets/icons/logo.png')}
                             />
                           </View>
-                        }
+                        )}
                         <View style={styles.forms}>
-                          <Text style={styles.lable} htmlFor="fullname">Full Name</Text>
-                          <Field name="fullname" render={({ input, meta }) => (
-                            <View style={styles.inputContainer}>
-                              <TextInput
-                                style={styles.input}
-                                {...input}
-                                id="fullname"
-                                placeholder="Enter Your Full Name"
-                              />
-                              {meta.error && meta.touched && <Text style={styles.error}>{meta.error}</Text>}
-                            </View>
-                          )} />
-
-                          <Text style={styles.lable} htmlFor="email">Email</Text>
-                          <Field name="email" render={({ input, meta }) => (
-                            <View style={styles.inputContainer}>
-                              <TextInput
-                                style={styles.input}
-                                {...input}
-                                id="email"
-                                type="email"
-                                keyboardType="email-address"
-                                placeholder="Enter Your Email"
-                              />
-                              {meta.error && meta.touched && <Text style={styles.error}>{meta.error}</Text>}
-                            </View>
-                          )}
+                          <Text style={styles.lable} htmlFor="fullname">
+                            Full Name
+                          </Text>
+                          <Field
+                            name="fullname"
+                            render={({input, meta}) => (
+                              <View style={styles.inputContainer}>
+                                <TextInput
+                                  style={styles.input}
+                                  {...input}
+                                  id="fullname"
+                                  placeholder="Enter Your Full Name"
+                                />
+                                {meta.error && meta.touched && (
+                                  <Text style={styles.error}>{meta.error}</Text>
+                                )}
+                              </View>
+                            )}
                           />
 
-
-                          <Text style={styles.lable} htmlFor="email">Password</Text>
-                          <Field name="password" render={({ input, meta }) => (
-                            <View style={styles.inputContainer}>
-                              <TextInput
-                                style={styles.input}
-                                {...input}
-                                id="password"
-                                type="password"
-                                secureTextEntry={true}
-                                placeholder="Enter Your Password"
-                              />
-                              {meta.error && meta.touched && <Text style={styles.error}>{meta.error}</Text>}
-                            </View>
-                          )} />
-                          <Field name="termsAgreement" render={({ input, meta }) => (
-                            <View style={styles.checkBoxContainer}>
-                              <View style={styles.checkBox}>
-                                <CheckBox
-                                  id='termsAgreement'
-                                  style={{ flex: 1, paddingLeft: 5 }}
-                                  onClick={() => {
-                                    this.setState({
-                                      isChecked: !this.state.isChecked
-                                    })
-                                  }}
-                                  isChecked={this.state.isChecked}
+                          <Text style={styles.lable} htmlFor="email">
+                            Email
+                          </Text>
+                          <Field
+                            name="email"
+                            render={({input, meta}) => (
+                              <View style={styles.inputContainer}>
+                                <TextInput
+                                  style={styles.input}
+                                  {...input}
+                                  id="email"
+                                  type="email"
+                                  keyboardType="email-address"
+                                  placeholder="Enter Your Email"
                                 />
-                                <Text style={styles.terms}>I agree to Terms and Conditions</Text>
+                                {meta.error && meta.touched && (
+                                  <Text style={styles.error}>{meta.error}</Text>
+                                )}
                               </View>
-                              {meta.error && meta.touched && <Text style={styles.error}>{meta.error}</Text>}
-                            </View>
-                          )} />
+                            )}
+                          />
 
+                          <Text style={styles.lable} htmlFor="email">
+                            Password
+                          </Text>
+                          <Field
+                            name="password"
+                            render={({input, meta}) => (
+                              <View style={styles.inputContainer}>
+                                <TextInput
+                                  style={styles.input}
+                                  {...input}
+                                  id="password"
+                                  type="password"
+                                  secureTextEntry={true}
+                                  placeholder="Enter Your Password"
+                                />
+                                {meta.error && meta.touched && (
+                                  <Text style={styles.error}>{meta.error}</Text>
+                                )}
+                              </View>
+                            )}
+                          />
+                          <Field
+                            name="termsAgreement"
+                            render={({input, meta}) => (
+                              <View style={styles.checkBoxContainer}>
+                                <View style={styles.checkBox}>
+                                  <CheckBox
+                                    id="termsAgreement"
+                                    style={{flex: 1, paddingLeft: 5}}
+                                    onClick={() => {
+                                      this.setState({
+                                        isChecked: !this.state.isChecked,
+                                      });
+                                    }}
+                                    isChecked={this.state.isChecked}
+                                  />
+                                  <Text style={styles.terms}>
+                                    I agree to Terms and Conditions
+                                  </Text>
+                                </View>
+                                {meta.error && meta.touched && (
+                                  <Text style={styles.error}>{meta.error}</Text>
+                                )}
+                              </View>
+                            )}
+                          />
 
                           <TouchableHighlight
                             style={styles.button}
                             onPress={handleSubmit}
                             underlayColor="#003399"
-                            onShowUnderlay={() => this.setState({ color: "#fff" })}
-                            onHideUnderlay={() => this.setState({ color: '#003399' })}
-                          >
-                            <Text style={[{ color: this.state.color }, styles.buttonText]}>Sign Up</Text>
+                            onShowUnderlay={() =>
+                              this.setState({color: '#fff'})
+                            }
+                            onHideUnderlay={() =>
+                              this.setState({color: '#003399'})
+                            }>
+                            <Text
+                              style={[
+                                {color: this.state.color},
+                                styles.buttonText,
+                              ]}>
+                              Sign Up
+                            </Text>
                           </TouchableHighlight>
 
                           <TouchableOpacity
                             onPress={() => {
                               form.reset();
-                              navigation.navigate('SignIn')
-                            }}
-                          >
-                            <Text style={styles.loginSwitch}>Already Have an Account? Sign In Here!
+                              navigation.navigate('SignIn');
+                            }}>
+                            <Text style={styles.loginSwitch}>
+                              Already Have an Account? Sign In Here!
                             </Text>
                           </TouchableOpacity>
-                          {this.state.error && (this.state.error.graphQLErrors[0].code === 5001 ?
-                            <Text style={styles.error}>Wrong Email or Password, please try again</Text> :
-                            <Text style={styles.error}>Server Error, please try again</Text>)}
+                          {this.state.error &&
+                            (this.state.error.graphQLErrors[0].code === 5001 ? (
+                              <Text style={styles.error}>
+                                Wrong Email or Password, please try again
+                              </Text>
+                            ) : (
+                              <Text style={styles.error}>
+                                Server Error, please try again
+                              </Text>
+                            ))}
                         </View>
                       </View>
-                    )}//close Form render
+                    )} //close Form render
                   />
-
                 )}
               </Mutation>
             )}
@@ -194,7 +254,7 @@ class SignUp extends Component {
   }
 }
 SignUp.propTypes = {
-  navigation: PropTypes.object.isRequired
-}
+  navigation: PropTypes.object.isRequired,
+};
 
 export default withNavigation(SignUp);
