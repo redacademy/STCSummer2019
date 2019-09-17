@@ -3,8 +3,6 @@ import { Text, View, ScrollView, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './styles'
 import ItemList from '../ItemList'
-import Modal from "react-native-modal";
-import { SafeAreaView } from 'react-navigation';
 import FilterModal from '../FilterModal/FilterModal';
 
 class FilterList extends React.Component {
@@ -87,9 +85,26 @@ class FilterList extends React.Component {
   render() {
     const { stores, itemStyles, items, navigation } = this.props
     let newItems = (this.getfilterStore().length > 0 || this.getfilterStyle().length > 0) ? this.filterHelper(items, this.getfilterStore(), this.getfilterStyle()) : items
+
     return (
       <View style={{ flex: 1 }}>
-        <FilterModal resetFilter={this.resetFilter} setDisplayFilter={this.setDisplayFilter} displayFilter={this.displayFilter} toggleStores={this.toggleStores} toggleStyles={this.toggleStyles} addfilterStore={this.addfilterStore} addfilterStyle={this.addfilterStyle} getfilterStore={this.getfilterStore} getfilterStyle={this.getfilterStyle} stores={stores} itemStyles={itemStyles} getToggleStores={this.getToggleStores} getToggleStyles={this.getToggleStyles} resetToggle={this.resetToggle} />
+        <FilterModal
+          resetFilter={this.resetFilter}
+          setDisplayFilter={this.setDisplayFilter}
+          displayFilter={this.displayFilter}
+          toggleStores={this.toggleStores}
+          toggleStyles={this.toggleStyles}
+          addfilterStore={this.addfilterStore}
+          addfilterStyle={this.addfilterStyle}
+          getfilterStore={this.getfilterStore}
+          getfilterStyle={this.getfilterStyle}
+          stores={stores}
+          itemStyles={itemStyles}
+          getToggleStores={this.getToggleStores}
+          getToggleStyles={this.getToggleStyles}
+          resetToggle={this.resetToggle}
+        />
+
 
         <ScrollView style={styles.allItemsContainer}>
 

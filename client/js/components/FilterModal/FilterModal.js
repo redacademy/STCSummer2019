@@ -7,15 +7,13 @@ const FilterModal = ({
     <Modal
       animationIn={'slideInRight'}
       animationOut={'slideOutRight'}
-      // animationInTiming={500}
       isVisible={displayFilter()}
       style={{ height: '100%', backgroundColor: "white", margin: 0, marginLeft: 100, justifyContent: 'flex-start' }}
-      // coverScreen={false}
       backdropOpacity={0.4}
       onBackdropPress={() => setDisplayFilter(false)}
     >
 
-      {/* <View> */}
+
       <View style={{ flex: 1 }}>
         <View style={{ height: '10%', backgroundColor: '#E0D5C4', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', paddingHorizontal: '3%' }}>
           <Text>Filter</Text>
@@ -77,9 +75,6 @@ const FilterModal = ({
           </TouchableOpacity>
         </View>
       </View>
-
-      {/* </View> */}
     </Modal>
   );
-
 export default FilterModal;
