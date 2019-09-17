@@ -8,6 +8,7 @@ const Profile = ({user}) => {
   return (
     <View style={styles.container}>
       <View style={styles.imgWrapper}>
+
         <Gravatar
           options={{
             email: user.email,

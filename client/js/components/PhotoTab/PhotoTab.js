@@ -14,7 +14,7 @@ const PhotoTab = () => {
       </View>
       <Text style={styles.text}>Photo Feature Coming Soon!</Text>
       <Text style={styles.subText}>
-        Save your photos here so you always keep track of fashion you love !
+        Save your photos here so you always keep track of fashion you love!
       </Text>
     </View>
   );
