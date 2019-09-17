@@ -10,14 +10,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textDecorationLine: 'underline',
   },
-  img: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginVertical: 20,
-  },
+
   itemHeart: {
     width: '20%',
   },
@@ -33,6 +26,13 @@ const styles = StyleSheet.create({
   },
   btnWrapper: {
     marginTop: 20,
+  },
+  roundedProfileImage: {
+    width: 100,
+    height: 100,
+    borderWidth: 3,
+    borderColor: 'grey',
+    borderRadius: 50,
   },
 });
 
