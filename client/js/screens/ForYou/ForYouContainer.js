@@ -28,6 +28,7 @@ query allItems($newArrival:Boolean!){
     storeLogo
     title
     website 
+    storelink
     }
     styles
     size
@@ -37,10 +38,13 @@ query allItems($newArrival:Boolean!){
     tags
     discount
   }
-  
 }
 `
+
 class ForYouContainer extends Component {
+
+
+
   static navigationOptions = {
     title: 'New Arrivals',
   };

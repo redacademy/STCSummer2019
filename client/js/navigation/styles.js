@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   image: {
@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    // padding: '5%',
   },
 
   backIcon: {
@@ -23,9 +22,9 @@ const styles = StyleSheet.create({
 
   cogwheelIcon: {
     resizeMode: 'contain',
-    height: '25%',
-    width: '25%',
-    marginLeft: '55%',
+    height: '58%',
+    width: '58%',
+    marginLeft: '10%',
   },
   backContainer: {
     height: 50,
