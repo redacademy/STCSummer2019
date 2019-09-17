@@ -5,6 +5,7 @@ import styles from './styles'
 import ItemList from '../ItemList'
 import Modal from "react-native-modal";
 import { SafeAreaView } from 'react-navigation';
+import FilterModal from '../FilterModal/FilterModal';
 
 class FilterList extends React.Component {
   constructor(props) {
@@ -38,7 +39,30 @@ class FilterList extends React.Component {
     return newData
   }
 
+  resetFilter = () => {
+    this.setState({
+      filteredStores: [],
+      filteredStyles: []
+    })
+  }
+  resetToggle = () => {
+    this.setState({
+      toggleStores: false,
+      toggleStyles: false,
+    })
+  }
+  setDisplayFilter = (isDisplay) => {
+    this.setState({ displayFilter: isDisplay })
+  }
+  displayFilter = () => (
+    this.state.displayFilter
+  )
+
   toggleStores = () => { this.setState({ toggleStores: !this.state.toggleStores }) }
+
+  getToggleStores = () => this.state.toggleStores
+  getToggleStyles = () => this.state.toggleStyles
+
   toggleStyles = () => { this.setState({ toggleStyles: !this.state.toggleStyles }) }
 
   addfilterStore = (storeName) => {
@@ -47,83 +71,25 @@ class FilterList extends React.Component {
         filteredStores:
           this.state.filteredStores.filter((store) => store !== storeName)
       });
-    console.log(this.state.filteredStores)
-
   }
+  getfilterStore = () => (
+    this.state.filteredStores)
 
   addfilterStyle = (styleName) => {
     !this.state.filteredStyles.includes(styleName) ?
       this.setState({ filteredStyles: [...this.state.filteredStyles, styleName] }) : this.setState({ filteredStyles: this.state.filteredStyles.filter((style) => style !== styleName) })
   }
+  getfilterStyle = () => (
+    this.state.filteredStyles)
+
+
 
   render() {
     const { stores, itemStyles, items, navigation } = this.props
-    let newItems = (this.state.filteredStores.length > 0 || this.state.filteredStyles.length > 0) ? this.filterHelper(items, this.state.filteredStores, this.state.filteredStyles) : items
+    let newItems = (this.getfilterStore().length > 0 || this.getfilterStyle().length > 0) ? this.filterHelper(items, this.getfilterStore(), this.getfilterStyle()) : items
     return (
-      <View style={{}}>
-        <Modal
-          animationIn={'slideInRight'}
-          animationOut={'slideOutRight'}
-          // animationInTiming={500}
-          isVisible={this.state.displayFilter}
-          style={{ width: '80%', height: '100%', backgroundColor: "white", margin: 0, marginLeft: 100 }}
-          // coverScreen={false}
-          backdropOpacity={0.4}
-          onBackdropPress={() => this.setState({ displayFilter: false })}
-        >
-
-          {/* <View> */}
-          <View>
-            <TouchableOpacity
-              onPress={() => this.setState({
-                filteredStores: [],
-                filteredStyles: []
-              })}
-            >
-              <Text>Clear All</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.toggleStores()}
-            >
-              <Text style={{ fontSize: 20 }}>Stores</Text>
-            </TouchableOpacity>
-            {this.state.toggleStores &&
-              stores.map((store) => (
-                <TouchableOpacity
-                  onPress={() => this.addfilterStore(store)}
-                  key={store.id}
-                >
-                  <Text>{store}</Text>
-                  {this.state.filteredStores.includes(store) && <Text>x</Text>}
-                </TouchableOpacity>
-              ))
-            }
-            <TouchableOpacity
-              onPress={() => this.toggleStyles()}
-            >
-              <Text style={{ fontSize: 20 }}>Styles</Text>
-            </TouchableOpacity>
-            {this.state.toggleStyles &&
-              itemStyles.map((itemStyle) => (
-                <TouchableOpacity
-                  onPress={() => this.addfilterStyle(itemStyle)}
-                  key={itemStyle}
-                >
-                  <Text>{itemStyle}</Text>
-                  {this.state.filteredStyles.includes(itemStyle) ? <Text>x</Text> : null}
-                </TouchableOpacity>
-              ))
-            }
-            <TouchableOpacity
-              onPress={() => this.setState({ displayFilter: false })}
-            >
-              <Text>Apply</Text>
-            </TouchableOpacity>
-          </View>
-
-          {/* </View> */}
-        </Modal>
-
+      <View style={{ flex: 1 }}>
+        <FilterModal resetFilter={this.resetFilter} setDisplayFilter={this.setDisplayFilter} displayFilter={this.displayFilter} toggleStores={this.toggleStores} toggleStyles={this.toggleStyles} addfilterStore={this.addfilterStore} addfilterStyle={this.addfilterStyle} getfilterStore={this.getfilterStore} getfilterStyle={this.getfilterStyle} stores={stores} itemStyles={itemStyles} getToggleStores={this.getToggleStores} getToggleStyles={this.getToggleStyles} resetToggle={this.resetToggle} />
 
         <ScrollView style={styles.allItemsContainer}>
 
