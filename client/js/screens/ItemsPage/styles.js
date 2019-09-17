@@ -18,12 +18,12 @@ const styles = StyleSheet.create({
     paddingRight: '3%',
   },
   sortItemsText: {
-    fontWeight: '500',
     fontSize: 14,
     letterSpacing: 0.3,
     paddingLeft: '3%',
     paddingRight: '3%',
     fontFamily: 'Lato-Bold',
+    color: '#333638',
   },
   dropdown: {
     height: 15,

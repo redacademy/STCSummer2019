@@ -9,8 +9,8 @@ const Map = ({lng, lat}) => {
       region={{
         latitude: lat,
         longitude: lng,
-        latitudeDelta: 0.08,
-        longitudeDelta: 0.04,
+        latitudeDelta: 0.02,
+        longitudeDelta: 0.02,
       }}>
       <MapView.Marker
         coordinate={{
@@ -18,6 +18,7 @@ const Map = ({lng, lat}) => {
           longitude: lng,
         }}
         image={require('../../assets/icons/location-marker3x.png')}
+        centerOffset={{y: -10}}
       />
     </MapView>
   );
