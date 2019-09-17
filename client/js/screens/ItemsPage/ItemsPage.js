@@ -36,6 +36,7 @@ const ItemsPage = ({allItems, navigation}) => {
         ))}
       </View>
     </ScrollView>
+
   );
 };
 ItemsPage.propTypes = {

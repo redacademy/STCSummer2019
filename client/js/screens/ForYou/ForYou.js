@@ -37,6 +37,7 @@ const ForYou = ({items, navigation}) => {
     </ScrollView>
   );
 };
+
 ForYou.propTypes = {
   navigation: PropTypes.object.isRequired,
   items: PropTypes.array.isRequired,
