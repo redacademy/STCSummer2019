@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, ScrollView, Image } from 'react-native';
-import ItemList from '../../components/ItemList'
-import styles from './styles'
+import {View, Text, ScrollView, Image} from 'react-native';
+import ItemList from '../../components/ItemList';
+import styles from './styles';
 import PropTypes from 'prop-types';
-const ForYou = ({ items, navigation }) => {
+const ForYou = ({items, navigation}) => {
   return (
     <ScrollView style={styles.allItemsContainer}>
       <View style={styles.sortItems}>
@@ -11,21 +11,21 @@ const ForYou = ({ items, navigation }) => {
           <Text style={styles.sortItemsText}>Sort</Text>
           <Image
             style={styles.dropdown}
-            source={require('../../assets/dropdown.png')}
+            source={require('../../assets/icons/dropdown.png')}
           />
         </View>
         <View style={styles.itemFilter}>
           <Text style={styles.sortItemsText}>Tags</Text>
           <Image
             style={styles.dropdown}
-            source={require('../../assets/dropdown.png')}
+            source={require('../../assets/icons/dropdown.png')}
           />
         </View>
         <View style={styles.itemFilter}>
           <Text style={styles.sortItemsText}>Filter</Text>
           <Image
             style={styles.dropdown}
-            source={require('../../assets/inactivefilter.png')}
+            source={require('../../assets/icons/inactivefilter.png')}
           />
         </View>
       </View>
@@ -39,7 +39,7 @@ const ForYou = ({ items, navigation }) => {
 };
 ForYou.propTypes = {
   navigation: PropTypes.object.isRequired,
-  items: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired,
 };
 
 export default ForYou;
