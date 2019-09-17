@@ -4,7 +4,7 @@
   
 ## GIF
   
-![Alt Text] (https://media.giphy.com/media/YPtCW7ow8HpTiisAPP/giphy.gif)
+![] (https://media.giphy.com/media/YPtCW7ow8HpTiisAPP/giphy.gif)
 
 
 
@@ -12,7 +12,7 @@
 
 ```Git Clone the repository``` 
 
-```change directory into client dir```
+```change directory into client directory```
 
 ```yarn install``` 
 
@@ -20,7 +20,7 @@
 
 ```pod install```
 
-```go back to client dir```
+```go back to client directory```
 
 run your app  with  ```react-native run-ios ```
 
