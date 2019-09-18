@@ -1,15 +1,15 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import {View, Text, Image} from 'react-native';
 import styles from './styles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { deleteToken } from '../../config/models/authentication';
-import { withNavigation } from 'react-navigation';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {deleteToken} from '../../config/models/authentication';
+import {withNavigation} from 'react-navigation';
 
-const Settings = ({ navigation }) => {
+const Settings = ({navigation}) => {
   return (
     <View>
       <View style={styles.helpContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('OnBoarding')}>
+        <TouchableOpacity onPress={() => navigation.navigate('onBoarding')}>
           <View
             style={{
               flexDirection: 'row',
