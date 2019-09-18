@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Image } from 'react-native';
-import Carousel, { Pagination } from 'react-native-snap-carousel';
+import {View, Image} from 'react-native';
+import Carousel, {Pagination} from 'react-native-snap-carousel';
 import styles from './styles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import PropTypes from 'prop-types';
 export class ImageCarousel extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ export class ImageCarousel extends React.Component {
   _renderItem = (item, faveIds, createFave, deleteFave, id) => (
     <View style={styles.imageContainer}>
       <View style={styles.itemImageContainer}>
-        <Image source={{ uri: item }} style={styles.image} />
+        <Image source={{uri: item}} style={styles.image} />
       </View>
 
       <View style={styles.heartContainer}>
@@ -30,19 +30,19 @@ export class ImageCarousel extends React.Component {
               source={require('../../assets/icons/activeheart.png')}
             />
           ) : (
-              <Image
-                style={styles.itemHeart}
-                resizeMode="cover"
-                source={require('../../assets/icons/inactiveheart.png')}
-              />
-            )}
+            <Image
+              style={styles.itemHeart}
+              resizeMode="cover"
+              source={require('../../assets/icons/inactiveheart.png')}
+            />
+          )}
         </TouchableOpacity>
       </View>
     </View>
   );
 
   render() {
-    const { images, id, createFave, deleteFave, faveIds } = this.props;
+    const {images, id, createFave, deleteFave, faveIds} = this.props;
 
     return (
       <View style={styles.carousel}>
@@ -52,13 +52,13 @@ export class ImageCarousel extends React.Component {
           }}
           style={styles.carousel}
           data={images}
-          renderItem={({ item }) =>
+          renderItem={({item}) =>
             this._renderItem(item, faveIds, createFave, deleteFave, id)
           }
           activeSlideAlignment="center"
-          sliderWidth={400}
-          itemWidth={420}
-          onSnapToItem={index => this.setState({ activeSlide: index })}
+          sliderWidth={370}
+          itemWidth={375}
+          onSnapToItem={index => this.setState({activeSlide: index})}
         />
         <Pagination
           dotsLength={images.length}
