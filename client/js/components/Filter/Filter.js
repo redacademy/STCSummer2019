@@ -22,11 +22,6 @@ const GET_ALL_STYLES = gql`
 `;
 
 class Filter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
     const {items, navigation} = this.props;
     return (

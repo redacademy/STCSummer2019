@@ -97,7 +97,7 @@ class FilterList extends React.Component {
         : items;
 
     return (
-      <View style={{flex: 1}}>
+      <View style={styles.flexContainer}>
         <FilterModal
           resetFilter={this.resetFilter}
           setDisplayFilter={this.setDisplayFilter}
