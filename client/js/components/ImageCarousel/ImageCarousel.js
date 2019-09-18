@@ -1,16 +1,8 @@
 import React from 'react';
-<<<<<<< HEAD
 import { View, Image } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import styles from './styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-=======
-import {View, Image} from 'react-native';
-import Carousel, {Pagination} from 'react-native-snap-carousel';
-import styles from './styles';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {withNavigation} from 'react-navigation';
->>>>>>> develop
 import PropTypes from 'prop-types';
 export class ImageCarousel extends React.Component {
   constructor(props) {
