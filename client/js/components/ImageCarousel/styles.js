@@ -11,13 +11,8 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: 350,
-<<<<<<< HEAD
     height: 375,
     padding: '1%',
-=======
-    height: 395,
-    alignSelf: 'center',
->>>>>>> develop
     justifyContent: 'center',
     position: 'relative',
     marginLeft: 'auto',
