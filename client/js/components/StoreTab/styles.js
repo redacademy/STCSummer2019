@@ -1,7 +1,5 @@
-import { StyleSheet, Dimensions } from 'react-native';
-import { colors } from '../../config/styles';
-
-const { height } = Dimensions.get('window');
+import {StyleSheet} from 'react-native';
+import {colors} from '../../config/styles';
 
 const styles = StyleSheet.create({
   storeImage: {
@@ -64,7 +62,7 @@ const styles = StyleSheet.create({
   subfavItemWrapper: {
     width: '50%',
     height: 240,
-    // padding: 4,
+    padding: 4,
   },
   imgWrapper: {
     width: '100%',

@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import ForYou from './ForYou';
-import {withNavigation} from 'react-navigation';
 import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
 import Loader from '../../components/Loader';
-import {View, Text, Button} from 'react-native';
+import {Text} from 'react-native';
 import PropTypes from 'prop-types';
 
 const GET_NEW_ARRIVAL_ITEMS = gql`
@@ -28,6 +27,7 @@ const GET_NEW_ARRIVAL_ITEMS = gql`
         storeLogo
         title
         website
+        storelink
       }
       styles
       size
@@ -37,27 +37,6 @@ const GET_NEW_ARRIVAL_ITEMS = gql`
       tags
       discount
     }
-    stores {
-      id
-      address
-      categories
-      email
-      hours
-      images
-      phone
-      sale
-      storeLogo
-      title
-      website
-      storelink
-    }
-    styles
-    size
-    color
-    price
-    images
-    tags
-    discount
   }
 `;
 

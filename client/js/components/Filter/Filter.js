@@ -5,6 +5,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import FilterList from '../FilterList'
 import Loader from '../Loader'
+import styles from '../ImageCarousel/styles';
 
 const GET_All_STORES = gql`
   {
@@ -43,7 +44,13 @@ class Filter extends Component {
               {({ loading, error, data }) => {
                 if (loading) return <Loader />;
                 if (error) return <Text>{error.message}</Text>;
-                const stylesData = data.allStyles.map((store) => store.title);
+                const allStylesData = data.allStyles.map((store) => store.title);
+                let stylesData;
+                if (navigation.state.routeName === 'allItems') {
+                  stylesData = allStylesData.filter((style) => items.find((item) => item.styles === style))
+                } else {
+                  stylesData = allStylesData;
+                }
                 return (
                   <FilterList stores={storesData} itemStyles={stylesData} items={items} navigation={navigation} />
                 );

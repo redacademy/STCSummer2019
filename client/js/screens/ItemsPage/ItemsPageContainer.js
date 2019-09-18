@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import {Text, ActivityIndicator} from 'react-native';
+import {Text} from 'react-native';
 import ItemsPage from './ItemsPage';
 import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
 import {withNavigation} from 'react-navigation';
-import styles from './styles';
 import PropTypes from 'prop-types';
 import Loader from '../../components/Loader';
 const GET_ITEMS = gql`
