@@ -4,7 +4,7 @@
   
 ## GIF
   
-![Animated GIF-downsized_large (1)](https://user-images.githubusercontent.com/43800526/65062503-ff83dc00-d930-11e9-9c48-b04a886a7197.gif)
+![Animated GIF-downsized_large (2)](https://user-images.githubusercontent.com/43800526/65086172-9c606c80-d965-11e9-987c-2d111f258c62.gif)
 
 
 ## Instructions to run the project 
