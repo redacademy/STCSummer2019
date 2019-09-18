@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, Image} from 'react-native';
 import Modal from 'react-native-modal';
+import styles from './styles';
 const FilterModal = ({
   resetFilter,
   displayFilter,
@@ -21,76 +22,82 @@ const FilterModal = ({
     animationIn={'slideInRight'}
     animationOut={'slideOutRight'}
     isVisible={displayFilter()}
-    style={{
-      height: '100%',
-      backgroundColor: 'white',
-      margin: 0,
-      marginLeft: 100,
-      justifyContent: 'flex-start',
-    }}
+    style={styles.modalContainer}
     backdropOpacity={0.4}
     onBackdropPress={() => setDisplayFilter(false)}>
     <View style={{flex: 1}}>
-      <View
-        style={{
-          height: '10%',
-          backgroundColor: '#E0D5C4',
-          flexDirection: 'row',
-          alignItems: 'flex-end',
-          justifyContent: 'space-between',
-          paddingHorizontal: '3%',
-        }}>
-        <Text>Filter</Text>
-
+      <View style={styles.filterHeader}>
+        <Text style={styles.filterHeaderText}>Filter</Text>
         <TouchableOpacity
+          style={styles.clearContainer}
           onPress={() => {
             resetFilter();
             resetToggle();
           }}>
-          <Text>Clear All</Text>
+          <Text style={styles.clear}>Clear All</Text>
         </TouchableOpacity>
       </View>
-      <View style={{height: '80%'}}>
+      <View style={styles.filterContainer}>
         <TouchableOpacity onPress={() => toggleStores()}>
-          <Text style={{fontSize: 20}}>Stores</Text>
+          <View style={styles.filterTitleContainer}>
+            <Text style={styles.filterTitle}>Stores</Text>
+          </View>
         </TouchableOpacity>
         {getToggleStores() &&
           stores.map(store => (
             <TouchableOpacity
               onPress={() => addfilterStore(store)}
               key={store.id}>
-              <Text>{store}</Text>
-              {getfilterStore().includes(store) && (
-                <Image source={require('../../assets/icons/checkmark.png')} />
-              )}
+              <View style={styles.filterOptionContainer}>
+                <Text style={styles.filterOptionText}>{store}</Text>
+                <View style={styles.checkContainer}>
+                  {getfilterStore().includes(store) && (
+                    <Image
+                      source={require('../../assets/icons/checkmark.png')}
+                      style={styles.check}
+                    />
+                  )}
+                </View>
+              </View>
             </TouchableOpacity>
           ))}
         <TouchableOpacity onPress={() => toggleStyles()}>
-          <Text style={{fontSize: 20}}>Styles</Text>
+          <View style={styles.filterTitleContainer}>
+            <Text style={styles.filterTitle}>Styles</Text>
+          </View>
         </TouchableOpacity>
         {getToggleStyles() &&
           itemStyles.map((itemStyle, index) => (
             <TouchableOpacity
               onPress={() => addfilterStyle(itemStyle)}
               key={(itemStyle, index)}>
-              <Text>{itemStyle}</Text>
-              {getfilterStyle().includes(itemStyle) && (
-                <Image source={require('../../assets/icons/checkmark.png')} />
-              )}
+              <View style={styles.filterOptionContainer}>
+                <Text style={styles.filterOptionText}>{itemStyle}</Text>
+                <View style={styles.checkContainer}>
+                  {getfilterStyle().includes(itemStyle) && (
+                    <Image
+                      source={require('../../assets/icons/checkmark.png')}
+                      style={styles.check}
+                    />
+                  )}
+                </View>
+              </View>
             </TouchableOpacity>
           ))}
       </View>
-      <View
+
+      <TouchableOpacity
         style={{
           height: '10%',
           backgroundColor: '#E0D5C4',
           justifyContent: 'center',
           alignItems: 'center',
-        }}>
-        <TouchableOpacity onPress={() => setDisplayFilter(false)}>
-          <Text>Apply</Text>
-        </TouchableOpacity>
-      </View>
+        }}
+        onPress={() => setDisplayFilter(false)}>
+        <View style={styles.applyContainer}>
+          <Text style={styles.apply}>Apply</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   </Modal>
 );
