@@ -13,7 +13,6 @@ const FilterModal = ({
       onBackdropPress={() => setDisplayFilter(false)}
     >
 
-
       <View style={{ flex: 1 }}>
         <View style={{ height: '10%', backgroundColor: '#E0D5C4', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', paddingHorizontal: '3%' }}>
           <Text>Filter</Text>
@@ -37,7 +36,7 @@ const FilterModal = ({
             stores.map((store) => (
               <TouchableOpacity
                 onPress={() => addfilterStore(store)}
-                key={store.id}
+                key={store}
               >
                 <Text>{store}</Text>
                 {getfilterStore().includes(store) && <Image
@@ -55,7 +54,7 @@ const FilterModal = ({
             itemStyles.map((itemStyle, index) => (
               <TouchableOpacity
                 onPress={() => addfilterStyle(itemStyle)}
-                key={itemStyle, index}
+                key={index}
               >
                 <Text>{itemStyle}</Text>
                 {getfilterStyle().includes(itemStyle) &&
