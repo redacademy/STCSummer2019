@@ -23,7 +23,7 @@ class ProfileContainer extends Component {
     };
   }
   static navigationOptions = {
-    title: 'My Profile',
+    headerTitle: 'My Profile',
   };
   getUser = async () => {
     const userToken = await queryToken('userToken');

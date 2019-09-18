@@ -5,15 +5,17 @@ import styles from './styles';
 import { queryToken } from '../../config/models/authentication';
 import { createOnBoarding } from '../../config/models/onBoarding';
 const OnBoarding = ({ navigation }) => {
+
+  console.log(navigation)
   return (
     <Onboarding
       onDone={async () => {
         await createOnBoarding();
-        await queryToken() ? navigation.goBack() : navigation.navigate('SignUp')
+        await queryToken() ? navigation.navigate("profile") : navigation.navigate('SignUp')
       }}
       onSkip={async () => {
         await createOnBoarding();
-        await queryToken() ? navigation.goBack() : navigation.navigate('SignUp')
+        await queryToken() ? navigation.navigate("profile") : navigation.navigate('SignUp')
       }}
       bottomBarColor="white"
       nextLabel=""

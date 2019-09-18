@@ -212,9 +212,6 @@ const ProfileStack = createStackNavigator(
         headerLeft: <BackButton navigation={navigation} />,
       }),
     },
-    onBoarding: {
-      screen: onBoarding,
-    },
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
