@@ -16,7 +16,6 @@ const GET_All_STORES = gql`
     storelink
     email
     hours
-    id
     images
     phone
     sale

@@ -15,6 +15,7 @@ const GET_All_BRANDS = gql`
     title
     description
     items {
+      id
       title
       tags
       styles
@@ -43,7 +44,6 @@ const GET_All_BRANDS = gql`
       price
       newArrival
       images
-      id
       discount
       color
       category
@@ -61,7 +61,6 @@ const GET_All_BRANDS = gql`
       storelink
       email
       hours
-      id
       images
       phone
       sale
