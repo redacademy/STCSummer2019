@@ -55,8 +55,9 @@ export class ImageCarousel extends React.Component {
           renderItem={({ item }) =>
             this._renderItem(item, faveIds, createFave, deleteFave, id)
           }
-          sliderWidth={375}
-          itemWidth={380}
+          activeSlideAlignment="center"
+          sliderWidth={400}
+          itemWidth={420}
           onSnapToItem={index => this.setState({ activeSlide: index })}
         />
         <Pagination
