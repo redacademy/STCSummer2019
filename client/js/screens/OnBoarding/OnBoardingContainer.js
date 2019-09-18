@@ -1,9 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import OnBoarding from './OnBoarding';
-import {withNavigation} from 'react-navigation';
 
-const OnBoardingContainer = () => {
-  return <OnBoarding navigation={this.props.navigation} />;
+class OnBoardingContainer extends Component {
+  render() {
+    return <OnBoarding
+      navigation={this.props.navigation}
+    />;
+  }
 };
 
-export default withNavigation(OnBoardingContainer);
+export default OnBoardingContainer;

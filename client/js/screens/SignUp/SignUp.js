@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styles from './styles';
-import {Form, Field} from 'react-final-form';
+import { Form, Field } from 'react-final-form';
 import {
   View,
   Text,
@@ -10,12 +10,12 @@ import {
   Image,
   KeyboardAvoidingView,
 } from 'react-native';
-import {SafeAreaView} from 'react-navigation';
-import {Mutation} from 'react-apollo';
+import { SafeAreaView } from 'react-navigation';
+import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import CheckBox from 'react-native-check-box';
-import {withNavigation} from 'react-navigation';
-import {createToken, queryToken} from '../../config/models/authentication';
+import { withNavigation } from 'react-navigation';
+import { createToken, queryToken } from '../../config/models/authentication';
 import Loader from '../../components/Loader';
 import PropTypes from 'prop-types';
 
@@ -30,6 +30,7 @@ export const SIGNUP = gql`
 export const LOGIN = gql`
   mutation authenticateUser($email: String!, $password: String!) {
     authenticateUser(email: $email, password: $password) {
+      id
       token
     }
   }
@@ -46,14 +47,14 @@ class SignUp extends Component {
   }
 
   render() {
-    const {navigation} = this.props;
+    const { navigation } = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <KeyboardAvoidingView behavior="padding" enabled>
           <Mutation mutation={SIGNUP}>
-            {(createUser, {loading}) => (
+            {(createUser, { loading }) => (
               <Mutation mutation={LOGIN}>
-                {(authenticateUser, {loading}) => (
+                {(authenticateUser, { loading }) => (
                   <Form
                     validate={values => {
                       const errors = {};
@@ -78,8 +79,8 @@ class SignUp extends Component {
                       const fullname = values.fullname;
                       try {
                         const newUser = await createUser({
-                          variables: {email, password, fullname},
-                        }).catch(error => this.setState({error}));
+                          variables: { email, password, fullname },
+                        }).catch(error => this.setState({ error }));
                         const newUserEmail = await newUser.data.createUser
                           .email;
                         const newUserPassword = await newUser.data.createUser
@@ -89,7 +90,7 @@ class SignUp extends Component {
                             email: newUserEmail,
                             password: newUserPassword,
                           },
-                        }).catch(error => this.setState({error}));
+                        }).catch(error => this.setState({ error }));
                         await createToken(
                           userToken.data.authenticateUser.token,
                           userToken.data.authenticateUser.id,
@@ -100,25 +101,25 @@ class SignUp extends Component {
                         throw error;
                       }
                     }}
-                    render={({handleSubmit, form}) => (
+                    render={({ handleSubmit, form }) => (
                       <View>
                         {loading ? (
                           <Loader />
                         ) : (
-                          <View style={styles.logoContainer}>
-                            <Image
-                              style={styles.logo}
-                              source={require('../../assets/icons/logo.png')}
-                            />
-                          </View>
-                        )}
+                            <View style={styles.logoContainer}>
+                              <Image
+                                style={styles.logo}
+                                source={require('../../assets/icons/logo.png')}
+                              />
+                            </View>
+                          )}
                         <View style={styles.forms}>
                           <Text style={styles.lable} htmlFor="fullname">
                             Full Name
                           </Text>
                           <Field
                             name="fullname"
-                            render={({input, meta}) => (
+                            render={({ input, meta }) => (
                               <View style={styles.inputContainer}>
                                 <TextInput
                                   style={styles.input}
@@ -138,7 +139,7 @@ class SignUp extends Component {
                           </Text>
                           <Field
                             name="email"
-                            render={({input, meta}) => (
+                            render={({ input, meta }) => (
                               <View style={styles.inputContainer}>
                                 <TextInput
                                   style={styles.input}
@@ -160,7 +161,7 @@ class SignUp extends Component {
                           </Text>
                           <Field
                             name="password"
-                            render={({input, meta}) => (
+                            render={({ input, meta }) => (
                               <View style={styles.inputContainer}>
                                 <TextInput
                                   style={styles.input}
@@ -178,12 +179,12 @@ class SignUp extends Component {
                           />
                           <Field
                             name="termsAgreement"
-                            render={({input, meta}) => (
+                            render={({ input, meta }) => (
                               <View style={styles.checkBoxContainer}>
                                 <View style={styles.checkBox}>
                                   <CheckBox
                                     id="termsAgreement"
-                                    style={{flex: 1, paddingLeft: 5}}
+                                    style={{ flex: 1, paddingLeft: 5 }}
                                     onClick={() => {
                                       this.setState({
                                         isChecked: !this.state.isChecked,
@@ -207,14 +208,14 @@ class SignUp extends Component {
                             onPress={handleSubmit}
                             underlayColor="#003399"
                             onShowUnderlay={() =>
-                              this.setState({color: '#fff'})
+                              this.setState({ color: '#fff' })
                             }
                             onHideUnderlay={() =>
-                              this.setState({color: '#003399'})
+                              this.setState({ color: '#003399' })
                             }>
                             <Text
                               style={[
-                                {color: this.state.color},
+                                { color: this.state.color },
                                 styles.buttonText,
                               ]}>
                               Sign Up
@@ -236,10 +237,10 @@ class SignUp extends Component {
                                 Wrong Email or Password, please try again
                               </Text>
                             ) : (
-                              <Text style={styles.error}>
-                                Server Error, please try again
+                                <Text style={styles.error}>
+                                  Server Error, please try again
                               </Text>
-                            ))}
+                              ))}
                         </View>
                       </View>
                     )} //close Form render

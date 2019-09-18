@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import BrandItems from './BrandItems';
 
 class BrandItemsContainer extends Component {
