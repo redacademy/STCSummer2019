@@ -1,6 +1,6 @@
 # Shop This City
 
-iOS app for Shop This City built predominantly with React Native, bridging the gap between shopping online and in-stores. It allows users to favourite different items, stores and brands, and organize your items by categories and styles. Browse new arrivals and sales at stores, or view your favorite stores in a map view.
+iOS app for Shop This City built predominantly with React Native, bridging the gap between shopping online and in-stores. It allows users to favourite different items, stores and brands, and organize your items by categories and styles. Browse new arrivals and sales at stores, or view your favorite stores in a map view.  
 
 ## GIF
 
@@ -44,4 +44,4 @@ react-native run-ios
 - Sydney Douglas @ https://github.com/sydneydou
 
 - Andrew DiBiase @ https://github.com/Dibiase93
-````
+

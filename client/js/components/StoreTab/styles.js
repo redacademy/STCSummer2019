@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   subfavItemWrapper: {
     width: '50%',
     height: 240,
-    // padding: 4,
+    padding: 4,
   },
   imgWrapper: {
     width: '100%',
