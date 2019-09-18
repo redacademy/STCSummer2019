@@ -4,7 +4,7 @@ import {queryToken} from '../../config/models/authentication';
 import {Query} from 'react-apollo';
 import gql from 'graphql-tag';
 import Loader from '../../components/Loader';
-import {View, Text, Button} from 'react-native';
+import {Text} from 'react-native';
 
 const GET_USER = gql`
   query allUsers($id: ID!) {

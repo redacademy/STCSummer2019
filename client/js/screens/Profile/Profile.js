@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text} from 'react-native';
 import styles from './styles';
 import TabProfile from '../../components/TabProfile';
-import {Gravatar, GravatarApi} from 'react-native-gravatar';
+import {Gravatar} from 'react-native-gravatar';
 
 const Profile = ({user}) => {
   return (
