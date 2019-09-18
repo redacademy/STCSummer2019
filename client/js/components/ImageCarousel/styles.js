@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: 350,
-    height: 370,
+    height: 395,
     alignSelf: 'center',
     justifyContent: 'center',
     position: 'relative',
