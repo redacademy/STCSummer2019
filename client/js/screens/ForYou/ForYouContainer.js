@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import ForYou from './ForYou';
-import { withNavigation } from 'react-navigation';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import Loader from '../../components/Loader';
-import { View, Text, Button } from 'react-native';
+import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 const GET_NEW_ARRIVAL_ITEMS = gql`
@@ -42,8 +41,6 @@ query allItems($newArrival:Boolean!){
 `
 
 class ForYouContainer extends Component {
-
-
 
   static navigationOptions = {
     title: 'New Arrivals',

@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Browse from './Browse';
 import PropTypes from 'prop-types';
-import {withNavigation} from 'react-navigation';
-import {categories} from '../../config/BrowseItemData';
+import { categories } from '../../config/BrowseItemData';
 
 class BrowseContainer extends Component {
   static navigationOptions = {
@@ -15,4 +14,4 @@ class BrowseContainer extends Component {
 BrowseContainer.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
-export default withNavigation(BrowseContainer);
+export default BrowseContainer;

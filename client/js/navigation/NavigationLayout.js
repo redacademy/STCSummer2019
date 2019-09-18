@@ -17,7 +17,6 @@ import BrandItemsScreen from '../screens/BrandItems';
 import { BackButton, CogWheel } from './config';
 import SettingsScreen from '../screens/Settings';
 import MapScreen from '../screens/Map';
-import onBoarding from '../screens/OnBoarding';
 
 const BrowseStack = createStackNavigator(
   {
