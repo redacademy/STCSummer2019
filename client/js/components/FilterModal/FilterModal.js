@@ -22,56 +22,83 @@ const FilterModal = ({
     animationIn={'slideInRight'}
     animationOut={'slideOutRight'}
     isVisible={displayFilter()}
-    style={styles.modalStyle}
+    style={styles.modalContainer}
     backdropOpacity={0.4}
     onBackdropPress={() => setDisplayFilter(false)}>
     <View style={{flex: 1}}>
-      <View style={styles.filterStyle}>
-        <Text>Filter</Text>
-
+      <View style={styles.filterHeader}>
+        <Text style={styles.filterHeaderText}>Filter</Text>
         <TouchableOpacity
+          style={styles.clearContainer}
           onPress={() => {
             resetFilter();
             resetToggle();
           }}>
-          <Text>Clear All</Text>
+          <Text style={styles.clear}>Clear All</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.heightStyle}>
+      <View style={styles.filterContainer}>
         <TouchableOpacity onPress={() => toggleStores()}>
-          <Text style={styles.textStyle}>Stores</Text>
+          <View style={styles.filterTitleContainer}>
+            <Text style={styles.filterTitle}>Stores</Text>
+          </View>
         </TouchableOpacity>
         {getToggleStores() &&
           stores.map(store => (
-            <TouchableOpacity onPress={() => addfilterStore(store)} key={store}>
-              <Text>{store}</Text>
-              {getfilterStore().includes(store) && (
-                <Image source={require('../../assets/icons/checkmark.png')} />
-              )}
+            <TouchableOpacity
+              onPress={() => addfilterStore(store)}
+              key={store.id}>
+              <View style={styles.filterOptionContainer}>
+                <Text style={styles.filterOptionText}>{store}</Text>
+                <View style={styles.checkContainer}>
+                  {getfilterStore().includes(store) && (
+                    <Image
+                      source={require('../../assets/icons/checkmark.png')}
+                      style={styles.check}
+                    />
+                  )}
+                </View>
+              </View>
             </TouchableOpacity>
           ))}
         <TouchableOpacity onPress={() => toggleStyles()}>
-          <Text style={styles.textStyle}>Styles</Text>
+          <View style={styles.filterTitleContainer}>
+            <Text style={styles.filterTitle}>Styles</Text>
+          </View>
         </TouchableOpacity>
         {getToggleStyles() &&
           itemStyles.map((itemStyle, index) => (
             <TouchableOpacity
               onPress={() => addfilterStyle(itemStyle)}
-              key={index}>
-              <Text>{itemStyle}</Text>
-              {getfilterStyle().includes(itemStyle) && (
-                <Image source={require('../../assets/icons/checkmark.png')} />
-              )}
+              key={(itemStyle, index)}>
+              <View style={styles.filterOptionContainer}>
+                <Text style={styles.filterOptionText}>{itemStyle}</Text>
+                <View style={styles.checkContainer}>
+                  {getfilterStyle().includes(itemStyle) && (
+                    <Image
+                      source={require('../../assets/icons/checkmark.png')}
+                      style={styles.check}
+                    />
+                  )}
+                </View>
+              </View>
             </TouchableOpacity>
           ))}
       </View>
-      <View style={styles.applyFilter}>
-        <TouchableOpacity onPress={() => setDisplayFilter(false)}>
-          <Text>Apply</Text>
-        </TouchableOpacity>
-      </View>
+
+      <TouchableOpacity
+        style={{
+          height: '10%',
+          backgroundColor: '#E0D5C4',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        onPress={() => setDisplayFilter(false)}>
+        <View style={styles.applyContainer}>
+          <Text style={styles.apply}>Apply</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   </Modal>
 );
 export default FilterModal;
-

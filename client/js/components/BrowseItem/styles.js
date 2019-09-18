@@ -4,17 +4,19 @@ const {height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   text: {
     fontSize: 18,
+    width: '90%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
     marginHorizontal: 10,
     color: '#333638',
     fontFamily: 'Lato-regular',
   },
   browseImage: {
     height: height / 5,
-    width: '94%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginHorizontal: '3.5%',
-    marginVertical: '3.2%',
+    width: '90%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: '5%',
   },
 });
 

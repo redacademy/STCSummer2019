@@ -11,16 +11,16 @@ class AuthLoadingScreen extends React.Component {
   navigateUser = async () => {
     const userToken = await AsyncStorage.getItem('userToken');
     const userOnBoarding = await AsyncStorage.getItem('userOnBoarding');
-    this.props.navigation.navigate(userToken ? 'App' : (userOnBoarding ? 'SignIn' : 'OnBoarding'));
+    this.props.navigation.navigate(
+      userToken ? 'App' : userOnBoarding ? 'SignIn' : 'OnBoarding',
+    );
   };
 
   render() {
-    return (
-      <Loader />
-    );
+    return <Loader />;
   }
 }
 AuthLoadingScreen.propTypes = {
-  navigation: PropTypes.object.isRequired
-}
+  navigation: PropTypes.object.isRequired,
+};
 export default AuthLoadingScreen;

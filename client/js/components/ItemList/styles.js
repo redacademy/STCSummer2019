@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     width: '50%',
     paddingLeft: '2%',
     paddingRight: '2%',
+    position: 'relative',
   },
   itemText: {
     fontWeight: '500',
@@ -12,6 +13,9 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
     paddingBottom: '10%',
     paddingTop: '3%',
+    fontFamily: 'Lato-Bold',
+    textDecorationLine: 'underline',
+    color: '#333638',
   },
   imageHeartContainer: {
     position: 'relative',
@@ -36,6 +40,19 @@ const styles = StyleSheet.create({
   itemImage: {
     height: '100%',
     width: '100%',
+  },
+  itemDiscountContainer: {
+    backgroundColor: '#003399',
+    position: 'absolute',
+    zIndex: 3,
+    left: '7%',
+    top: '2%',
+  },
+  itemDiscount: {
+    color: 'white',
+    fontFamily: 'Lato-Bold',
+    fontSize: 14,
+    padding: '1%',
   },
 });
 

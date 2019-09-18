@@ -9,7 +9,13 @@ const ItemList = ({item, navigation}) => (
     {({faveItemIds, removeFaveItem, createFaveItem}) => {
       return (
         <View style={styles.fullItem}>
+          {item.discount ? (
+            <View style={styles.itemDiscountContainer}>
+              <Text style={styles.itemDiscount}>-{item.discount}%</Text>
+            </View>
+          ) : null}
           <View style={styles.imageHeartContainer}>
+            {console.log(item)}
             <View style={styles.itemImageContainer}>
               <TouchableOpacity
                 onPress={() => {

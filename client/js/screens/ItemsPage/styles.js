@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+
 const styles = StyleSheet.create({
   allItems: {
     flexDirection: 'row',
@@ -9,18 +10,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingBottom: 15,
     paddingLeft: '5%',
+    fontFamily: 'Lato-regular',
   },
   allItemsContainer: {
-    marginTop: '5%',
-    marginLeft: '3%',
-    marginRight: '3%',
+    paddingTop: '5%',
+    paddingLeft: '3%',
+    paddingRight: '3%',
   },
   sortItemsText: {
-    fontWeight: '500',
     fontSize: 14,
     letterSpacing: 0.3,
     paddingLeft: '3%',
     paddingRight: '3%',
+    fontFamily: 'Lato-Bold',
+    color: '#333638',
   },
   dropdown: {
     height: 15,
@@ -29,6 +32,7 @@ const styles = StyleSheet.create({
   itemFilter: {
     flexDirection: 'row',
     alignItems: 'center',
+    fontFamily: 'Lato-regular',
   },
   loader: {
     justifyContent: 'center',
