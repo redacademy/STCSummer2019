@@ -1,53 +1,39 @@
 # Shop This City
 
-  A mobile friendly application build on iOS Platform using React Native. It allows Users to favourite items from assorted well-known brands by their categories which enables the User to build up their own portfolio. A divine feature that allows a User to go back to the items easily when the item has not been purchased. 
-  
+iOS app for Shop This City built predominantly with React Native, bridging the gap between shopping online and in-stores. It allows users to favourite different items, stores and brands, and organize your items by categories and styles. Browse new arrivals and sales at stores, or view your favorite stores in a map view.  
+
 ## GIF
-  
-![Animated GIF-downsized_large (2)](https://user-images.githubusercontent.com/43800526/65086172-9c606c80-d965-11e9-987c-2d111f258c62.gif)
 
+![Animated GIF-downsized_large (1)](https://user-images.githubusercontent.com/43800526/65062503-ff83dc00-d930-11e9-9c48-b04a886a7197.gif)
 
-## Instructions to run the project 
+## Instructions to run the project
 
-```git clone https://github.com/redacademy/STCSummer2019.git``` 
+````bash
+git clone https://github.com/redacademy/STCSummer2019.git
 
-```cd client```
+cd client
 
-```yarn install``` 
+yarn install
 
-```cd ios``` 
+cd ios
 
-```pod install```
+pod install
 
-```cd ..```
+cd ..
 
-## To run the app
+react-native run-ios
+```
 
-```react-native run-ios```
+## Technologies:
 
-Note: React Native Tools are required to run the app - kindly follow the instructions on https://facebook.github.io/react-native/docs/getting-started
+- React Native
 
+- GraphQL
 
-## Technologies: 
+- Async Storage
 
-```GraphCool```
+- Apple Maps
 
-```React Native```
-
-```Async Storage```
-
-```Apple Maps```
-
-```Apollo``` 
-
-
-## Personal Development 
-
-- Importance of React-Native UI elements in allowing mobile applications to load quickly
-
-- GraphCool is a backend developement framework that includes GraphQL database mapping, real-time subscriptions & flexible permission system.
-
-- React Navigation helps to define screen flow, and can be configured according to the desired behaviour and styling. 
 
 ### Authors
 
@@ -58,3 +44,4 @@ Note: React Native Tools are required to run the app - kindly follow the instruc
 - Sydney Douglas @ https://github.com/sydneydou
 
 - Andrew DiBiase @ https://github.com/Dibiase93
+

@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { StyleSheet } from 'react-native';
 import { colors } from '../../config/styles';
+=======
+import {StyleSheet} from 'react-native';
+import {colors} from '../../config/styles';
+>>>>>>> develop
 
 const styles = StyleSheet.create({
   storeImage: {

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
+=======
+import React, {Component} from 'react';
+>>>>>>> develop
 import BrandItems from './BrandItems';
 
 class BrandItemsContainer extends Component {
