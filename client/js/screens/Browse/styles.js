@@ -3,9 +3,10 @@ import {colors} from '../../config/styles';
 const {height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   text: {
-    fontSize: 18,
+    fontSize: 20,
     marginHorizontal: 10,
-    color: colors.Black,
+    fontFamily: 'Lato',
+    fontColor: '#333638',
   },
   browseImage: {
     height: height / 5,
