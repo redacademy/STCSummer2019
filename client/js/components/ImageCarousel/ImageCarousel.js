@@ -1,11 +1,8 @@
 import React from 'react';
-import {View, Image, ImageBackground} from 'react-native';
+import {View, Image} from 'react-native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import styles from './styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import FaveItemsContext from '../../context/FaveItemsContext';
-import FaveStoresContext from '../../context/FaveStoresContext';
-import FaveBrandsContext from '../../context/FaveBrandsContext';
 import {withNavigation} from 'react-navigation';
 import PropTypes from 'prop-types';
 export class ImageCarousel extends React.Component {
