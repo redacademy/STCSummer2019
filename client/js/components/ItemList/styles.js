@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   fullItem: {
@@ -8,13 +8,11 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   itemText: {
-    fontWeight: '500',
     fontSize: 14,
     letterSpacing: 0.3,
     paddingBottom: '10%',
     paddingTop: '3%',
     fontFamily: 'Lato-Bold',
-    textDecorationLine: 'underline',
     color: '#333638',
   },
   imageHeartContainer: {
