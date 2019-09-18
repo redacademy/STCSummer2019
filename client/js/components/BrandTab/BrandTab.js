@@ -1,83 +1,83 @@
 import React from 'react';
-import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
-import {gql} from 'apollo-boost';
+import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { gql } from 'apollo-boost';
 import FavesBrandsContext from '../../context/FaveBrandsContext';
-import {Query} from 'react-apollo';
+import { Query } from 'react-apollo';
 import styles from './styles';
-import {withNavigation} from 'react-navigation';
+import { withNavigation } from 'react-navigation';
 import Loader from '../Loader';
 
 const GET_All_BRANDS = gql`
-  {
-    allBrands {
-      id
-      images
+{
+  allBrands {
+    id
+    images
+    title
+    description
+    items {
       title
-      description
-      items {
-        title
-        tags
-        styles
-        stores {
-          id
-          title
-          storelink
-          brands {
-            title
-            id
-            images
-            description
-          }
-          images
-          storeLogo
-          categories
-          hours
-          address
-          phone
-          email
-          website
-          sale
-          saledescription
-        }
-        size
-        price
-        newArrival
-        images
+      tags
+      styles
+      stores {
         id
-        discount
-        color
-        category
-        brand {
-          id
+        title
+        storelink
+        brands {
           title
+          id
           images
           description
         }
-      }
-      stores {
-        id
-        address
-        categories
-        storelink
-        email
-        hours
-        id
         images
-        phone
-        sale
         storeLogo
-        title
+        categories
+        hours
+        address
+        phone
+        email
         website
+        sale
+        saledescription
+      }
+      size
+      price
+      newArrival
+      images
+      id
+      discount
+      color
+      category
+      brand {
+        id
+        title
+        images
+        description
       }
     }
+    stores {
+      id
+      address
+      categories
+      storelink
+      email
+      hours
+      id
+      images
+      phone
+      sale
+      storeLogo
+      title
+      website
+    }
   }
+}
 `;
-const BrandTab = ({navigation}) => {
+const BrandTab = ({ navigation }) => {
   return (
     <FavesBrandsContext.Consumer>
-      {({faveBrandIds}) => (
+      {({ faveBrandIds }) => (
         <Query query={GET_All_BRANDS}>
-          {({loading, error, data}) => {
+          {({ loading, error, data }) => {
             if (loading) return <Loader />;
             if (error) return <Text>Error :(</Text>;
             if (data) {
@@ -96,11 +96,11 @@ const BrandTab = ({navigation}) => {
                             <TouchableOpacity
                               style={styles.imgWrapper}
                               onPress={() =>
-                                navigation.navigate('brand', {brand})
+                                navigation.navigate('brand', { brand })
                               }>
                               <Image
                                 resizeMode="cover"
-                                source={{uri: brand.images[0]}}
+                                source={{ uri: brand.images[0] }}
                                 style={styles.itemImage}
                               />
                             </TouchableOpacity>
@@ -109,27 +109,27 @@ const BrandTab = ({navigation}) => {
                       </View>
                     </ScrollView>
                   ) : (
-                    <View style={styles.container}>
-                      <View style={styles.containerImg}>
-                        <Image
-                          style={styles.iconImg}
-                          resizeMode="contain"
-                          source={require('../../assets/icons/azheart.png')}
-                        />
-                      </View>
-                      <Text style={styles.text}> See the brands you want </Text>
-                      <Text style={styles.subText}>
-                        Curate your own personal brand by favouriting the brands
-                        that represent you.
-                      </Text>
-                      <TouchableOpacity
-                        onPress={() => navigation.navigate('Stores&Brands')}>
-                        <View style={styles.txtWrapper}>
-                          <Text style={styles.browseTxt}> Browse Brands </Text>
+                      <View style={styles.container}>
+                        <View style={styles.containerImg}>
+                          <Image
+                            style={styles.iconImg}
+                            resizeMode="contain"
+                            source={require('../../assets/icons/azheart.png')}
+                          />
                         </View>
-                      </TouchableOpacity>
-                    </View>
-                  )}
+                        <Text style={styles.text}> See the brands you want </Text>
+                        <Text style={styles.subText}>
+                          Curate your own personal brand by favouriting the brands
+                          that represent you.
+                      </Text>
+                        <TouchableOpacity
+                          onPress={() => navigation.navigate('Stores&Brands')}>
+                          <View style={styles.txtWrapper}>
+                            <Text style={styles.browseTxt}> Browse Brands </Text>
+                          </View>
+                        </TouchableOpacity>
+                      </View>
+                    )}
                 </View>
               );
             }
