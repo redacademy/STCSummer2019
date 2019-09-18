@@ -1,13 +1,12 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Linking, ScrollView} from 'react-native';
+import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import FaveStoresContext from '../../context/FaveStoresContext';
 import ImageCarousel from '../../components/ImageCarousel';
 import Geocoder from 'react-native-geocoding';
 import {API_KEY} from 'react-native-dotenv';
 import styles from './styles';
-import MapView from 'react-native-maps';
 import PropTypes from 'prop-types';
-import {NavigationEvents, withNavigation} from 'react-navigation';
+import {withNavigation} from 'react-navigation';
 
 const Store = ({store, navigation}) => {
   const weekdayHours = store.hours.split(', ')[0];

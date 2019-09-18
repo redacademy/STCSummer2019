@@ -17,6 +17,7 @@ export class ImageCarousel extends React.Component {
       <View style={styles.itemImageContainer}>
         <Image source={{ uri: item }} style={styles.image} />
       </View>
+
       <View style={styles.heartContainer}>
         <TouchableOpacity
           onPress={() => {
