@@ -4,8 +4,7 @@ import FaveBrandsContext from '../../context/FaveBrandsContext';
 import ImageCarousel from '../../components/ImageCarousel';
 import styles from './styles';
 import StoreCard from '../../components/StoreCard';
-import {withNavigation, NavigationEvents} from 'react-navigation';
-import ItemsPage from '../ItemsPage';
+import {withNavigation} from 'react-navigation';
 import PropTypes from 'prop-types';
 
 const Brand = ({brand, navigation}) => {

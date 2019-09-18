@@ -1,11 +1,7 @@
-import { StyleSheet, Dimensions } from "react-native";
-import { colors } from "../../config/styles";
-
-const { height } = Dimensions.get("window");
-
+import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   tabView: {
-    backgroundColor: "white"
-  }
+    backgroundColor: 'white',
+  },
 });
 export default styles;
