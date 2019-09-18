@@ -5,8 +5,6 @@ import styles from './styles';
 import { queryToken } from '../../config/models/authentication';
 import { createOnBoarding } from '../../config/models/onBoarding';
 const OnBoarding = ({ navigation }) => {
-
-  console.log(navigation)
   return (
     <Onboarding
       onDone={async () => {
