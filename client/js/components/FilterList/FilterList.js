@@ -97,7 +97,11 @@ class FilterList extends React.Component {
         : items;
 
     return (
+<<<<<<< HEAD
       <View style={{flex: 1}}>
+=======
+      <View style={styles.flexContainer}>
+>>>>>>> develop
         <FilterModal
           resetFilter={this.resetFilter}
           setDisplayFilter={this.setDisplayFilter}
@@ -139,17 +143,18 @@ class FilterList extends React.Component {
                 })
               }>
               <Text style={styles.sortItemsText}>Filter</Text>
-              {(this.getfilterStore().length > 0 || this.getfilterStyle().length > 0) ?
+              {this.getfilterStore().length > 0 ||
+              this.getfilterStyle().length > 0 ? (
                 <Image
                   style={styles.dropdown}
                   source={require('../../assets/icons/activefilter.png')}
-                /> :
+                />
+              ) : (
                 <Image
                   style={styles.dropdown}
                   source={require('../../assets/icons/inactivefilter.png')}
                 />
-              }
-
+              )}
             </TouchableOpacity>
           </View>
           <View style={styles.allItems}>
