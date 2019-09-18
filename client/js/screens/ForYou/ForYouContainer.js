@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ForYou from './ForYou';
 import gql from 'graphql-tag';
-import {Query} from 'react-apollo';
+import { Query } from 'react-apollo';
 import Loader from '../../components/Loader';
-import {Text} from 'react-native';
+import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 const GET_NEW_ARRIVAL_ITEMS = gql`
@@ -45,10 +45,10 @@ class ForYouContainer extends Component {
     title: 'New Arrivals',
   };
   render() {
-    const {navigation} = this.props;
+    const { navigation } = this.props;
     return (
-      <Query query={GET_NEW_ARRIVAL_ITEMS} variables={{newArrival: true}}>
-        {({loading, error, data}) => {
+      <Query query={GET_NEW_ARRIVAL_ITEMS} variables={{ newArrival: true }}>
+        {({ loading, error, data }) => {
           if (loading) return <Loader />;
           if (error) return <Text>{error.message}</Text>;
           return <ForYou items={data.allItems} navigation={navigation} />;

@@ -9,7 +9,7 @@ const Settings = ({navigation}) => {
   return (
     <View>
       <View style={styles.helpContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('onBoarding')}>
+        <TouchableOpacity onPress={() => navigation.navigate('OnBoarding')}>
           <View
             style={{
               flexDirection: 'row',

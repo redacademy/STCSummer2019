@@ -9,15 +9,11 @@ const OnBoarding = ({navigation}) => {
     <Onboarding
       onDone={async () => {
         await createOnBoarding();
-        (await queryToken())
-          ? navigation.goBack()
-          : navigation.navigate('SignUp');
+        await queryToken() ? navigation.navigate("profile") : navigation.navigate('SignUp')
       }}
       onSkip={async () => {
         await createOnBoarding();
-        (await queryToken())
-          ? navigation.goBack()
-          : navigation.navigate('SignUp');
+        await queryToken() ? navigation.navigate("profile") : navigation.navigate('SignUp')
       }}
       bottomBarColor="white"
       nextLabel=""
