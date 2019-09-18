@@ -113,14 +113,14 @@ class FilterList extends React.Component {
               <Text style={styles.sortItemsText}>Sort</Text>
               <Image
                 style={styles.dropdown}
-                source={require('../../assets/dropdown.png')}
+                source={require('../../assets/icons/dropdown.png')}
               />
             </View>
             <View style={styles.itemFilter}>
               <Text style={styles.sortItemsText}>Tags</Text>
               <Image
                 style={styles.dropdown}
-                source={require('../../assets/dropdown.png')}
+                source={require('../../assets/icons/dropdown.png')}
               />
             </View>
             <TouchableOpacity style={styles.itemFilter}
@@ -129,10 +129,17 @@ class FilterList extends React.Component {
               })}
             >
               <Text style={styles.sortItemsText}>Filter</Text>
-              <Image
-                style={styles.dropdown}
-                source={require('../../assets/inactivefilter.png')}
-              />
+              {(this.getfilterStore().length > 0 || this.getfilterStyle().length > 0) ?
+                <Image
+                  style={styles.dropdown}
+                  source={require('../../assets/icons/activefilter.png')}
+                /> :
+                <Image
+                  style={styles.dropdown}
+                  source={require('../../assets/icons/inactivefilter.png')}
+                />
+              }
+
             </TouchableOpacity>
           </View>
           <View style={styles.allItems}>
