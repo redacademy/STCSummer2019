@@ -8,7 +8,7 @@ iOS app for Shop This City built predominantly with React Native, bridging the g
 
 ## Instructions to run the project
 
-````bash
+```bash
 git clone https://github.com/redacademy/STCSummer2019.git
 
 cd client
@@ -34,7 +34,6 @@ react-native run-ios
 
 - Apple Maps
 
-
 ### Authors
 
 - Vera Sun @ https://github.com/verasunyy
@@ -44,4 +43,3 @@ react-native run-ios
 - Sydney Douglas @ https://github.com/sydneydou
 
 - Andrew DiBiase @ https://github.com/Dibiase93
-````
