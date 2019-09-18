@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, Image} from 'react-native';
 import Modal from 'react-native-modal';
+import styles from './styles';
 const FilterModal = ({
   resetFilter,
   displayFilter,
@@ -21,25 +22,11 @@ const FilterModal = ({
     animationIn={'slideInRight'}
     animationOut={'slideOutRight'}
     isVisible={displayFilter()}
-    style={{
-      height: '100%',
-      backgroundColor: 'white',
-      margin: 0,
-      marginLeft: 100,
-      justifyContent: 'flex-start',
-    }}
+    style={styles.modalStyle}
     backdropOpacity={0.4}
     onBackdropPress={() => setDisplayFilter(false)}>
     <View style={{flex: 1}}>
-      <View
-        style={{
-          height: '10%',
-          backgroundColor: '#E0D5C4',
-          flexDirection: 'row',
-          alignItems: 'flex-end',
-          justifyContent: 'space-between',
-          paddingHorizontal: '3%',
-        }}>
+      <View style={styles.filterStyle}>
         <Text>Filter</Text>
 
         <TouchableOpacity
@@ -50,9 +37,9 @@ const FilterModal = ({
           <Text>Clear All</Text>
         </TouchableOpacity>
       </View>
-      <View style={{height: '80%'}}>
+      <View style={styles.heightStyle}>
         <TouchableOpacity onPress={() => toggleStores()}>
-          <Text style={{fontSize: 20}}>Stores</Text>
+          <Text style={styles.textStyle}>Stores</Text>
         </TouchableOpacity>
         {getToggleStores() &&
           stores.map(store => (
@@ -64,7 +51,7 @@ const FilterModal = ({
             </TouchableOpacity>
           ))}
         <TouchableOpacity onPress={() => toggleStyles()}>
-          <Text style={{fontSize: 20}}>Styles</Text>
+          <Text style={styles.textStyle}>Styles</Text>
         </TouchableOpacity>
         {getToggleStyles() &&
           itemStyles.map((itemStyle, index) => (
@@ -78,13 +65,7 @@ const FilterModal = ({
             </TouchableOpacity>
           ))}
       </View>
-      <View
-        style={{
-          height: '10%',
-          backgroundColor: '#E0D5C4',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+      <View style={styles.applyFilter}>
         <TouchableOpacity onPress={() => setDisplayFilter(false)}>
           <Text>Apply</Text>
         </TouchableOpacity>
