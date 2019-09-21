@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
     alignItems: 'center',
+    marginTop: '3%',
   },
   contentHeaders: {
     marginTop: '5%',

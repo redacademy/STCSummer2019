@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
     alignItems: 'center',
+    marginTop: '3%',
   },
   linkText: {
     fontSize: 14,

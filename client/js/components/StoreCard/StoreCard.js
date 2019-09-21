@@ -23,7 +23,7 @@ const StoreCard = ({store, navigation}) => (
       <View style={styles.imageContainer}>
         <Image
           source={{uri: `${store.storeLogo}`}}
-          resizeMode="cover"
+          resizeMode="contain"
           style={styles.image}
         />
       </View>
