@@ -17,7 +17,7 @@
     "react": "16.8.6",
     "react-apollo": "^3.0.1",
     "react-final-form": "^6.3.0",
-    "react-native": "0.60.5",
+    "react-native": "0.62.3",
     "react-native-check-box": "^2.1.7",
     "react-native-dotenv": "^0.2.0",
     "react-native-geocoding": "^0.3.0",
